@@ -30,6 +30,11 @@ enum KSTokenViewStyle {
    case Squared
 }
 
+enum KSTokenViewScrollDirection {
+   case Vertical
+   case Horizontal
+}
+
 
 //MARK: - KSTokenViewDelegate
 //__________________________________________________________________________________
@@ -120,6 +125,13 @@ class KSTokenView: UIView {
    /// default is nil
    var delegate: KSTokenViewDelegate?
    
+   /// default is .Vertical.
+   var direction: KSTokenViewScrollDirection = .Vertical {
+      didSet {
+         _updateTokenField()
+      }
+   }
+   
    /// Default is (TokenViewWidth, 200)
    var searchResultSize: CGSize = CGSize.zeroSize {
       didSet {
@@ -140,7 +152,6 @@ class KSTokenView: UIView {
          } else {
             _searchTableView.backgroundColor = searchResultBackgroundColor
          }
-         
       }
    }
    
@@ -412,6 +423,7 @@ class KSTokenView: UIView {
       _tokenField.removeToken(token, removingAll: removingAll)
       if (!removingAll) {
          delegate?.tokenView?(self, didDeleteToken: token)
+         startSearchWithString(_lastSearchString)
       }
    }
    
@@ -812,7 +824,7 @@ extension KSTokenView : UITextFieldDelegate {
          _lastSearchString = string
          startSearchWithString(_lastSearchString)
       }
-      _tokenField.scrollViewScrollToBottom()
+      _tokenField.scrollViewScrollToEnd()
       return true
    }
    
