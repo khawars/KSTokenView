@@ -29,6 +29,7 @@ enum KSTokenFieldState {
    case Closed
 }
 
+
 @objc protocol KSTokenFieldDelegate : UITextFieldDelegate {
    func tokenFieldShouldChangeHeight(height: CGFloat)
    optional func tokenFieldDidSelectToken(token: KSToken)
@@ -51,7 +52,7 @@ class KSTokenField: UITextField {
    private var _placeholderValue: String?
    private var _placeholderLabel: UILabel?
    private var _state: KSTokenFieldState = .Opened
-   private var _minWidthForInput: CGFloat?
+   private var _minWidthForInput: CGFloat = 50.0
    private var _seperatorText: String?
    private var _font: UIFont?
    private var _paddingX: CGFloat?
@@ -61,6 +62,11 @@ class KSTokenField: UITextField {
    private var _removesTokensOnEndEditing = true
    private var _scrollView = UIScrollView(frame: .zeroRect)
    private var _scrollPoint = CGPoint.zeroPoint
+   private var _direction: KSTokenViewScrollDirection = .Horizontal {
+      didSet {
+         
+      }
+   }
    private var _descriptionText: String = "selections" {
       didSet {
          _updateText()
@@ -109,14 +115,13 @@ class KSTokenField: UITextField {
             if (_setupCompleted) {
                updateLayout()
             }
-            
          }
       }
    }
    
    weak var tokenFieldDelegate: KSTokenFieldDelegate? {
       didSet {
-         delegate  = tokenFieldDelegate
+         delegate = tokenFieldDelegate
       }
    }
    
@@ -152,15 +157,18 @@ class KSTokenField: UITextField {
       clipsToBounds = true
       _state = .Closed
       
-      _scrollView.frame.size = CGSize(width: frame.width, height: frame.height)
-      _scrollView.backgroundColor = UIColor.clearColor()
-      _scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "scrollViewDidTap"))
+      _setScrollRect()
+      _scrollView.backgroundColor = UIColor.redColor()
+      _scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "becomeFirstResponder"))
       _scrollView.delegate = self
       addSubview(_scrollView)
       
       addTarget(self, action: "tokenFieldTextDidChange:", forControlEvents: UIControlEvents.EditingChanged)
    }
    
+   private func _setScrollRect() {
+      _scrollView.frame = CGRect(x: _leftViewRect().width, y: 0, width: frame.width - _leftViewRect().width, height: frame.height)
+   }
    
    override func drawRect(rect: CGRect) {
       _selfFrame = rect
@@ -306,7 +314,9 @@ class KSTokenField: UITextField {
       updateLayout()
    }
    
-   
+   /**
+   Tokenizes the layout
+   */
    func tokenize() {
       _state = .Opened
       for token: KSToken in tokens {
@@ -315,7 +325,9 @@ class KSTokenField: UITextField {
       updateLayout()
    }
    
-   
+   /**
+   Updates the tokenView layout and calls delegate methods
+   */
    func updateLayout() {
       if (parentView == nil) {
          return
@@ -334,7 +346,7 @@ class KSTokenField: UITextField {
    }
    
    /**
-   Layout tokens and returns position
+   Layout tokens
    
    :returns: CGPoint maximum position values
    */
@@ -346,11 +358,14 @@ class KSTokenField: UITextField {
          return CGPoint(x: _marginX!, y: _selfFrame!.size.height)
       }
       
+      if (_direction == .Horizontal) {
+         return _layoutTokensHorizontally()
+      }
+      
       var lineNumber = 1
       let leftMargin = _leftViewRect().width
       let rightMargin = _rightViewRect().width
-      let lineHeight = _font!.lineHeight + _paddingY!;
-      let tokenHeight = lineHeight;
+      let tokenHeight = _font!.lineHeight + _paddingY!;
       
       var tokenPosition = CGPoint.zeroPoint
       tokenPosition.x = leftMargin + (_marginX!*2)
@@ -372,7 +387,7 @@ class KSTokenField: UITextField {
          }
       }
       
-      if ((bounds.size.width) - (tokenPosition.x + _marginX!) < _minWidthForInput!) {
+      if ((bounds.size.width) - (tokenPosition.x + _marginX!) < _minWidthForInput) {
          lineNumber++;
          tokenPosition.x = leftMargin + _marginX!
          tokenPosition.y += (tokenHeight + _marginY!);
@@ -385,13 +400,52 @@ class KSTokenField: UITextField {
       }
       
       _scrollView.frame.size = CGSize(width: _scrollView.frame.width, height: positionY)
-      scrollViewScrollToBottom()
+      scrollViewScrollToEnd()
       
       return CGPoint(x: tokenPosition.x, y: positionY)
    }
    
-   func scrollViewScrollToBottom() {
-      let bottomOffset = CGPoint(x: 0, y: _scrollView.contentSize.height - _scrollView.bounds.height)
+   
+   /**
+   Layout tokens horizontally
+   
+   :returns: CGPoint maximum position values
+   */
+   private func _layoutTokensHorizontally() -> CGPoint {
+      let leftMargin = _leftViewRect().width
+      let rightMargin = _rightViewRect().width
+      let tokenHeight = _font!.lineHeight + _paddingY!;
+      
+      var tokenPosition = CGPoint(x: _marginX!, y: _marginY!)
+      
+      for token: KSToken in tokens {
+         let width = KSUtils.getRect(token.title, width: bounds.size.width, font: _font!).size.width + ceil(_paddingX!*2+1)
+         let tokenWidth = min(width, token.maxWidth)
+         
+         if ((token.superview) != nil) {
+            token.frame = CGRect(x: tokenPosition.x, y: tokenPosition.y, width: tokenWidth, height: tokenHeight)
+            tokenPosition.x += tokenWidth + _marginX!;
+         }
+      }
+      
+      let offsetWidth = (tokenPosition.x > frame.width - _minWidthForInput) ? frame.width - _minWidthForInput : tokenPosition.x
+      _scrollView.contentSize = CGSize(width: max(_scrollView.frame.width, tokenPosition.x), height: frame.height)
+      scrollViewScrollToEnd()
+      
+      return CGPoint(x: min(tokenPosition.x + leftMargin, frame.width - _minWidthForInput), y: frame.height)
+   }
+   
+   /**
+   Scroll the tokens to end
+   */
+   func scrollViewScrollToEnd() {
+      var bottomOffset: CGPoint
+      switch _direction {
+      case .Vertical:
+         bottomOffset = CGPoint(x: 0, y: _scrollView.contentSize.height - _scrollView.bounds.height)
+      case .Horizontal:
+         bottomOffset = CGPoint(x: _scrollView.contentSize.width - _scrollView.bounds.width, y: 0)
+      }
       _scrollView.setContentOffset(bottomOffset, animated: true)
    }
    
@@ -428,13 +482,12 @@ class KSTokenField: UITextField {
       return _textRectWithBounds(bounds)
    }
    
-   private func _leftViewRect () -> CGRect {
+   private func _leftViewRect() -> CGRect {
       if (leftViewMode == .Never ||
          (leftViewMode == .UnlessEditing && editing) ||
          (leftViewMode == .WhileEditing && !editing)) {
             return .zeroRect
       }
-      
       return leftView!.bounds
    }
    
@@ -465,6 +518,7 @@ class KSTokenField: UITextField {
       } else {
          leftView = nil
       }
+      _setScrollRect()
    }
    
    
@@ -523,6 +577,7 @@ class KSTokenField: UITextField {
       if (_placeholderLabel == nil) {
          _placeholderLabel = UILabel(frame: CGRect(x: xPos, y: 0, width: _selfFrame!.width - xPos, height: 30))
          _placeholderLabel?.textColor = placeHolderColor
+         _placeholderLabel?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "becomeFirstResponder"))
          addSubview(_placeholderLabel!)
       } else {
          _placeholderLabel?.frame.origin.x = xPos
@@ -611,10 +666,7 @@ class KSTokenField: UITextField {
       tokenFieldDelegate?.tokenFieldDidEndEditing?(self)
       return super.resignFirstResponder()
    }
-   
-   func scrollViewDidTap() {
-      becomeFirstResponder()
-   }
+
 }
 
 

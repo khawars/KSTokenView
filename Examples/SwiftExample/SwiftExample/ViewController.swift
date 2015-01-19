@@ -36,7 +36,7 @@ class ViewController: UIViewController {
       tokenView.promptText = "Top 5: "
       tokenView.placeholder = "Type to search"
       tokenView.descriptionText = "Languages"
-      tokenView.maxTokenLimit = 5
+//      tokenView.maxTokenLimit = 5
       tokenView.style = .Squared
    }
    
