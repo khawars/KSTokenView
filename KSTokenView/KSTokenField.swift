@@ -62,9 +62,11 @@ class KSTokenField: UITextField {
    private var _removesTokensOnEndEditing = true
    private var _scrollView = UIScrollView(frame: .zeroRect)
    private var _scrollPoint = CGPoint.zeroPoint
-   private var _direction: KSTokenViewScrollDirection = .Horizontal {
+   private var _direction: KSTokenViewScrollDirection = .Vertical {
       didSet {
-         
+         if (oldValue != _direction) {
+            updateLayout()
+         }
       }
    }
    private var _descriptionText: String = "selections" {
@@ -106,12 +108,14 @@ class KSTokenField: UITextField {
             _paddingY = tokenView!.paddingY
             _marginX = tokenView!.marginX
             _marginY = tokenView!.marginY
+            _direction = tokenView!.direction
             _font = tokenView!.font
             _minWidthForInput = tokenView!.minWidthForInput
             _seperatorText = tokenView!.seperatorText
             _removesTokensOnEndEditing = tokenView!.removesTokensOnEndEditing
             _descriptionText = tokenView!.descriptionText
             _setPromptText(tokenView!.promptText)
+            
             if (_setupCompleted) {
                updateLayout()
             }
@@ -158,7 +162,7 @@ class KSTokenField: UITextField {
       _state = .Closed
       
       _setScrollRect()
-      _scrollView.backgroundColor = UIColor.redColor()
+      _scrollView.backgroundColor = UIColor.clearColor()
       _scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "becomeFirstResponder"))
       _scrollView.delegate = self
       addSubview(_scrollView)
@@ -368,17 +372,18 @@ class KSTokenField: UITextField {
       let tokenHeight = _font!.lineHeight + _paddingY!;
       
       var tokenPosition = CGPoint.zeroPoint
-      tokenPosition.x = leftMargin + (_marginX!*2)
+      tokenPosition.x = (_marginX!*2)
       tokenPosition.y = _marginY!
       
       for token: KSToken in tokens {
          let width = KSUtils.getRect(token.title, width: bounds.size.width, font: _font!).size.width + ceil(_paddingX!*2+1)
          let tokenWidth = min(width, token.maxWidth)
          
+         // Add token at specific position
          if ((token.superview) != nil) {
-            if (tokenPosition.x + tokenWidth + _marginX! > bounds.size.width - rightMargin) {
+            if (tokenPosition.x + tokenWidth + _marginX! + leftMargin > bounds.size.width - rightMargin) {
                lineNumber++;
-               tokenPosition.x = leftMargin + _marginX!
+               tokenPosition.x = _marginX!
                tokenPosition.y += (tokenHeight + _marginY!);
             }
             
@@ -387,9 +392,10 @@ class KSTokenField: UITextField {
          }
       }
       
-      if ((bounds.size.width) - (tokenPosition.x + _marginX!) < _minWidthForInput) {
+      // check if next token can be added in same line or new line
+      if ((bounds.size.width) - (tokenPosition.x + _marginX!) - leftMargin < _minWidthForInput) {
          lineNumber++;
-         tokenPosition.x = leftMargin + _marginX!
+         tokenPosition.x = _marginX!
          tokenPosition.y += (tokenHeight + _marginY!);
       }
       
@@ -402,7 +408,7 @@ class KSTokenField: UITextField {
       _scrollView.frame.size = CGSize(width: _scrollView.frame.width, height: positionY)
       scrollViewScrollToEnd()
       
-      return CGPoint(x: tokenPosition.x, y: positionY)
+      return CGPoint(x: tokenPosition.x + leftMargin, y: positionY)
    }
    
    
@@ -428,8 +434,8 @@ class KSTokenField: UITextField {
          }
       }
       
-      let offsetWidth = (tokenPosition.x > frame.width - _minWidthForInput) ? frame.width - _minWidthForInput : tokenPosition.x
-      _scrollView.contentSize = CGSize(width: max(_scrollView.frame.width, tokenPosition.x), height: frame.height)
+      let offsetWidth = ((tokenPosition.x + _marginX!) > (frame.width - _minWidthForInput)) ? _minWidthForInput : 0
+      _scrollView.contentSize = CGSize(width: max(_scrollView.frame.width, tokenPosition.x) + offsetWidth, height: frame.height)
       scrollViewScrollToEnd()
       
       return CGPoint(x: min(tokenPosition.x + leftMargin, frame.width - _minWidthForInput), y: frame.height)

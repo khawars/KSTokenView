@@ -128,7 +128,7 @@ class KSTokenView: UIView {
    /// default is .Vertical.
    var direction: KSTokenViewScrollDirection = .Vertical {
       didSet {
-         
+         _updateTokenField()
       }
    }
    
@@ -423,6 +423,7 @@ class KSTokenView: UIView {
       _tokenField.removeToken(token, removingAll: removingAll)
       if (!removingAll) {
          delegate?.tokenView?(self, didDeleteToken: token)
+         startSearchWithString(_lastSearchString)
       }
    }
    
