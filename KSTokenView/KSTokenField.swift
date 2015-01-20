@@ -163,7 +163,9 @@ class KSTokenField: UITextField {
       
       _setScrollRect()
       _scrollView.backgroundColor = UIColor.clearColor()
-      _scrollView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "becomeFirstResponder"))
+      let gestureRecognizer = UITapGestureRecognizer(target: self, action: "becomeFirstResponder")
+      gestureRecognizer.cancelsTouchesInView = false
+      _scrollView.addGestureRecognizer(gestureRecognizer)
       _scrollView.delegate = self
       addSubview(_scrollView)
       
@@ -216,10 +218,9 @@ class KSTokenField: UITextField {
       if (countElements(token.title) == 0) {
          NSException(name: "", reason: "Title is not valid String", userInfo: nil);
       }
-      
       if (!contains(tokens, token)) {
-         token.addTarget(self, action: "tokenTouchDown:", forControlEvents: UIControlEvents.TouchDown)
-         token.addTarget(self, action: "tokenTouchUpInside:", forControlEvents: UIControlEvents.TouchUpInside)
+         token.addTarget(self, action: "tokenTouchDown:", forControlEvents: .TouchDown)
+         token.addTarget(self, action: "tokenTouchUpInside:", forControlEvents: .TouchUpInside)
          tokens.append(token)
          _insertToken(token)
       }
@@ -229,6 +230,7 @@ class KSTokenField: UITextField {
    
    private func _insertToken(token: KSToken, shouldLayout: Bool = true) {
       _scrollView.addSubview(token)
+      _scrollView.bringSubviewToFront(token)
       token.setNeedsDisplay()
       if shouldLayout == true {
          updateLayout()
@@ -672,7 +674,7 @@ class KSTokenField: UITextField {
       tokenFieldDelegate?.tokenFieldDidEndEditing?(self)
       return super.resignFirstResponder()
    }
-
+   
 }
 
 

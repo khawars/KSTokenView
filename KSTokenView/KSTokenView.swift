@@ -635,8 +635,7 @@ class KSTokenView: UIView {
       _showEmptyResults()
       _showActivityIndicator()
       
-      var searchString = _tokenField.text+""+string
-      let trimmedSearchString = searchString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+      let trimmedSearchString = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
       delegate?.tokenView(self, performSearchWithString:trimmedSearchString, completion: { (results) -> Void in
          self._hideActivityIndicator()
          if (results.count > 0) {
@@ -819,9 +818,23 @@ extension KSTokenView : UITextFieldDelegate {
          return false
       }
       
+      var searchString: String
+      let olderText = _tokenField.text
+      
+      // Check if character is removed at some index
+      // Remove character at that index
+      if (string.isEmpty) {
+         let first: String = olderText.substringToIndex(advance(olderText.startIndex, range.location)) as String
+         let second: String = olderText.substringFromIndex(advance(olderText.startIndex, range.location+1)) as String
+         searchString = first + second
+         
+      } else { // new character added
+         searchString = olderText+string
+      }
+      
       // Allow all other characters
-      if (countElements(string) >= minimumCharactersToSearch && string != "\n") {
-         _lastSearchString = string
+      if (countElements(searchString) >= minimumCharactersToSearch && searchString != "\n") {
+         _lastSearchString = searchString
          startSearchWithString(_lastSearchString)
       }
       _tokenField.scrollViewScrollToEnd()
