@@ -2,6 +2,13 @@ KSTokenView
 ===========
 KSTokenView is a control that displays a collection of tokens in a an editable UITextField and sends messages to delegate object. It can be used to gather small amounts of text from user and perform search operation. User can choose multiple search results, which are displayed as token in UITextField.
 
+## Demo
+### Vertical
+[![](/../screenshots/screenshots/gif1.gif?raw=true)]
+
+### Horizontal
+[![](/../screenshots/screenshots/gif2.gif?raw=true)]
+
 ### iPhone
 [![](/../screenshots/screenshots/iphone1-thumb.png?raw=true)](/../screenshots/screenshots/iphone1.png?raw=true)
 [![](/../screenshots/screenshots/iphone2-thumb.png?raw=true)](/../screenshots/screenshots/iphone2.png?raw=true)
