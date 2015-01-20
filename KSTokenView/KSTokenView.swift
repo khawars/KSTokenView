@@ -659,11 +659,13 @@ class KSTokenView: UIView {
    private func _showSearchResults() {
       if (_tokenField.isFirstResponder()) {
          _showingSearchResult = true
-         if (!KSUtils.isIpad()) {
+         if (KSUtils.isIpad()) {
+            _popover?.presentPopoverFromRect(_tokenField.frame, inView: _tokenField, permittedArrowDirections: .Up, animated: false)
+            
+         } else {
             addSubview(_searchTableView)
             _searchTableView.hidden = false
          }
-         _repositionSearchResults()
       }
    }
    
@@ -690,7 +692,6 @@ class KSTokenView: UIView {
          if (_showingSearchResult) {
             _popover?.presentPopoverFromRect(_tokenField.frame, inView: _tokenField, permittedArrowDirections: .Up, animated: false)
          }
-         
          
       } else {
          _searchTableView.frame.origin = CGPoint(x: 0, y: bounds.height)
