@@ -750,12 +750,13 @@ class KSTokenView: UIView {
    //
    
    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
-      let pointForTargetView = _searchTableView.convertPoint(point, fromView: self)
-      
-      if (CGRectContainsPoint(_searchTableView.bounds, pointForTargetView)) {
-         return _searchTableView.hitTest(pointForTargetView, withEvent: event)
+      if (_showingSearchResult) {
+         let pointForTargetView = _searchTableView.convertPoint(point, fromView: self)
+         
+         if (CGRectContainsPoint(_searchTableView.bounds, pointForTargetView)) {
+            return _searchTableView.hitTest(pointForTargetView, withEvent: event)
+         }
       }
-      
       return super.hitTest(point, withEvent: event)
    }
    

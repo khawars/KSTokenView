@@ -581,12 +581,13 @@ class KSTokenField: UITextField {
    }
    
    private func _initPlaceholderLabel() {
-      let xPos = _leftViewRect().size.width+_marginX!
+      let xPos = _marginX!
       if (_placeholderLabel == nil) {
-         _placeholderLabel = UILabel(frame: CGRect(x: xPos, y: 0, width: _selfFrame!.width - xPos, height: 30))
+         _placeholderLabel = UILabel(frame: CGRect(x: xPos, y: 0, width: _selfFrame!.width - xPos - _leftViewRect().size.width, height: 30))
          _placeholderLabel?.textColor = placeHolderColor
-         _placeholderLabel?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "becomeFirstResponder"))
-         addSubview(_placeholderLabel!)
+         _placeholderLabel?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "placeholderTapped"))
+         _scrollView.addSubview(_placeholderLabel!)
+//         addSubview(_placeholderLabel!)
       } else {
          _placeholderLabel?.frame.origin.x = xPos
       }
@@ -668,6 +669,10 @@ class KSTokenField: UITextField {
    override func becomeFirstResponder() -> Bool {
       tokenFieldDelegate?.tokenFieldDidBeginEditing?(self)
       return super.becomeFirstResponder()
+   }
+   
+   func placeholderTapped() {
+      
    }
    
    override func resignFirstResponder() -> Bool {
