@@ -230,10 +230,10 @@ class KSTokenView: UIView {
       }
    }
    
-   /// default is ", ". Used to seperate titles when untoknized
-   var seperatorText: String = ", " {
+   /// default is ", ". Used to separate titles when untoknized
+   var separatorText: String = ", " {
       didSet {
-         if (oldValue != seperatorText) {
+         if (oldValue != separatorText) {
             _updateTokenField()
          }
       }

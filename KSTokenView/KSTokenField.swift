@@ -53,7 +53,7 @@ class KSTokenField: UITextField {
    private var _placeholderLabel: UILabel?
    private var _state: KSTokenFieldState = .Opened
    private var _minWidthForInput: CGFloat = 50.0
-   private var _seperatorText: String?
+   private var _separatorText: String?
    private var _font: UIFont?
    private var _paddingX: CGFloat?
    private var _paddingY: CGFloat?
@@ -111,7 +111,7 @@ class KSTokenField: UITextField {
             _direction = tokenView!.direction
             _font = tokenView!.font
             _minWidthForInput = tokenView!.minWidthForInput
-            _seperatorText = tokenView!.seperatorText
+            _separatorText = tokenView!.separatorText
             _removesTokensOnEndEditing = tokenView!.removesTokensOnEndEditing
             _descriptionText = tokenView!.descriptionText
             _setPromptText(tokenView!.promptText)
@@ -551,11 +551,11 @@ class KSTokenField: UITextField {
          } else {
             var title = KSTextEmpty
             for token: KSToken in tokens {
-               title += "\(token.title)\(_seperatorText!)"
+               title += "\(token.title)\(_separatorText!)"
             }
             
             if (countElements(title) > 0) {
-               title = title.substringWithRange(Range<String.Index>(start: advance(title.startIndex, 0), end: advance(title.endIndex, -countElements(_seperatorText!))))
+               title = title.substringWithRange(Range<String.Index>(start: advance(title.startIndex, 0), end: advance(title.endIndex, -countElements(_separatorText!))))
             }
             
             var width = KSUtils.widthOfString(title, font: font)

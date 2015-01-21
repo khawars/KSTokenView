@@ -41,7 +41,7 @@
    self.tokenView.placeholder = @"Type to search";
    self.tokenView.promptText = @"Countries: ";
    self.tokenView.descriptionText = @"Countries";
-   self.tokenView.seperatorText = @", ";
+   self.tokenView.separatorText = @", ";
    self.tokenView.activityIndicatorColor = [UIColor blueColor];
    [self.view addSubview:self.tokenView];
    requestURLString = @"http://restcountries.eu/rest/v1/name/";
