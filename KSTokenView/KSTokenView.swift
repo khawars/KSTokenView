@@ -895,7 +895,7 @@ extension KSTokenView : UITableViewDataSource {
       }
       
       let title = delegate?.tokenView(self, displayTitleForObject: _resultArray[indexPath.row])
-      cell!.textLabel.text = (title != nil) ? title : "No Title"
+      cell!.textLabel!.text = (title != nil) ? title : "No Title"
       cell!.selectionStyle = UITableViewCellSelectionStyle.None
       return cell!
    }
