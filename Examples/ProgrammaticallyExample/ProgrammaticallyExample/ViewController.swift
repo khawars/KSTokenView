@@ -27,10 +27,11 @@ import UIKit
 class ViewController: UIViewController {
    let names = List.names()
    var tokenView: KSTokenView = KSTokenView(frame: .zeroRect)
+   @IBOutlet weak var shouldChangeSwitch: UISwitch!
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      tokenView = KSTokenView(frame: CGRect(x: 10, y: 150, width: 300, height: 30))
+      tokenView = KSTokenView(frame: CGRect(x: 10, y: 160, width: 300, height: 30))
       tokenView.delegate = self
       tokenView.promptText = "Favorites: "
       tokenView.placeholder = "Type to search"
@@ -68,7 +69,6 @@ class ViewController: UIViewController {
       tokenView.deleteAllTokens()
    }
    
-   
    override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
       // Dispose of any resources that can be recreated.
@@ -89,5 +89,14 @@ extension ViewController: KSTokenViewDelegate {
    
    func tokenView(token: KSTokenView, displayTitleForObject object: AnyObject) -> String {
       return object as String
+   }
+   
+   func tokenView(tokenView: KSTokenView, shouldChangeAppearanceForToken token: KSToken) -> KSToken? {
+      if shouldChangeSwitch.on {
+         token.tokenBackgroundColor = UIColor.redColor()
+         token.tokenTextColor = UIColor.blackColor()
+      }
+      
+      return token
    }
 }

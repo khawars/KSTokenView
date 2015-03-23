@@ -53,6 +53,7 @@ enum KSTokenViewScrollDirection {
    */
    optional func tokenView(tokenView: KSTokenView, shouldAddToken token: KSToken) -> Bool
    optional func tokenView(tokenView: KSTokenView, willAddToken token: KSToken)
+   optional func tokenView(tokenView: KSTokenView, shouldChangeAppearanceForToken token: KSToken) -> KSToken?
    optional func tokenView(tokenView: KSTokenView, didAddToken token: KSToken)
    optional func tokenView(tokenView: KSTokenView, didFailToAdd token: KSToken)
    
@@ -502,10 +503,15 @@ class KSTokenView: UIView {
       }
       
       delegate?.tokenView?(self, willAddToken: token)
-      let addedToken: KSToken? = _tokenField.addToken(token)
-      delegate?.tokenView?(self, didAddToken: token)
+      var addedToken: KSToken?
+      if let updaetdToken = delegate?.tokenView?(self, shouldChangeAppearanceForToken: token) {
+         addedToken = _tokenField.addToken(updaetdToken)
+         
+      } else {
+         addedToken = _tokenField.addToken(token)
+      }
       
-      
+      delegate?.tokenView?(self, didAddToken: addedToken!)      
       return addedToken
    }
    
