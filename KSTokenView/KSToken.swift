@@ -91,11 +91,7 @@ class KSToken : UIControl {
       self.init(title: title, object: title);
    }
    
-   convenience init(title: String, object: AnyObject?) {
-      self.init(title: title, object: object, font: nil)
-   }
-   
-   init(title: String, object: AnyObject?, font: UIFont?) {
+   init(title: String, object: AnyObject?) {
       self.title = title
       self.object = object
       super.init(frame: CGRect.zeroRect)
