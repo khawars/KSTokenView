@@ -57,6 +57,12 @@ class KSToken : UIControl {
    
    /// Token background color in selected state. It doesn't have effect if 'tokenBackgroundHighlightedColor' is set
    var darkRatio: CGFloat = 0.75
+   
+   /// Token border width
+   var borderWidth: CGFloat = 0.0
+   
+   ///Token border color
+   var borderColor: UIColor = UIColor.blackColor()
 
    /// default is 200. Maximum width of token. After maximum limit is reached title is truncated at end with '...'
    private var _maxWidth: CGFloat? = 200
@@ -160,6 +166,13 @@ class KSToken : UIControl {
       
       rectangleTextContent.drawInRect(textRect, withAttributes: rectangleFontAttributes)
       CGContextRestoreGState(context)
+      
+      // Border
+      if (self.borderWidth > 0.0 && self.borderColor != UIColor.clearColor()) {
+         self.borderColor.setStroke()
+         rectanglePath.lineWidth = self.borderWidth
+         rectanglePath.stroke()
+      }
    }
    
    func description() -> String {
