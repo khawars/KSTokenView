@@ -240,6 +240,9 @@ class KSTokenView: UIView {
       }
    }
    
+   /// An array of string values. Default values are " " and ",". Token is created when any of the character in this Array is pressed
+   var tokenizingCharacters = [" ", ","]
+   
    /// default is 0.25.
    var animateDuration: NSTimeInterval = 0.25 {
       didSet {
@@ -511,7 +514,7 @@ class KSTokenView: UIView {
          addedToken = _tokenField.addToken(token)
       }
       
-      delegate?.tokenView?(self, didAddToken: addedToken!)      
+      delegate?.tokenView?(self, didAddToken: addedToken!)
       return addedToken
    }
    
@@ -836,7 +839,11 @@ extension KSTokenView : UITextFieldDelegate {
          let second: String = olderText.substringFromIndex(advance(olderText.startIndex, range.location+1)) as String
          searchString = first + second
          
-      } else { // new character added
+      }  else { // new character added
+         if (contains(tokenizingCharacters, string) && olderText != KSTextEmpty) {
+            addTokenWithTitle(olderText, tokenObject: nil)
+            return false
+         }
          searchString = olderText+string
       }
       
@@ -850,7 +857,7 @@ extension KSTokenView : UITextFieldDelegate {
    }
    
    func textFieldShouldReturn(textField: UITextField) -> Bool {
-      let shouldReturn = resignFirstResponder()
+      resignFirstResponder()
       return true
    }
 }

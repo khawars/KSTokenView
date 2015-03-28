@@ -29,8 +29,8 @@ KSTokenView is a control that displays a collection of tokens in a an editable U
 
 ## Adding KSTokenView to your project
 
-### METHOD 1: (Cocoapods)
-1. Add a pod entry for `KSTokenView` to your Podfile `pod 'KSTokenView', '~> 1.2.1'`
+### METHOD 1: (Cocoapods only for iOS 8.0 and above)
+1. Add a pod entry for `KSTokenView` to your Podfile `pod 'KSTokenView', '~> 1.2'`
 2. Install the pod(s) by running `pod install`.
 
 ### MEHTOD 2: (Source files)
