@@ -840,7 +840,7 @@ extension KSTokenView : UITextFieldDelegate {
          searchString = first + second
          
       }  else { // new character added
-         if (contains(tokenizingCharacters, string) && olderText != KSTextEmpty) {
+         if (contains(tokenizingCharacters, string) && olderText != KSTextEmpty && olderText.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) != "") {
             addTokenWithTitle(olderText, tokenObject: nil)
             return false
          }
