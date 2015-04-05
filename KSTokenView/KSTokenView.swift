@@ -673,6 +673,7 @@ class KSTokenView: UIView {
             
          } else {
             addSubview(_searchTableView)
+            _searchTableView.frame.origin = CGPoint(x: 0, y: bounds.height)
             _searchTableView.hidden = false
          }
       }
