@@ -76,7 +76,9 @@ class KSTokenField: UITextField {
    }
    
    // MARK: - Public Properties
-   
+
+    var promptTextFont: UIFont = UIFont.systemFontOfSize(16)
+
    /// default is grayColor()
    var promptTextColor: UIColor = UIColor.grayColor()
    
@@ -215,7 +217,7 @@ class KSTokenField: UITextField {
    :returns: KSToken object
    */
    func addToken(token: KSToken) -> KSToken? {
-      if (countElements(token.title) == 0) {
+      if (count(token.title) == 0) {
          NSException(name: "", reason: "Title is not valid String", userInfo: nil);
       }
       if (!contains(tokens, token)) {
@@ -512,13 +514,13 @@ class KSTokenField: UITextField {
          if !(label is UILabel) {
             label = UILabel(frame: .zeroRect) as UILabel
             label?.frame.origin.x += _marginX!
-            (label as UILabel).textColor = promptTextColor
             leftViewMode = .Always
          }
-         
-         (label as UILabel).text = text
-         (label as UILabel).font = font
-         (label as UILabel).sizeToFit()
+
+        (label as! UILabel!).textColor = promptTextColor
+        (label as! UILabel!).text = text
+         (label as! UILabel).font = promptTextFont
+         (label as! UILabel).sizeToFit()
          leftView = label
          
       } else {
@@ -552,8 +554,8 @@ class KSTokenField: UITextField {
                title += "\(token.title)\(_separatorText!)"
             }
             
-            if (countElements(title) > 0) {
-               title = title.substringWithRange(Range<String.Index>(start: advance(title.startIndex, 0), end: advance(title.endIndex, -countElements(_separatorText!))))
+            if (count(title) > 0) {
+               title = title.substringWithRange(Range<String.Index>(start: advance(title.startIndex, 0), end: advance(title.endIndex, -count(_separatorText!))))
             }
             
             var width = KSUtils.widthOfString(title, font: font)

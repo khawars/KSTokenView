@@ -478,7 +478,7 @@ class KSTokenView: UIView {
    :returns: KSToken object
    */
    func addTokenWithTitle(title: NSString, tokenObject: AnyObject? = nil) -> KSToken? {
-      let token = KSToken(title: title, object: tokenObject)
+      let token = KSToken(title: title as String, object: tokenObject)
       return addToken(token)
    }
    
@@ -849,7 +849,7 @@ extension KSTokenView : UITextFieldDelegate {
       }
       
       // Allow all other characters
-      if (countElements(searchString) >= minimumCharactersToSearch && searchString != "\n") {
+      if (count(searchString) >= minimumCharactersToSearch && searchString != "\n") {
          _lastSearchString = searchString
          startSearchWithString(_lastSearchString)
       }
