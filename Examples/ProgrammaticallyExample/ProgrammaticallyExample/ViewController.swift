@@ -43,7 +43,7 @@ class ViewController: UIViewController {
    }
    
    @IBAction func addToken(sender: AnyObject) {
-      let title = names[Int(arc4random_uniform(UInt32(names.count)))] as NSString
+      let title = names[Int(arc4random_uniform(UInt32(names.count)))] as String
       let token = KSToken(title: title, object: title)
       
       // Token background color
@@ -88,7 +88,7 @@ extension ViewController: KSTokenViewDelegate {
    }
    
    func tokenView(token: KSTokenView, displayTitleForObject object: AnyObject) -> String {
-      return object as String
+      return object as! String
    }
    
    func tokenView(tokenView: KSTokenView, shouldChangeAppearanceForToken token: KSToken) -> KSToken? {

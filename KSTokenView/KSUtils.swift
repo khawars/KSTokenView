@@ -29,7 +29,7 @@ let KSTextEmpty = "\u{200B}"
 class KSUtils : NSObject {
    
    class func getRect(str: NSString, width: CGFloat, height: CGFloat, font: UIFont) -> CGRect {
-      let rectangleStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+      let rectangleStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
       rectangleStyle.alignment = NSTextAlignment.Center
       let rectangleFontAttributes = [NSFontAttributeName: font, NSParagraphStyleAttributeName: rectangleStyle]
       return str.boundingRectWithSize(CGSizeMake(width, height), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: rectangleFontAttributes, context: nil)
@@ -37,13 +37,13 @@ class KSUtils : NSObject {
    
    
    class func getRect(str: NSString, width: CGFloat, font: UIFont) -> CGRect {
-      let rectangleStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as NSMutableParagraphStyle
+      let rectangleStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
       rectangleStyle.alignment = NSTextAlignment.Center
       let rectangleFontAttributes = [NSFontAttributeName: font, NSParagraphStyleAttributeName: rectangleStyle]
       return str.boundingRectWithSize(CGSizeMake(width, CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: rectangleFontAttributes, context: nil)
    }
    
-   class func widthOfString(str: NSString, font: UIFont) -> CGFloat {
+   class func widthOfString(str: String, font: UIFont) -> CGFloat {
       var attrs = [NSFontAttributeName: font]
       var attributedString = NSMutableAttributedString(string:str, attributes:attrs)
       return attributedString.size().width

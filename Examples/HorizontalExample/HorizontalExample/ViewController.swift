@@ -60,6 +60,6 @@ extension ViewController: KSTokenViewDelegate {
    }
    
    func tokenView(token: KSTokenView, displayTitleForObject object: AnyObject) -> String {
-      return object as String
+      return object as! String
    }
 }
