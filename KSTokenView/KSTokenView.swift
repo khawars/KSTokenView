@@ -811,7 +811,6 @@ extension KSTokenView : KSTokenFieldDelegate {
                   let constraint: NSLayoutConstraint = self.constraints()[index] as! NSLayoutConstraint
                   
                   if (constraint.firstItem as! NSObject == self && constraint.firstAttribute == .Height) {
-                     println("firstItem is \(constraint.firstItem), firstAttribute is \(constraint.firstAttribute), constant is \(constraint.constant)")
                      constraint.constant = height
                   }
                }
