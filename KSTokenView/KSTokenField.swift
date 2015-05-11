@@ -163,6 +163,7 @@ class KSTokenField: UITextField {
       
       _setScrollRect()
       _scrollView.backgroundColor = UIColor.clearColor()
+      _scrollView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
       let gestureRecognizer = UITapGestureRecognizer(target: self, action: "becomeFirstResponder")
       gestureRecognizer.cancelsTouchesInView = false
       _scrollView.addGestureRecognizer(gestureRecognizer)
@@ -334,13 +335,16 @@ class KSTokenField: UITextField {
    /**
    Updates the tokenView layout and calls delegate methods
    */
-   func updateLayout() {
+   func updateLayout(shouldUpdateText: Bool = true) {
       if (parentView == nil) {
          return
       }
       _caretPoint = _layoutTokens()
       deselectSelectedToken()
-      _updateText()
+      
+      if (shouldUpdateText) {
+         _updateText()
+      }
       
       if _caretPoint != .zeroPoint {
          let tokensMaxY = _caretPoint!.y

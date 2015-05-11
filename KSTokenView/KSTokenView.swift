@@ -92,7 +92,7 @@ class KSTokenView: UIView {
    //MARK: - Private Properties
    //__________________________________________________________________________________
    //
-   private var _tokenField = KSTokenField(frame: .zeroRect)
+   private var _tokenField: KSTokenField!
    private var _searchTableView: UITableView = UITableView(frame: .zeroRect, style: UITableViewStyle.Plain)
    private var _resultArray = [AnyObject]()
    private var _showingSearchResult = false
@@ -325,7 +325,6 @@ class KSTokenView: UIView {
    */
    override init(frame: CGRect) {
       super.init(frame: frame)
-      _tokenField = KSTokenField(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
       _commonSetup()
    }
    
@@ -337,24 +336,25 @@ class KSTokenView: UIView {
    :returns: KSTokenView object
    */
    required init(coder aDecoder: NSCoder) {
-      _tokenField = KSTokenField(coder: aDecoder)
       super.init(coder: aDecoder)
-      _commonSetup()
    }
    
+   override func awakeFromNib() {
+      _commonSetup()
+   }
    
    //MARK: - Common Setup
    //__________________________________________________________________________________
    //
+   
    private func _commonSetup() {
-      setTranslatesAutoresizingMaskIntoConstraints(true)
       backgroundColor = UIColor.clearColor()
+      _tokenField = KSTokenField(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
       _tokenField.textColor = UIColor.blackColor()
       _tokenField.enabled = true
       _tokenField.tokenFieldDelegate = self
       _tokenField.placeholder = ""
-      _tokenField.setTranslatesAutoresizingMaskIntoConstraints(true)
-      _tokenField.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
+      _tokenField.autoresizingMask = .FlexibleWidth | .FlexibleHeight
       _updateTokenField()
       addSubview(_tokenField)
       
@@ -383,6 +383,18 @@ class KSTokenView: UIView {
       }
    }
    
+   //MARK: - Layout changes
+   //__________________________________________________________________________________
+   //
+   override func layoutSubviews() {
+      _tokenField.updateLayout(shouldUpdateText: false)
+      _searchTableView.frame.size = CGSize(width: frame.width, height: searchResultSize.height)
+   }
+   
+   //MARK: - Private Methods
+   //__________________________________________________________________________________
+   //
+   
    private func _updateTokenField() {
       _tokenField.parentView = self
    }
@@ -399,16 +411,12 @@ class KSTokenView: UIView {
       }
    }
    
-   //MARK: - Private Methods
-   //__________________________________________________________________________________
-   //
    private func _lastToken() -> KSToken? {
       if _tokenField.tokens.count == 0 {
          return nil
       }
       return _tokenField.tokens.last
    }
-   
    
    private func _removeToken(token: KSToken, removingAll: Bool = false) {
       if token.sticky {return}
@@ -795,7 +803,20 @@ extension KSTokenView : KSTokenFieldDelegate {
       UIView.animateWithDuration(
          animateDuration,
          animations: {
-            self._tokenField.frame.size.height = height
+            //            self._tokenField.frame.size.height = height
+            self.frame.size.height = height
+            
+            if (KSUtils.constrainsEnabled(self)) {
+               for index in 0 ... self.constraints().count-1 {
+                  let constraint: NSLayoutConstraint = self.constraints()[index] as! NSLayoutConstraint
+                  
+                  if (constraint.firstItem as! NSObject == self && constraint.firstAttribute == .Height) {
+                     println("firstItem is \(constraint.firstItem), firstAttribute is \(constraint.firstAttribute), constant is \(constraint.constant)")
+                     constraint.constant = height
+                  }
+               }
+            }
+            
             self._repositionSearchResults()
          },
          completion: {completed in
