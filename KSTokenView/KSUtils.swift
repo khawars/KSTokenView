@@ -52,6 +52,14 @@ class KSUtils : NSObject {
    class func isIpad() -> Bool {
       return UIDevice.currentDevice().userInterfaceIdiom == .Pad
    }
+   
+   class func constrainsEnabled(view: UIView) -> Bool {
+      if (view.constraints().count > 0) {
+         return true
+      } else {
+         return false
+      }
+   }
 }
 
 extension UIColor {
