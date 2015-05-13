@@ -617,6 +617,9 @@ class KSTokenView: UIView {
    func tokenFieldDidBeginEditing(tokenField: KSTokenField) {
       delegate?.tokenViewDidBeginEditing?(self)
       tokenField.tokenize()
+      if (minimumCharactersToSearch == 0) {
+         startSearchWithString("")
+      }
    }
    
    func tokenFieldDidEndEditing(tokenField: KSTokenField) {

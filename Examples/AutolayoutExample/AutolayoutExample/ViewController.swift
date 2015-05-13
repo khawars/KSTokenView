@@ -36,6 +36,8 @@ class ViewController: UIViewController {
       tokenView.promptText = "Top 5: "
       tokenView.placeholder = "Type to search"
       tokenView.descriptionText = "Languages"
+      tokenView.maxTokenLimit = 5
+      tokenView.minimumCharactersToSearch = 0 // Show all results without without typing anything
       tokenView.style = .Squared
    }
 
@@ -48,6 +50,11 @@ class ViewController: UIViewController {
 
 extension ViewController: KSTokenViewDelegate {
    func tokenView(token: KSTokenView, performSearchWithString string: String, completion: ((results: Array<AnyObject>) -> Void)?) {
+      if (isEmpty(string)){
+         completion!(results: names)
+         return
+      }
+      
       var data: Array<String> = []
       for value: String in names {
          if value.lowercaseString.rangeOfString(string.lowercaseString) != nil {
