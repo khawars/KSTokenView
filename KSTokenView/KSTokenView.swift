@@ -124,7 +124,7 @@ class KSTokenView: UIView {
    var minimumCharactersToSearch = 1
    
    /// default is nil
-   var delegate: KSTokenViewDelegate?
+   weak var delegate: KSTokenViewDelegate?
    
    /// default is .Vertical.
    var direction: KSTokenViewScrollDirection = .Vertical {
