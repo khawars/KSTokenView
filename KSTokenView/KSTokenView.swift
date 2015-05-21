@@ -25,12 +25,12 @@
 import UIKit
 
 
-enum KSTokenViewStyle {
+@objc enum KSTokenViewStyle: Int {
    case Rounded
    case Squared
 }
 
-enum KSTokenViewScrollDirection {
+@objc enum KSTokenViewScrollDirection: Int {
    case Vertical
    case Horizontal
 }
@@ -130,6 +130,15 @@ class KSTokenView: UIView {
    var direction: KSTokenViewScrollDirection = .Vertical {
       didSet {
          _updateTokenField()
+      }
+   }
+   
+   /// Default is whiteColor
+   override var backgroundColor: UIColor? {
+      didSet {
+         if (oldValue != backgroundColor && _tokenField != nil) {
+            _tokenField.backgroundColor = backgroundColor
+         }
       }
    }
    
