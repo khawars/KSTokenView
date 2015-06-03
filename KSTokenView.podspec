@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 
 # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.name         = "KSTokenView"
-  s.version      = "1.2.8.1"
+  s.version      = "1.2.8.2"
   s.summary      = "An iOS control for displaying multiple selections as tokens."
   s.description  = <<-DESC
                    A KSTokenView is a control that displays a collection of tokens in a an editable UITextField and sends messages to delegate object. It can be used to gather small amounts of text from user and perform search operation. User can choose multiple search results, which are displayed as token in UITextField.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  s.source       = { :git => "https://github.com/khawars/KSTokenView.git", :tag => "1.2.8.1" }
+  s.source       = { :git => "https://github.com/khawars/KSTokenView.git", :tag => "1.2.8.2" }
 
   s.source_files  = "KSTokenView/*.swift"
   s.requires_arc = true

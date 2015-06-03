@@ -181,6 +181,12 @@ class KSTokenField: UITextField {
       _selfFrame = rect
       _setupCompleted = true
       _updateText()
+      
+      // Fix the bug which doesn't update the UI when _selfFrame is not set.
+      // https://github.com/khawars/KSTokenView/issues/11
+      if (count(tokens) > 0) {
+         updateLayout()
+      }
    }
    
    // MARK: - Add Token

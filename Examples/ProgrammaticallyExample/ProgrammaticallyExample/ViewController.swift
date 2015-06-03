@@ -38,8 +38,10 @@ class ViewController: UIViewController {
       tokenView.descriptionText = "Languages"
       tokenView.style = .Rounded
       view.addSubview(tokenView)
-      tokenView.becomeFirstResponder()
-      
+      for i in 0...20 {
+         let token: KSToken = KSToken(title: names[i])
+         tokenView.addToken(token)
+      }
    }
    
    @IBAction func addToken(sender: AnyObject) {
