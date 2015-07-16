@@ -383,7 +383,7 @@ class KSTokenField: UITextField {
       let rightMargin = _rightViewRect().width
       let tokenHeight = _font!.lineHeight + _paddingY!;
       
-      var tokenPosition = CGPoint(x: _marginX!*2, y: _marginY!)
+      var tokenPosition = CGPoint(x: _marginX!, y: _marginY!)
       
       for token: KSToken in tokens {
          let width = KSUtils.getRect(token.title, width: bounds.size.width, font: _font!).size.width + ceil(_paddingX!*2+1)
