@@ -180,6 +180,7 @@
 		CB934FF41AE5032400756186 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Khawar Shahzad";
 				TargetAttributes = {
@@ -440,6 +441,7 @@
 				CB93501D1AE5032900756186 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CB93501E1AE5032900756186 /* Build configuration list for PBXNativeTarget "AutolayoutExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +450,7 @@
 				CB9350201AE5032900756186 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

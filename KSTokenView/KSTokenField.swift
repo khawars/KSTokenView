@@ -163,7 +163,8 @@ class KSTokenField: UITextField {
       
       _setScrollRect()
       _scrollView.backgroundColor = UIColor.clearColor()
-      _scrollView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+      
+      _scrollView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
       let gestureRecognizer = UITapGestureRecognizer(target: self, action: "becomeFirstResponder")
       gestureRecognizer.cancelsTouchesInView = false
       _scrollView.addGestureRecognizer(gestureRecognizer)
@@ -184,7 +185,8 @@ class KSTokenField: UITextField {
       
       // Fix the bug which doesn't update the UI when _selfFrame is not set.
       // https://github.com/khawars/KSTokenView/issues/11
-      if (count(tokens) > 0) {
+      
+      if (tokens.count > 0) {
          updateLayout()
       }
    }
@@ -193,9 +195,9 @@ class KSTokenField: UITextField {
    /**
    Create and add new token
    
-   :param: title String value
+   - parameter title: String value
    
-   :returns: KSToken object
+   - returns: KSToken object
    */
    func addTokenWithTitle(title: String) -> KSToken? {
       return addTokenWithTitle(title, tokenObject: nil)
@@ -204,28 +206,29 @@ class KSTokenField: UITextField {
    /**
    Create and add new token with custom object
    
-   :param: title       String value
-   :param: tokenObject Any custom object
+   - parameter title:       String value
+   - parameter tokenObject: Any custom object
    
-   :returns: KSToken object
+   - returns: KSToken object
    */
    func addTokenWithTitle(title: String, tokenObject: AnyObject?) -> KSToken? {
-      var token = KSToken(title: title, object: tokenObject)
+      let token = KSToken(title: title, object: tokenObject)
       return addToken(token)
    }
    
    /**
    Add new token
    
-   :param: token KSToken object
+   - parameter token: KSToken object
    
-   :returns: KSToken object
+   - returns: KSToken object
    */
    func addToken(token: KSToken) -> KSToken? {
-      if (count(token.title) == 0) {
+      if (token.title.characters.count == 0) {
          NSException(name: "", reason: "Title is not valid String", userInfo: nil);
       }
-      if (!contains(tokens, token)) {
+      
+      if (!tokens.contains(token)) {
          token.addTarget(self, action: "tokenTouchDown:", forControlEvents: .TouchDown)
          token.addTarget(self, action: "tokenTouchUpInside:", forControlEvents: .TouchUpInside)
          tokens.append(token)
@@ -252,7 +255,7 @@ class KSTokenField: UITextField {
    /**
    Deletes a token from view
    
-   :param: token KSToken object
+   - parameter token: KSToken object
    */
    func deleteToken(token: KSToken) {
       removeToken(token)
@@ -261,7 +264,7 @@ class KSTokenField: UITextField {
    /**
    Deletes a token from view, if any token is found for custom object
    
-   :param: object Custom object
+   - parameter object: Custom object
    */
    func deleteTokenWithObject(object: AnyObject?) {
       if object == nil {return}
@@ -287,8 +290,8 @@ class KSTokenField: UITextField {
    /**
    Deletes token from view
    
-   :param: token       KSToken object
-   :param: removingAll A boolean to describe if removingAll tokens
+   - parameter token:       KSToken object
+   - parameter removingAll: A boolean to describe if removingAll tokens
    */
    func removeToken(token: KSToken, removingAll: Bool = false) {
       if token.isEqual(selectedToken) {
@@ -296,7 +299,7 @@ class KSTokenField: UITextField {
       }
       token.removeFromSuperview()
       
-      let index = find(tokens, token)
+      let index = tokens.indexOf(token)
       if (index != nil) {
          tokens.removeAtIndex(index!)
       }
@@ -364,7 +367,7 @@ class KSTokenField: UITextField {
    /**
    Layout tokens
    
-   :returns: CGPoint maximum position values
+   - returns: CGPoint maximum position values
    */
    private func _layoutTokens() -> CGPoint {
       if (_selfFrame == nil) {
@@ -425,11 +428,10 @@ class KSTokenField: UITextField {
    /**
    Layout tokens horizontally
    
-   :returns: CGPoint maximum position values
+   - returns: CGPoint maximum position values
    */
    private func _layoutTokensHorizontally() -> CGPoint {
       let leftMargin = _leftViewRect().width
-      let rightMargin = _rightViewRect().width
       let tokenHeight = _font!.lineHeight + _paddingY!;
       
       var tokenPosition = CGPoint(x: _marginX!, y: _marginY!)
@@ -473,13 +475,13 @@ class KSTokenField: UITextField {
    private func _textRectWithBounds(bounds: CGRect) -> CGRect {
       if (!_setupCompleted) {return .zeroRect}
       if (tokens.count == 0 || _caretPoint == nil) {
-         return CGRect(x: _leftViewRect().width + _marginX!, y: (bounds.size.height - font.lineHeight)*0.5, width: bounds.size.width-5, height: bounds.size.height)
+         return CGRect(x: _leftViewRect().width + _marginX!, y: (bounds.size.height - font!.lineHeight)*0.5, width: bounds.size.width-5, height: bounds.size.height)
       }
       
       if (tokens.count != 0 && _state == .Closed) {
-         return CGRect(x: _leftViewRect().maxX + _marginX!, y: (_caretPoint!.y - font.lineHeight - (_marginY!)), width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
+         return CGRect(x: _leftViewRect().maxX + _marginX!, y: (_caretPoint!.y - font!.lineHeight - (_marginY!)), width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
       }
-      return CGRect(x: _caretPoint!.x, y: (_caretPoint!.y - font.lineHeight - (_marginY!)), width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
+      return CGRect(x: _caretPoint!.x, y: (_caretPoint!.y - font!.lineHeight - (_marginY!)), width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
    }
    
    override func leftViewRectForBounds(bounds: CGRect) -> CGRect {
@@ -562,11 +564,11 @@ class KSTokenField: UITextField {
                title += "\(token.title)\(_separatorText!)"
             }
             
-            if (count(title) > 0) {
-               title = title.substringWithRange(Range<String.Index>(start: advance(title.startIndex, 0), end: advance(title.endIndex, -count(_separatorText!))))
+            if (title.characters.count > 0) {
+               title = title.substringWithRange(Range<String.Index>(start: advance(title.startIndex, 0), end: advance(title.endIndex, -_separatorText!.characters.count)))
             }
             
-            var width = KSUtils.widthOfString(title, font: font)
+            let width = KSUtils.widthOfString(title, font: font!)
             if width + _leftViewRect().width > bounds.width {
                text = "\(tokens.count) \(_descriptionText)"
             } else {
@@ -579,7 +581,7 @@ class KSTokenField: UITextField {
    }
    
    private func _updatePlaceHolderVisibility() {
-      if tokens.count == 0 && (text == KSTextEmpty || text.isEmpty) {
+      if tokens.count == 0 && (text == KSTextEmpty || text!.isEmpty) {
          _placeholderLabel?.text = _placeholderValue!
          _placeholderLabel?.hidden = false
          
@@ -644,7 +646,7 @@ class KSTokenField: UITextField {
       selectToken(token)
    }
    
-   override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent) -> Bool {
+   override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
       if (touch.view == self) {
          deselectSelectedToken()
       }
@@ -666,7 +668,7 @@ class KSTokenField: UITextField {
    }
    
    func objects() -> NSArray {
-      var objects = NSMutableArray()
+      let objects = NSMutableArray()
       for object: AnyObject in tokens {
          objects.addObject(object)
       }
