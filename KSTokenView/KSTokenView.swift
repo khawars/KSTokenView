@@ -78,6 +78,9 @@ import UIKit
    optional func tokenViewWillDeleteAllToken(tokenView: KSTokenView)
    optional func tokenViewDidDeleteAllToken(tokenView: KSTokenView)
    optional func tokenViewDidFailToDeleteAllTokens(tokenView: KSTokenView)
+   
+   optional func tokenViewDidShowSearchResults(tokenView: KSTokenView)
+   optional func tokenViewDidHideSearchResults(tokenView: KSTokenView)
 }
 
 //MARK: - KSTokenView
@@ -697,6 +700,7 @@ class KSTokenView: UIView {
             _searchTableView.hidden = false
          }
       }
+      delegate?.tokenViewDidShowSearchResults?(self)
    }
    
    private func _hideSearchResults() {
@@ -708,6 +712,7 @@ class KSTokenView: UIView {
          _searchTableView.hidden = true
          _searchTableView.removeFromSuperview()
       }
+      delegate?.tokenViewDidHideSearchResults?(self)
    }
    
    private func _repositionSearchResults() {
