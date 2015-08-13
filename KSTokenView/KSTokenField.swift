@@ -591,7 +591,7 @@ class KSTokenField: UITextField {
    private func _initPlaceholderLabel() {
       let xPos = _marginX!
       if (_placeholderLabel == nil) {
-         _placeholderLabel = UILabel(frame: CGRect(x: xPos, y: 0, width: _selfFrame!.width - xPos - _leftViewRect().size.width, height: 30))
+         _placeholderLabel = UILabel(frame: CGRect(x: xPos, y: leftView!.frame.origin.y-5, width: _selfFrame!.width - xPos - _leftViewRect().size.width, height: 30))
          _placeholderLabel?.textColor = placeHolderColor
          _scrollView.addSubview(_placeholderLabel!)
          
