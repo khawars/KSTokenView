@@ -158,13 +158,13 @@ class KSToken : UIControl {
       }
       
       // Text
-      var rectangleTextContent = title
+      let rectangleTextContent = title
       let rectangleStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
       rectangleStyle.lineBreakMode = NSLineBreakMode.ByTruncatingTail
       rectangleStyle.alignment = NSTextAlignment.Center
       let rectangleFontAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: textColor, NSParagraphStyleAttributeName: rectangleStyle]
       
-      var maxDrawableHeight = max(rect.height , font.lineHeight)
+      let maxDrawableHeight = max(rect.height , font.lineHeight)
       let textHeight: CGFloat = KSUtils.getRect(rectangleTextContent, width: rect.width, height: maxDrawableHeight , font: font).size.height
       CGContextSaveGState(context)
       CGContextClipToRect(context, rect);

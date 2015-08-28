@@ -50,7 +50,7 @@ class ViewController: UIViewController {
 
 extension ViewController: KSTokenViewDelegate {
    func tokenView(token: KSTokenView, performSearchWithString string: String, completion: ((results: Array<AnyObject>) -> Void)?) {
-      if (isEmpty(string)){
+      if (string.characters.isEmpty){
          completion!(results: names)
          return
       }

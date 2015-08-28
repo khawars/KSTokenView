@@ -44,8 +44,8 @@ class KSUtils : NSObject {
    }
    
    class func widthOfString(str: String, font: UIFont) -> CGFloat {
-      var attrs = [NSFontAttributeName: font]
-      var attributedString = NSMutableAttributedString(string:str, attributes:attrs)
+      let attrs = [NSFontAttributeName: font]
+      let attributedString = NSMutableAttributedString(string:str, attributes:attrs)
       return attributedString.size().width
    }
    
@@ -54,7 +54,7 @@ class KSUtils : NSObject {
    }
    
    class func constrainsEnabled(view: UIView) -> Bool {
-      if (view.constraints().count > 0) {
+      if (view.constraints.count > 0) {
          return true
       } else {
          return false
