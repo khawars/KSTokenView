@@ -756,7 +756,7 @@ class KSTokenView: UIView {
       }
       
       if (shouldSortResultsAlphabatically) {
-         return filteredResults.sortInPlace({ s1, s2 in return self._sortStringForObject(s1) < self._sortStringForObject(s2) })
+         return filteredResults.sort({ s1, s2 in return self._sortStringForObject(s1) < self._sortStringForObject(s2) })
       }
       return filteredResults
    }
