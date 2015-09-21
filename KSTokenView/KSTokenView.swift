@@ -93,7 +93,7 @@ class KSTokenView: UIView {
    //__________________________________________________________________________________
    //
    private var _tokenField: KSTokenField!
-   private var _searchTableView: UITableView = UITableView(frame: .zeroRect, style: UITableViewStyle.Plain)
+   private var _searchTableView: UITableView = UITableView(frame: .zero, style: UITableViewStyle.Plain)
    private var _resultArray = [AnyObject]()
    private var _showingSearchResult = false
    private var _indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
@@ -143,7 +143,7 @@ class KSTokenView: UIView {
    }
    
    /// Default is (TokenViewWidth, 200)
-   var searchResultSize: CGSize = CGSize.zeroSize {
+   var searchResultSize: CGSize = CGSize.zero {
       didSet {
          if (KSUtils.isIpad()) {
             _popover?.popoverContentSize = searchResultSize
@@ -344,7 +344,7 @@ class KSTokenView: UIView {
    
    - returns: KSTokenView object
    */
-   required init(coder aDecoder: NSCoder) {
+   required init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
    }
    
@@ -867,9 +867,9 @@ extension KSTokenView : UITextFieldDelegate {
       
       // Check if character is removed at some index
       // Remove character at that index
-      if (string.isEmpty) {
-         let first: String = olderText!.substringToIndex(advance(olderText!.startIndex, range.location)) as String
-         let second: String = olderText!.substringFromIndex(advance(olderText!.startIndex, range.location+1)) as String
+      if (string.isEmpty) {        
+         let first: String = olderText!.substringToIndex(olderText!.startIndex.advancedBy(range.location)) as String
+         let second: String = olderText!.substringFromIndex(olderText!.startIndex.advancedBy(range.location+1)) as String
          searchString = first + second
          
       }  else { // new character added

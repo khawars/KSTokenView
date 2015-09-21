@@ -60,8 +60,8 @@ class KSTokenField: UITextField {
    private var _marginX: CGFloat?
    private var _marginY: CGFloat?
    private var _removesTokensOnEndEditing = true
-   private var _scrollView = UIScrollView(frame: .zeroRect)
-   private var _scrollPoint = CGPoint.zeroPoint
+   private var _scrollView = UIScrollView(frame: .zero)
+   private var _scrollPoint = CGPoint.zero
    private var _direction: KSTokenViewScrollDirection = .Vertical {
       didSet {
          if (oldValue != _direction) {
@@ -136,7 +136,7 @@ class KSTokenField: UITextField {
    var selectedToken: KSToken?
    
    // MARK: - Constructors
-   required init(coder aDecoder: NSCoder) {
+   required init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
       _setupTokenField()
    }
@@ -227,7 +227,7 @@ class KSTokenField: UITextField {
       if (token.title.characters.count == 0) {
          NSException(name: "", reason: "Title is not valid String", userInfo: nil);
       }
-      
+    
       if (!tokens.contains(token)) {
          token.addTarget(self, action: "tokenTouchDown:", forControlEvents: .TouchDown)
          token.addTarget(self, action: "tokenTouchUpInside:", forControlEvents: .TouchUpInside)
@@ -355,7 +355,7 @@ class KSTokenField: UITextField {
          _updateText()
       }
       
-      if _caretPoint != .zeroPoint {
+      if _caretPoint != .zero {
          let tokensMaxY = _caretPoint!.y
          
          if (frame.size.height != tokensMaxY) {
@@ -371,7 +371,7 @@ class KSTokenField: UITextField {
    */
    private func _layoutTokens() -> CGPoint {
       if (_selfFrame == nil) {
-         return .zeroPoint
+         return .zero
       }
       if (_state == .Closed) {
          return CGPoint(x: _marginX!, y: _selfFrame!.size.height)
@@ -473,7 +473,7 @@ class KSTokenField: UITextField {
    */
    
    private func _textRectWithBounds(bounds: CGRect) -> CGRect {
-      if (!_setupCompleted) {return .zeroRect}
+      if (!_setupCompleted) {return .zero}
       if (tokens.count == 0 || _caretPoint == nil) {
          return CGRect(x: _leftViewRect().width + _marginX!, y: (bounds.size.height - font!.lineHeight)*0.5, width: bounds.size.width-5, height: bounds.size.height)
       }
@@ -504,7 +504,7 @@ class KSTokenField: UITextField {
       if (leftViewMode == .Never ||
          (leftViewMode == .UnlessEditing && editing) ||
          (leftViewMode == .WhileEditing && !editing)) {
-            return .zeroRect
+            return .zero
       }
       return leftView!.bounds
    }
@@ -513,7 +513,7 @@ class KSTokenField: UITextField {
       if (rightViewMode == .Never ||
          rightViewMode == .UnlessEditing && editing ||
          rightViewMode == .WhileEditing && !editing) {
-            return .zeroRect
+            return .zero
       }
       return rightView!.bounds
    }
@@ -522,7 +522,7 @@ class KSTokenField: UITextField {
       if (text != nil) {
          var label = leftView
          if !(label is UILabel) {
-            label = UILabel(frame: .zeroRect)
+            label = UILabel(frame: .zero)
             label?.frame.origin.x += _marginX!
             (label as! UILabel).textColor = promptTextColor
             leftViewMode = .Always
@@ -565,7 +565,8 @@ class KSTokenField: UITextField {
             }
             
             if (title.characters.count > 0) {
-               title = title.substringWithRange(Range<String.Index>(start: advance(title.startIndex, 0), end: advance(title.endIndex, -_separatorText!.characters.count)))
+               title = title.substringWithRange(Range<String.Index>(start: title.startIndex.advancedBy(0), end: title.endIndex.advancedBy(_separatorText!.characters.count)))
+                
             }
             
             let width = KSUtils.widthOfString(title, font: font!)
