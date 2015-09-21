@@ -26,7 +26,7 @@ import UIKit
 
 class ViewController: UIViewController {
    let names = List.names()
-   var tokenView: KSTokenView = KSTokenView(frame: .zeroRect)
+   var tokenView: KSTokenView = KSTokenView(frame: .zero)
    @IBOutlet weak var shouldChangeSwitch: UISwitch!
    
    override func viewDidLoad() {

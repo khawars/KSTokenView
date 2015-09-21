@@ -62,8 +62,8 @@ import UIKit
    optional func tokenView(tokenView: KSTokenView, didDeleteToken token: KSToken)
    optional func tokenView(tokenView: KSTokenView, didFailToDeleteToken token: KSToken)
    
-   optional func tokenView(tokenView: KSTokenView, willChangeFrame frame: CGRect)
-   optional func tokenView(tokenView: KSTokenView, didChangeFrame frame: CGRect)
+    optional func tokenView(tokenView: KSTokenView, willChangeFrameWithX: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat)
+   optional func tokenView(tokenView: KSTokenView, didChangeFrameWithX: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat)
    
    optional func tokenView(tokenView: KSTokenView, didSelectToken token: KSToken)
    optional func tokenViewDidBeginEditing(tokenView: KSTokenView)
@@ -809,13 +809,13 @@ extension KSTokenView : KSTokenFieldDelegate {
    }
    
    func tokenFieldShouldChangeHeight(height: CGFloat) {
-      delegate?.tokenView?(self, willChangeFrame: frame)
+    // Temporarily fixed issue of "command failed due to signal segmentation fault 11 CGRect"
+      delegate?.tokenView?(self, willChangeFrameWithX: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: frame.size.height)
       frame.size.height = height
-      
+
       UIView.animateWithDuration(
          animateDuration,
          animations: {
-            //            self._tokenField.frame.size.height = height
             self.frame.size.height = height
             
             if (KSUtils.constrainsEnabled(self)) {
@@ -832,7 +832,8 @@ extension KSTokenView : KSTokenFieldDelegate {
          },
          completion: {completed in
             if (completed) {
-               self.delegate?.tokenView?(self, didChangeFrame: self.frame)
+                // Temporarily fixed issue of "command failed due to signal segmentation fault 11 CGRect"
+               self.delegate?.tokenView?(self, didChangeFrameWithX: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.size.width, height: self.frame.size.height)
             }
       })
    }

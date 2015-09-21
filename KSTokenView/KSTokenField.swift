@@ -565,8 +565,7 @@ class KSTokenField: UITextField {
             }
             
             if (title.characters.count > 0) {
-               title = title.substringWithRange(Range<String.Index>(start: title.startIndex.advancedBy(0), end: title.endIndex.advancedBy(_separatorText!.characters.count)))
-                
+               title = title.substringWithRange(Range<String.Index>(start: title.startIndex.advancedBy(0), end: title.endIndex.advancedBy(-_separatorText!.characters.count)))                
             }
             
             let width = KSUtils.widthOfString(title, font: font!)
