@@ -24,13 +24,13 @@ KSTokenView is a control that displays a collection of tokens in a an editable U
 ## Requirements
 
 - iOS 7 and above.
-- Xcode 6 and above
+- Xcode 7 and above
 
 
 ## Adding KSTokenView to your project
 
 ### METHOD 1: (Cocoapods only for iOS 8.0 and above)
-1. Add a pod entry for `KSTokenView` to your Podfile `pod 'KSTokenView', '~> 1.2'`
+1. Add a pod entry for `KSTokenView` to your Podfile `pod 'KSTokenView', '~> 2.1'`
 2. Install the pod(s) by running `pod install`.
 
 ### MEHTOD 2: (Source files)
@@ -151,6 +151,12 @@ tokenView.placeholder = "Type to search"
 
 /// default is .Rounded, creates rounded corner
 tokenView.style = .Squared
+
+/// default is .Vertical, following creates horizontal scrolling direction
+tokenView.direction = .Horizontal
+
+/// An array of string values. Default values are " " and ",". Token is created with typed text, when user press any of the character mentioned in this Array
+tokenView.tokenizingCharacters = [" "]
 ```
 See example projects for detail.
 

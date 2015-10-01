@@ -242,7 +242,7 @@ class KSTokenView: UIView {
       }
    }
    
-   /// An array of string values. Default values are " " and ",". Token is created when any of the character in this Array is pressed
+   /// An array of string values. Default values are " " and ",". Token is created with typed text, when user press any of the character mentioned in this Array
    var tokenizingCharacters = [" ", ","]
    
    /// default is 0.25.
