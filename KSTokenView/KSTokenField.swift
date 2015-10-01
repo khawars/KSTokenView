@@ -225,9 +225,9 @@ class KSTokenField: UITextField {
    */
    func addToken(token: KSToken) -> KSToken? {
       if (token.title.characters.count == 0) {
-         NSException(name: "", reason: "Title is not valid String", userInfo: nil);
+         token.title = "Untitled"
       }
-    
+      
       if (!tokens.contains(token)) {
          token.addTarget(self, action: "tokenTouchDown:", forControlEvents: .TouchDown)
          token.addTarget(self, action: "tokenTouchUpInside:", forControlEvents: .TouchUpInside)
@@ -565,7 +565,7 @@ class KSTokenField: UITextField {
             }
             
             if (title.characters.count > 0) {
-               title = title.substringWithRange(Range<String.Index>(start: title.startIndex.advancedBy(0), end: title.endIndex.advancedBy(-_separatorText!.characters.count)))                
+               title = title.substringWithRange(Range<String.Index>(start: title.startIndex.advancedBy(0), end: title.endIndex.advancedBy(-_separatorText!.characters.count)))
             }
             
             let width = KSUtils.widthOfString(title, font: font!)

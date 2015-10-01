@@ -62,7 +62,7 @@ import UIKit
    optional func tokenView(tokenView: KSTokenView, didDeleteToken token: KSToken)
    optional func tokenView(tokenView: KSTokenView, didFailToDeleteToken token: KSToken)
    
-    optional func tokenView(tokenView: KSTokenView, willChangeFrameWithX: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat)
+   optional func tokenView(tokenView: KSTokenView, willChangeFrameWithX: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat)
    optional func tokenView(tokenView: KSTokenView, didChangeFrameWithX: CGFloat, y: CGFloat, width: CGFloat, height: CGFloat)
    
    optional func tokenView(tokenView: KSTokenView, didSelectToken token: KSToken)
@@ -97,7 +97,6 @@ class KSTokenView: UIView {
    private var _resultArray = [AnyObject]()
    private var _showingSearchResult = false
    private var _indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
-   private var _popover: UIPopoverController?
    private let _searchResultHeight: CGFloat = 200.0
    private var _lastSearchString: String = ""
    
@@ -145,23 +144,14 @@ class KSTokenView: UIView {
    /// Default is (TokenViewWidth, 200)
    var searchResultSize: CGSize = CGSize.zero {
       didSet {
-         if (KSUtils.isIpad()) {
-            _popover?.popoverContentSize = searchResultSize
-         } else {
-            _searchTableView.frame.size = searchResultSize
-         }
+         _searchTableView.frame.size = searchResultSize
       }
    }
    
    /// Default is whiteColor()
    var searchResultBackgroundColor: UIColor = UIColor.whiteColor() {
       didSet {
-         if (KSUtils.isIpad()) {
-            _popover?.contentViewController.view.backgroundColor = searchResultBackgroundColor
-            _popover?.backgroundColor = searchResultBackgroundColor
-         } else {
-            _searchTableView.backgroundColor = searchResultBackgroundColor
-         }
+         _searchTableView.backgroundColor = searchResultBackgroundColor
       }
    }
    
@@ -377,19 +367,8 @@ class KSTokenView: UIView {
       _searchTableView.delegate = self
       _searchTableView.dataSource = self
       
-      if KSUtils.isIpad() {
-         let viewController = UIViewController()
-         viewController.view = _searchTableView
-         _popover = UIPopoverController(contentViewController: viewController)
-         _popover?.delegate = self
-         _popover?.backgroundColor = searchResultBackgroundColor
-         _popover?.passthroughViews = subviews
-         _popover?.popoverContentSize = searchResultSize
-         
-      } else {
-         addSubview(_searchTableView)
-         _hideSearchResults()
-      }
+      addSubview(_searchTableView)
+      _hideSearchResults()
    }
    
    //MARK: - Layout changes
@@ -688,46 +667,24 @@ class KSTokenView: UIView {
    private func _showSearchResults() {
       if (_tokenField.isFirstResponder()) {
          _showingSearchResult = true
-         if (KSUtils.isIpad()) {
-            _popover?.presentPopoverFromRect(_tokenField.frame, inView: _tokenField, permittedArrowDirections: .Up, animated: false)
-            
-         } else {
-            addSubview(_searchTableView)
-            _searchTableView.frame.origin = CGPoint(x: 0, y: bounds.height)
-            _searchTableView.hidden = false
-         }
+         addSubview(_searchTableView)
+         _searchTableView.frame.origin = CGPoint(x: 0, y: bounds.height)
+         _searchTableView.hidden = false
       }
    }
    
    private func _hideSearchResults() {
       _showingSearchResult = false
-      if (KSUtils.isIpad()) {
-         _popover?.dismissPopoverAnimated(false)
-         
-      } else {
-         _searchTableView.hidden = true
-         _searchTableView.removeFromSuperview()
-      }
+      _searchTableView.hidden = true
+      _searchTableView.removeFromSuperview()
    }
    
    private func _repositionSearchResults() {
       if (!_showingSearchResult) {
          return
       }
-      
-      if (KSUtils.isIpad()) {
-         if (_popover!.popoverVisible) {
-            _popover?.dismissPopoverAnimated(false)
-         }
-         if (_showingSearchResult) {
-            _popover?.presentPopoverFromRect(_tokenField.frame, inView: _tokenField, permittedArrowDirections: .Up, animated: false)
-         }
-         
-      } else {
-         _searchTableView.frame.origin = CGPoint(x: 0, y: bounds.height)
-         _searchTableView.layoutIfNeeded()
-      }
-      
+      _searchTableView.frame.origin = CGPoint(x: 0, y: bounds.height)
+      _searchTableView.layoutIfNeeded()
    }
    
    private func _filteredSearchResults(results: Array <AnyObject>) -> Array <AnyObject> {
@@ -809,10 +766,10 @@ extension KSTokenView : KSTokenFieldDelegate {
    }
    
    func tokenFieldShouldChangeHeight(height: CGFloat) {
-    // Temporarily fixed issue of "command failed due to signal segmentation fault 11 CGRect"
+      // Temporarily fixed issue of "command failed due to signal segmentation fault 11 CGRect"
       delegate?.tokenView?(self, willChangeFrameWithX: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: frame.size.height)
       frame.size.height = height
-
+      
       UIView.animateWithDuration(
          animateDuration,
          animations: {
@@ -832,7 +789,7 @@ extension KSTokenView : KSTokenFieldDelegate {
          },
          completion: {completed in
             if (completed) {
-                // Temporarily fixed issue of "command failed due to signal segmentation fault 11 CGRect"
+               // Temporarily fixed issue of "command failed due to signal segmentation fault 11 CGRect"
                self.delegate?.tokenView?(self, didChangeFrameWithX: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.size.width, height: self.frame.size.height)
             }
       })
@@ -868,7 +825,7 @@ extension KSTokenView : UITextFieldDelegate {
       
       // Check if character is removed at some index
       // Remove character at that index
-      if (string.isEmpty) {        
+      if (string.isEmpty) {
          let first: String = olderText!.substringToIndex(olderText!.startIndex.advancedBy(range.location)) as String
          let second: String = olderText!.substringFromIndex(olderText!.startIndex.advancedBy(range.location+1)) as String
          searchString = first + second

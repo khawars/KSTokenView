@@ -35,7 +35,6 @@ class KSUtils : NSObject {
       return str.boundingRectWithSize(CGSizeMake(width, height), options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: rectangleFontAttributes, context: nil)
    }
    
-   
    class func getRect(str: NSString, width: CGFloat, font: UIFont) -> CGRect {
       let rectangleStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
       rectangleStyle.alignment = NSTextAlignment.Center
@@ -49,10 +48,6 @@ class KSUtils : NSObject {
       return attributedString.size().width
    }
    
-   class func isIpad() -> Bool {
-      return UIDevice.currentDevice().userInterfaceIdiom == .Pad
-   }
-   
    class func constrainsEnabled(view: UIView) -> Bool {
       if (view.constraints.count > 0) {
          return true
@@ -60,6 +55,7 @@ class KSUtils : NSObject {
          return false
       }
    }
+   
 }
 
 extension UIColor {
