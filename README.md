@@ -5,22 +5,22 @@ KSTokenView is a control that displays a collection of tokens in a an editable U
 ## Demo
 Click [here](https://appetize.io/app/0kzy34tyg761punebrcc1x556w) for Live Preview.
 ### Vertical
-[![](/../screenshots/screenshots/gif1.gif?raw=true)]
+[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/gif1.gif)]
 
 ### Horizontal
-[![](/../screenshots/screenshots/gif2.gif?raw=true)]
+[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/gif2.gif)]
 
 ### iPhone
-[![](/../screenshots/screenshots/iphone1-thumb.png?raw=true)](/../screenshots/screenshots/iphone1.png?raw=true)
-[![](/../screenshots/screenshots/iphone2-thumb.png?raw=true)](/../screenshots/screenshots/iphone2.png?raw=true)
-[![](/../screenshots/screenshots/iphone3-thumb.png?raw=true)](/../screenshots/screenshots/iphone3.png?raw=true)
-[![](/../screenshots/screenshots/iphone4-thumb.png?raw=true)](/../screenshots/screenshots/iphone4.png?raw=true)
+[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone1-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone1.png)
+[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone2-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone2.png)
+[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone3-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone3.png)
+[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone4-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone4.png)
 
 ### iPad
-[![](/../screenshots/screenshots/ipad1-thumb.png?raw=true)](/../screenshots/screenshots/ipad1.png?raw=true)
-[![](/../screenshots/screenshots/ipad2-thumb.png?raw=true)](/../screenshots/screenshots/ipad2.png?raw=true)
-[![](/../screenshots/screenshots/ipad3-thumb.png?raw=true)](/../screenshots/screenshots/ipad3.png?raw=true)
-[![](/../screenshots/screenshots/ipad4-thumb.png?raw=true)](/../screenshots/screenshots/ipad4.png?raw=true)
+[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad1-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad1.png)
+[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad2-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad2.png)
+[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad3-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad3.png)
+[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad4-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad4.png)
 
 ## Requirements
 
