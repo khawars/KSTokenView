@@ -31,11 +31,19 @@ Click [here](https://appetize.io/app/0kzy34tyg761punebrcc1x556w) for Live Previe
 ## Adding KSTokenView to your project
 
 ### METHOD 1: (Cocoapods only for iOS 8.0 and above)
-1. Add a pod entry for `KSTokenView` to your Podfile `pod 'KSTokenView', '~> 2.1'`
+1. Add a pod entry for `KSTokenView` to your Podfile
+
+```ruby
+platform :ios, '8.0'
+use_frameworks!
+
+pod 'KSTokenView', '~> 2.2.0'
+``` 
+
 2. Install the pod(s) by running `pod install`.
 
 ### MEHTOD 2: (Source files)
-Alternatively you can directly add all source files under `KSTokenView` to your project.
+Alternatively, you can directly add all source files under `KSTokenView` to your project.
 
 1. Download the [latest code version](https://github.com/khawars/KSTokenView/archive/master.zip) or add the repository as a git submodule to your git-tracked project.
 2. Open your Xcode project, then drag and drop `KSTokenView` directory onto your project. Make sure to select Copy items when asked if you extracted the code archive outside of your project.
