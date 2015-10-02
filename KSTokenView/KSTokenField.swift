@@ -703,15 +703,31 @@ extension KSTokenField : UIScrollViewDelegate {
    }
    
    func updateCaretVisiblity(aScrollView: UIScrollView) {
-      let scrollViewHeight = aScrollView.frame.size.height;
-      let scrollContentSizeHeight = aScrollView.contentSize.height;
-      let scrollOffset = aScrollView.contentOffset.y;
-      
-      if (scrollOffset + scrollViewHeight < scrollContentSizeHeight - 10) {
-         hideCaret()
+      switch _direction {
+      case .Vertical:
+         let scrollViewHeight = aScrollView.frame.size.height;
+         let scrollContentSizeHeight = aScrollView.contentSize.height;
+         let scrollOffset = aScrollView.contentOffset.y;
          
-      } else if (scrollOffset + scrollViewHeight >= scrollContentSizeHeight - 10) {
-         showCaret()
+         if (scrollOffset + scrollViewHeight < scrollContentSizeHeight - 10) {
+            hideCaret()
+            
+         } else if (scrollOffset + scrollViewHeight >= scrollContentSizeHeight - 10) {
+            showCaret()
+         }
+         
+      case .Horizontal:
+         let scrollViewWidth = aScrollView.frame.size.width;
+         let scrollContentSizeWidth = aScrollView.contentSize.width;
+         let scrollOffset = aScrollView.contentOffset.x;
+         
+         if (scrollOffset + scrollViewWidth < scrollContentSizeWidth - 10) {
+            hideCaret()
+            
+         } else if (scrollOffset + scrollViewWidth >= scrollContentSizeWidth - 10) {
+            showCaret()
+         }
+         
       }
    }
    
