@@ -1,26 +1,20 @@
 KSTokenView
 ===========
-KSTokenView is a control that displays a collection of tokens in a an editable UITextField and sends messages to delegate object. It can be used to gather small amounts of text from user and perform search operation. User can choose multiple search results, which are displayed as token in UITextField.
+KSTokenView is a control that displays a collection of tokens in an editable UITextField and sends messages to delegate object. It can also be used to input text from user and perform search operation asynchronously. UI can be fully custimized to look like part of your application.
 
 ## Demo
 Click [here](https://appetize.io/app/0kzy34tyg761punebrcc1x556w) for Live Preview.
 ### Vertical
-[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/gif1.gif)]
+![gif1](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/gif1.gif)
 
 ### Horizontal
-[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/gif2.gif)]
+![gif2](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/gif2.gif)
 
 ### iPhone
-[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone1-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone1.png)
-[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone2-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone2.png)
-[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone3-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone3.png)
-[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone4-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone4.png)
-
-### iPad
-[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad1-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad1.png)
-[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad2-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad2.png)
-[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad3-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad3.png)
-[![](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad4-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/ipad4.png)
+[![iphone1](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone1-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone1.png)
+[![iphone2](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone2-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone2.png)
+[![iphone3](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone3-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone3.png)
+[![iphone4](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone4-thumb.png)](https://raw.githubusercontent.com/khawars/KSTokenView/screenshots/screenshots/iphone4.png)
 
 ## Requirements
 
@@ -34,10 +28,11 @@ Click [here](https://appetize.io/app/0kzy34tyg761punebrcc1x556w) for Live Previe
 1. Add a pod entry for `KSTokenView` to your Podfile
 
 ```ruby
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'KSTokenView', '~> 2.2.0'
+pod 'KSTokenView', '~> 2.3.0'
 ``` 
 
 2. Install the pod(s) by running `pod install`.
@@ -164,8 +159,8 @@ tokenView.style = .Squared
 /// default is .Vertical, following creates horizontal scrolling direction
 tokenView.direction = .Horizontal
 
-/// An array of string values. Default values are " " and ",". Token is created with typed text, when user press any of the character mentioned in this Array
-tokenView.tokenizingCharacters = [" "]
+/// An array of string values. Default values are "." and ",". Token is created with typed text, when user press any of the character mentioned in this Array
+tokenView.tokenizingCharacters = [","]
 ```
 See example projects for detail.
 
