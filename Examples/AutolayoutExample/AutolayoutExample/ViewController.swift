@@ -67,4 +67,11 @@ extension ViewController: KSTokenViewDelegate {
    func tokenView(token: KSTokenView, displayTitleForObject object: AnyObject) -> String {
       return object as! String
    }
+   
+   func tokenView(tokenView: KSTokenView, shouldAddToken token: KSToken) -> Bool {
+      if token.title == "f" {
+         return false
+      }
+      return true
+   }
 }

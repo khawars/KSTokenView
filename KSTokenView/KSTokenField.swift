@@ -38,7 +38,7 @@ enum KSTokenFieldState {
 }
 
 
-class KSTokenField: UITextField {
+public class KSTokenField: UITextField {
    
    // MARK: - Private Properties
    private var _cursorColor: UIColor = UIColor.grayColor() {
@@ -87,7 +87,7 @@ class KSTokenField: UITextField {
    var maximumHeight: CGFloat = 120.0
    
    /// default is nil
-   override var placeholder: String? {
+   override public var placeholder: String? {
       get {
          return _placeholderValue
       }
@@ -136,7 +136,7 @@ class KSTokenField: UITextField {
    var selectedToken: KSToken?
    
    // MARK: - Constructors
-   required init?(coder aDecoder: NSCoder) {
+   required public init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
       _setupTokenField()
    }
@@ -178,7 +178,7 @@ class KSTokenField: UITextField {
       _scrollView.frame = CGRect(x: _leftViewRect().width, y: 0, width: frame.width - _leftViewRect().width, height: frame.height)
    }
    
-   override func drawRect(rect: CGRect) {
+   override public func drawRect(rect: CGRect) {
       _selfFrame = rect
       _setupCompleted = true
       _updateText()
@@ -484,19 +484,19 @@ class KSTokenField: UITextField {
       return CGRect(x: _caretPoint!.x, y: (_caretPoint!.y - font!.lineHeight - (_marginY!)), width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
    }
    
-   override func leftViewRectForBounds(bounds: CGRect) -> CGRect {
+   override public func leftViewRectForBounds(bounds: CGRect) -> CGRect {
       return CGRect(x: _marginX!, y: (_selfFrame != nil) ? (_selfFrame!.height - _leftViewRect().height)*0.5: (bounds.height - _leftViewRect().height)*0.5, width: _leftViewRect().width, height: _leftViewRect().height)
    }
    
-   override func textRectForBounds(bounds: CGRect) -> CGRect {
+   override public func textRectForBounds(bounds: CGRect) -> CGRect {
       return _textRectWithBounds(bounds)
    }
    
-   override func editingRectForBounds(bounds: CGRect) -> CGRect {
+   override public func editingRectForBounds(bounds: CGRect) -> CGRect {
       return _textRectWithBounds(bounds)
    }
    
-   override func placeholderRectForBounds(bounds: CGRect) -> CGRect {
+   override public func placeholderRectForBounds(bounds: CGRect) -> CGRect {
       return _textRectWithBounds(bounds)
    }
    
@@ -646,7 +646,7 @@ class KSTokenField: UITextField {
       selectToken(token)
    }
    
-   override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
+   override public func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
       if (touch.view == self) {
          deselectSelectedToken()
       }
@@ -675,13 +675,13 @@ class KSTokenField: UITextField {
       return objects
    }
    
-   override func becomeFirstResponder() -> Bool {
+   override public func becomeFirstResponder() -> Bool {
       super.becomeFirstResponder()
       tokenFieldDelegate?.tokenFieldDidBeginEditing?(self)
       return true
    }
    
-   override func resignFirstResponder() -> Bool {
+   override public func resignFirstResponder() -> Bool {
       tokenFieldDelegate?.tokenFieldDidEndEditing?(self)
       return super.resignFirstResponder()
    }
@@ -693,11 +693,11 @@ class KSTokenField: UITextField {
 //__________________________________________________________________________________
 //
 extension KSTokenField : UIScrollViewDelegate {
-   func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+   public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
       _scrollPoint = scrollView.contentOffset
    }
    
-   func scrollViewDidScroll(aScrollView: UIScrollView) {
+   public func scrollViewDidScroll(aScrollView: UIScrollView) {
       text = KSTextEmpty
       updateCaretVisiblity(aScrollView)
    }
