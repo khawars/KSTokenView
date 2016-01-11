@@ -101,4 +101,35 @@ extension ViewController: KSTokenViewDelegate {
       
       return token
    }
+   
+   func tokenView(tokenView: KSTokenView, shouldAddToken token: KSToken) -> Bool {
+      print("Token is \(token)")
+      var shouldAddToken = true
+      
+      let title = token.title
+      let checking = "f"
+      let checking2 = "f"
+      
+      print("\(title.dynamicType) -- \(title)")
+      print("\(checking.dynamicType) -- \(checking)")
+      
+      let newString = title.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+      
+      if (newString == checking) {
+         print("OK with object")
+      }
+      
+      if (checking2 == checking) {
+         print("OK with variable")
+      }
+      
+      
+      //
+      
+//      if (token.title == test) {
+//         shouldAddToken = false
+//      }
+      return shouldAddToken
+   }
+   
 }
