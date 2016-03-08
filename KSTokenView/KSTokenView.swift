@@ -852,7 +852,7 @@ extension KSTokenView : UITextFieldDelegate {
          
       }  else { // new character added
          if (tokenizingCharacters.contains(string) && olderText != KSTextEmpty && olderText!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) != "") {
-            addTokenWithTitle(olderText!, tokenObject: nil)
+            addTokenWithTitle(olderText!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()), tokenObject: nil)
             return false
          }
          searchString = olderText!+string
