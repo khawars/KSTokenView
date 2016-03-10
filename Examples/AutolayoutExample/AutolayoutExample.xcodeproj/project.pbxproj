@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C34B6B401C91C7B300356D10 /* magnolia_sky.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C34B6B3F1C91C73400356D10 /* magnolia_sky.ttf */; };
 		CB9350021AE5032700756186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9350011AE5032700756186 /* AppDelegate.swift */; };
 		CB9350041AE5032700756186 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9350031AE5032700756186 /* ViewController.swift */; };
 		CB9350071AE5032800756186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9350051AE5032800756186 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C34B6B3F1C91C73400356D10 /* magnolia_sky.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = magnolia_sky.ttf; sourceTree = "<group>"; };
 		CB934FFC1AE5032600756186 /* AutolayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutolayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9350001AE5032700756186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB9350011AE5032700756186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		CB934FF31AE5032300756186 = {
 			isa = PBXGroup;
 			children = (
+				C34B6B3F1C91C73400356D10 /* magnolia_sky.ttf */,
 				CB9350211AE5037F00756186 /* KSTokenView */,
 				CB934FFE1AE5032600756186 /* AutolayoutExample */,
 				CB9350141AE5032900756186 /* AutolayoutExampleTests */,
@@ -217,6 +220,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C34B6B401C91C7B300356D10 /* magnolia_sky.ttf in Resources */,
 				CB9350071AE5032800756186 /* Main.storyboard in Resources */,
 				CB93500C1AE5032900756186 /* LaunchScreen.xib in Resources */,
 				CB9350091AE5032800756186 /* Images.xcassets in Resources */,

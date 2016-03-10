@@ -110,6 +110,9 @@ public class KSTokenField: UITextField {
             _marginY = tokenView!.marginY
             _direction = tokenView!.direction
             _font = tokenView!.font
+            if (_font != nil) {
+               font = _font
+            }
             _minWidthForInput = tokenView!.minWidthForInput
             _separatorText = tokenView!.separatorText
             _removesTokensOnEndEditing = tokenView!.removesTokensOnEndEditing

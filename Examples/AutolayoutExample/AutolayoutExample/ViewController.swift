@@ -39,6 +39,11 @@ class ViewController: UIViewController {
       tokenView.maxTokenLimit = 5
       tokenView.minimumCharactersToSearch = 0 // Show all results without without typing anything
       tokenView.style = .Squared
+      
+      let font = UIFont(name: "MagnoliaSky", size: 14.0)
+      if (font != nil) {
+         tokenView.font = font!
+      }
    }
 
    override func didReceiveMemoryWarning() {
