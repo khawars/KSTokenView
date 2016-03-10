@@ -316,7 +316,7 @@ public class KSTokenView: UIView {
          _tokenField.placeholder = newValue
       }
    }
-   
+
    /// default is .Rounded, creates rounded corner
    public var style: KSTokenViewStyle = .Rounded {
       didSet(newValue) {
@@ -474,6 +474,7 @@ public class KSTokenView: UIView {
       if (shouldAddTokenFromTextInput && tokenField.text != nil && tokenField.text != KSTextEmpty) {         
          let trimmedString = tokenField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
          addTokenWithTitle(trimmedString)
+         _hideSearchResults()
          return true
       }
       return false
@@ -822,7 +823,7 @@ extension KSTokenView : KSTokenFieldDelegate {
 //
 extension KSTokenView : UITextFieldDelegate {
    public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-      
+    
       // If backspace is pressed
       if (_tokenField.tokens.count > 0 && _tokenField.text == KSTextEmpty && string.isEmpty == true && shouldDeleteTokenOnBackspace) {
          if (_lastToken() != nil) {
@@ -839,30 +840,43 @@ extension KSTokenView : UITextFieldDelegate {
       if (string.isEmpty == true && _tokenField.text == KSTextEmpty) {
          return false
       }
-      
+    
       var searchString: String
       let olderText = _tokenField.text
-      
+      var olderTextTrimmed = olderText!
+      // remove the empty text marker from the beginning of the string
+      if (olderText?.characters.first == KSTextEmpty.characters.first) {
+         olderTextTrimmed = olderText!.substringFromIndex(olderText!.startIndex.advancedBy(1))
+      }
+    
       // Check if character is removed at some index
       // Remove character at that index
       if (string.isEmpty) {
          let first: String = olderText!.substringToIndex(olderText!.startIndex.advancedBy(range.location)) as String
          let second: String = olderText!.substringFromIndex(olderText!.startIndex.advancedBy(range.location+1)) as String
          searchString = first + second
+         searchString = searchString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
          
-      }  else { // new character added
-         if (tokenizingCharacters.contains(string) && olderText != KSTextEmpty && olderText!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet()) != "") {
-            addTokenWithTitle(olderText!, tokenObject: nil)
+      } else { // new character added
+         if (tokenizingCharacters.contains(string) && olderText != KSTextEmpty && olderTextTrimmed != "") {
+            addTokenWithTitle(olderTextTrimmed, tokenObject: nil)
+            _hideSearchResults()
             return false
          }
-         searchString = olderText!+string
+         searchString = (olderText! as NSString).stringByReplacingCharactersInRange(range, withString: string)
+         if (searchString.characters.first == KSTextEmpty.characters.first) {
+            searchString = searchString.substringFromIndex(searchString.startIndex.advancedBy(1))
+         }
       }
-      
+    
       // Allow all other characters
       if (searchString.characters.count >= minimumCharactersToSearch && searchString != "\n") {
          _lastSearchString = searchString
          _startSearchWithString(_lastSearchString)
+      } else {
+         _hideSearchResults()
       }
+    
       _tokenField.scrollViewScrollToEnd()
       return true
    }
