@@ -114,6 +114,8 @@ public class KSTokenField: UITextField {
             _separatorText = tokenView!.separatorText
             _removesTokensOnEndEditing = tokenView!.removesTokensOnEndEditing
             _descriptionText = tokenView!.descriptionText
+            placeHolderColor = tokenView!.placeholderColor
+            promptTextColor = tokenView!.promptColor
             _setPromptText(tokenView!.promptText)
             
             if (_setupCompleted) {
@@ -524,12 +526,11 @@ public class KSTokenField: UITextField {
          if !(label is UILabel) {
             label = UILabel(frame: .zero)
             label?.frame.origin.x += _marginX!
-            (label as! UILabel).textColor = promptTextColor
             leftViewMode = .Always
          }
-         
          (label as! UILabel).text = text
          (label as! UILabel).font = font
+         (label as! UILabel).textColor = promptTextColor
          (label as! UILabel).sizeToFit()
          leftView = label
          

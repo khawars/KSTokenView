@@ -317,6 +317,20 @@ public class KSTokenView: UIView {
       }
    }
 
+    /// default is UIColor.grayColor()
+    public var promptColor: UIColor = UIColor.grayColor() {
+        didSet {
+            _updateTokenField()
+        }
+    }
+
+    /// default is UIColor.grayColor()
+    public var placeholderColor: UIColor = UIColor.grayColor() {
+        didSet {
+            _updateTokenField()
+        }
+    }
+   
    /// default is .Rounded, creates rounded corner
    public var style: KSTokenViewStyle = .Rounded {
       didSet(newValue) {
