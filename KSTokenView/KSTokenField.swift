@@ -59,6 +59,7 @@ public class KSTokenField: UITextField {
    private var _paddingY: CGFloat?
    private var _marginX: CGFloat?
    private var _marginY: CGFloat?
+   private var _bufferX: CGFloat?
    private var _removesTokensOnEndEditing = true
    private var _scrollView = UIScrollView(frame: .zero)
    private var _scrollPoint = CGPoint.zero
@@ -108,6 +109,7 @@ public class KSTokenField: UITextField {
             _paddingY = tokenView!.paddingY
             _marginX = tokenView!.marginX
             _marginY = tokenView!.marginY
+            _bufferX = tokenView!.bufferX
             _direction = tokenView!.direction
             _font = tokenView!.font
             if (_font != nil) {
@@ -180,7 +182,8 @@ public class KSTokenField: UITextField {
    }
    
    private func _setScrollRect() {
-      _scrollView.frame = CGRect(x: _leftViewRect().width, y: 0, width: frame.width - _leftViewRect().width, height: frame.height)
+    let buffer:CGFloat = _bufferX ?? 0.0;
+    _scrollView.frame = CGRect(x: _leftViewRect().width + buffer, y: 0, width: frame.width - _leftViewRect().width, height: frame.height)
    }
    
    override public func drawRect(rect: CGRect) {
@@ -379,7 +382,7 @@ public class KSTokenField: UITextField {
          return .zero
       }
       if (_state == .Closed) {
-         return CGPoint(x: _marginX!, y: _selfFrame!.size.height)
+         return CGPoint(x: _marginX! + _bufferX!, y: _selfFrame!.size.height)
       }
       
       if (_direction == .Horizontal) {
@@ -480,11 +483,11 @@ public class KSTokenField: UITextField {
    private func _textRectWithBounds(bounds: CGRect) -> CGRect {
       if (!_setupCompleted) {return .zero}
       if (tokens.count == 0 || _caretPoint == nil) {
-         return CGRect(x: _leftViewRect().width + _marginX!, y: (bounds.size.height - font!.lineHeight)*0.5, width: bounds.size.width-5, height: bounds.size.height)
+         return CGRect(x: _leftViewRect().width + _marginX! + _bufferX!, y: (bounds.size.height - font!.lineHeight)*0.5, width: bounds.size.width-5, height: bounds.size.height)
       }
       
       if (tokens.count != 0 && _state == .Closed) {
-         return CGRect(x: _leftViewRect().maxX + _marginX!, y: (_caretPoint!.y - font!.lineHeight - (_marginY!)), width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
+         return CGRect(x: _leftViewRect().maxX + _marginX! + _bufferX!, y: (_caretPoint!.y - font!.lineHeight - (_marginY!)), width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
       }
       return CGRect(x: _caretPoint!.x, y: (_caretPoint!.y - font!.lineHeight - (_marginY!)), width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
    }

@@ -224,6 +224,15 @@ public class KSTokenView: UIView {
          }
       }
    }
+    
+    /// default is 0. Horizontal buffer between prompt and content
+    public var bufferX: CGFloat = 0.0 {
+        didSet {
+            if (oldValue != bufferX) {
+                _updateTokenField()
+            }
+        }
+    }
    
    /// default is UIFont.systemFontOfSize(16)
    public var font: UIFont = UIFont.systemFontOfSize(16) {
