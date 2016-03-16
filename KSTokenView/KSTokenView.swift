@@ -71,6 +71,8 @@ import UIKit
    
    func tokenView(token: KSTokenView, performSearchWithString string: String, completion: ((results: Array<AnyObject>) -> Void)?)
    func tokenView(token: KSTokenView, displayTitleForObject object: AnyObject) -> String
+   func tokenView(token: KSTokenView, searchTitleForObject object: AnyObject) -> String
+   func tokenView(token: KSTokenView, searchSubtitleForObject object: AnyObject) -> String
    optional func tokenView(token: KSTokenView, withObject object: AnyObject, tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
    optional func tokenView(token: KSTokenView, didSelectRowAtIndexPath indexPath: NSIndexPath)
    
@@ -952,11 +954,13 @@ extension KSTokenView : UITableViewDataSource {
       let cellIdentifier = "KSSearchTableCell"
       cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as UITableViewCell?
       if (cell == nil) {
-         cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellIdentifier)
+         cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: cellIdentifier)
       }
       
-      let title = delegate?.tokenView(self, displayTitleForObject: _resultArray[indexPath.row])
-      cell!.textLabel!.text = (title != nil) ? title : "No Title"
+      let title = delegate?.tokenView(self, searchTitleForObject: _resultArray[indexPath.row])
+      let subTitle = delegate?.tokenView(self, searchSubtitleForObject: _resultArray[indexPath.row])
+      cell!.textLabel!.text = (title != nil) ? title : ""
+      cell!.detailTextLabel!.text = (subTitle != nil) ? subTitle : ""
       cell!.selectionStyle = UITableViewCellSelectionStyle.None
       return cell!
    }
