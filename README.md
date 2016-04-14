@@ -32,7 +32,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'KSTokenView', '~> 2.4.0'
+pod 'KSTokenView', '~> 2.4'
 ``` 
 
 2. Install the pod(s) by running `pod install`.
