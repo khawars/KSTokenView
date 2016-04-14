@@ -172,13 +172,13 @@ public class KSTokenField: UITextField {
       _scrollView.backgroundColor = UIColor.clearColor()
       
       _scrollView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-      let gestureRecognizer = UITapGestureRecognizer(target: self, action: "becomeFirstResponder")
+      let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIResponder.becomeFirstResponder))
       gestureRecognizer.cancelsTouchesInView = false
       _scrollView.addGestureRecognizer(gestureRecognizer)
       _scrollView.delegate = self
       addSubview(_scrollView)
       
-      addTarget(self, action: "tokenFieldTextDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+      addTarget(self, action: #selector(KSTokenField.tokenFieldTextDidChange(_:)), forControlEvents: UIControlEvents.EditingChanged)
    }
    
    private func _setScrollRect() {
@@ -237,8 +237,8 @@ public class KSTokenField: UITextField {
       }
       
       if (!tokens.contains(token)) {
-         token.addTarget(self, action: "tokenTouchDown:", forControlEvents: .TouchDown)
-         token.addTarget(self, action: "tokenTouchUpInside:", forControlEvents: .TouchUpInside)
+         token.addTarget(self, action: #selector(KSTokenField.tokenTouchDown(_:)), forControlEvents: .TouchDown)
+         token.addTarget(self, action: #selector(KSTokenField.tokenTouchUpInside(_:)), forControlEvents: .TouchUpInside)
          tokens.append(token)
          _insertToken(token)
       }
@@ -403,7 +403,7 @@ public class KSTokenField: UITextField {
          // Add token at specific position
          if ((token.superview) != nil) {
             if (tokenPosition.x + tokenWidth + _marginX! + leftMargin > bounds.size.width - rightMargin) {
-               lineNumber++;
+               lineNumber += 1
                tokenPosition.x = _marginX!
                tokenPosition.y += (tokenHeight + _marginY!);
             }
@@ -415,7 +415,7 @@ public class KSTokenField: UITextField {
       
       // check if next token can be added in same line or new line
       if ((bounds.size.width) - (tokenPosition.x + _marginX!) - leftMargin < _minWidthForInput) {
-         lineNumber++;
+         lineNumber += 1
          tokenPosition.x = _marginX!
          tokenPosition.y += (tokenHeight + _marginY!);
       }
@@ -572,7 +572,7 @@ public class KSTokenField: UITextField {
             }
             
             if (title.characters.count > 0) {
-               title = title.substringWithRange(Range<String.Index>(start: title.startIndex.advancedBy(0), end: title.endIndex.advancedBy(-_separatorText!.characters.count)))
+               title = title.substringWithRange(title.startIndex.advancedBy(0)..<title.endIndex.advancedBy(-_separatorText!.characters.count))
             }
             
             let width = KSUtils.widthOfString(title, font: font!)

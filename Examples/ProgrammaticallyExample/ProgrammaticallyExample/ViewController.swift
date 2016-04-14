@@ -94,7 +94,7 @@ extension ViewController: KSTokenViewDelegate {
    }
    
    func tokenView(tokenView: KSTokenView, shouldChangeAppearanceForToken token: KSToken) -> KSToken? {
-      if shouldChangeSwitch.on {
+      if !shouldChangeSwitch.on {
          token.tokenBackgroundColor = UIColor.redColor()
          token.tokenTextColor = UIColor.blackColor()
       }
@@ -103,32 +103,10 @@ extension ViewController: KSTokenViewDelegate {
    }
    
    func tokenView(tokenView: KSTokenView, shouldAddToken token: KSToken) -> Bool {
-      print("Token is \(token)")
       var shouldAddToken = true
-      
-      let title = token.title
-      let checking = "f"
-      let checking2 = "f"
-      
-      print("\(title.dynamicType) -- \(title)")
-      print("\(checking.dynamicType) -- \(checking)")
-      
-      let newString = title.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-      
-      if (newString == checking) {
-         print("OK with object")
+      if (token.title == "f") {
+         shouldAddToken = false
       }
-      
-      if (checking2 == checking) {
-         print("OK with variable")
-      }
-      
-      
-      //
-      
-//      if (token.title == test) {
-//         shouldAddToken = false
-//      }
       return shouldAddToken
    }
    

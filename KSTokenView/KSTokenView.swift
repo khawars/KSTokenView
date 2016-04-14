@@ -110,7 +110,7 @@ public class KSTokenView: UIView {
    /// returns the value of field
    public var text : String {
       get {
-         return _tokenField.text!.substringWithRange(Range<String.Index>(start: _tokenField.text!.startIndex.advancedBy(1), end: self._tokenField.text!.endIndex))
+         return _tokenField.text!.substringWithRange(_tokenField.text!.startIndex.advancedBy(1)..<self._tokenField.text!.endIndex)         
       }
       set (string) {
          _tokenField.text = KSTextEmpty+string
