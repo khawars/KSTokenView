@@ -590,6 +590,7 @@ public class KSTokenField: UITextField {
    private func _updatePlaceHolderVisibility() {
       if tokens.count == 0 && (text == KSTextEmpty || text!.isEmpty) {
          _placeholderLabel?.text = _placeholderValue!
+         _placeholderLabel?.sizeToFit()
          _placeholderLabel?.hidden = false
          
       } else {
@@ -600,10 +601,10 @@ public class KSTokenField: UITextField {
    private func _initPlaceholderLabel() {
       let xPos = _marginX!
       if (_placeholderLabel == nil) {
-         _placeholderLabel = UILabel(frame: CGRect(x: xPos, y: leftView!.frame.origin.y-5, width: _selfFrame!.width - xPos - _leftViewRect().size.width, height: 30))
+         _placeholderLabel = UILabel(frame: CGRect(x: xPos, y: leftView!.frame.origin.y, width: _selfFrame!.width - xPos - _leftViewRect().size.width, height: _leftViewRect().size.height))
          _placeholderLabel?.textColor = placeHolderColor
+         _placeholderLabel?.font = _font
          _scrollView.addSubview(_placeholderLabel!)
-         
       } else {
          _placeholderLabel?.frame.origin.x = xPos
       }
