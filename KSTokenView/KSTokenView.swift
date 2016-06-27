@@ -88,8 +88,8 @@ import UIKit
 //
 
 /**
-*  A KSTokenView is a control that displays a collection of tokens in a an editable UITextField and sends messages to delegate object. It can be used to gather small amounts of text from user and perform search operation. User can choose multiple search results, which are displayed as token in UITextField.
-*/
+ *  A KSTokenView is a control that displays a collection of tokens in a an editable UITextField and sends messages to delegate object. It can be used to gather small amounts of text from user and perform search operation. User can choose multiple search results, which are displayed as token in UITextField.
+ */
 public class KSTokenView: UIView {
     
     //MARK: - Private Properties
@@ -136,6 +136,10 @@ public class KSTokenView: UIView {
     
     /// default is 1. If set to 0, it shows all search results without typing anything
     public var minimumCharactersToSearch = 1
+    
+    
+    /// default is nil. Used to add searchresult to another view
+    public var parentViewForSearchResult: UIView?
     
     /// default is nil
     weak public var delegate: KSTokenViewDelegate?
@@ -345,12 +349,12 @@ public class KSTokenView: UIView {
     //
     
     /**
-    Create and inialize KSTokenView object
-    
-    - parameter frame: An object of type CGRect
-    
-    - returns: KSTokenView object
-    */
+     Create and inialize KSTokenView object
+     
+     - parameter frame: An object of type CGRect
+     
+     - returns: KSTokenView object
+     */
     override public init(frame: CGRect) {
         super.init(frame: frame)
         _commonSetup()
@@ -480,12 +484,12 @@ public class KSTokenView: UIView {
     
     
     /**
-    Creates KSToken from input text, when user press keyboard "Done" button
-    
-    - parameter tokenField: Field to add in
-    
-    - returns: Boolean if token is added
-    */
+     Creates KSToken from input text, when user press keyboard "Done" button
+     
+     - parameter tokenField: Field to add in
+     
+     - returns: Boolean if token is added
+     */
     private func _addTokenFromUntokenizedText(tokenField: KSTokenField) -> Bool {
         if (shouldAddTokenFromTextInput && tokenField.text != nil && tokenField.text != KSTextEmpty) {
             let trimmedString = tokenField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
@@ -550,10 +554,10 @@ public class KSTokenView: UIView {
     //
     
     /**
-    Deletes an already added KSToken object
-    
-    - parameter token: KSToken object
-    */
+     Deletes an already added KSToken object
+     
+     - parameter token: KSToken object
+     */
     public func deleteToken(token: KSToken) {
         _removeToken(token)
     }
@@ -666,10 +670,10 @@ public class KSTokenView: UIView {
     //
     
     /**
-    Triggers the search after user input text
-    
-    - parameter string: Search keyword
-    */
+     Triggers the search after user input text
+     
+     - parameter string: Search keyword
+     */
     private func _startSearchWithString(string: String) {
         if (!_canAddMoreToken()) {
             return
@@ -701,7 +705,11 @@ public class KSTokenView: UIView {
     private func _showSearchResults() {
         if (_tokenField.isFirstResponder()) {
             _showingSearchResult = true
-            addSubview(_searchTableView)
+            if let parentSearchResult = parentViewForSearchResult {
+                parentSearchResult.addSubview(_searchTableView)
+            } else {
+                addSubview(_searchTableView)
+            }
             _searchTableView.frame.origin = CGPoint(x: 0, y: bounds.height)
             _searchTableView.hidden = false
         }
