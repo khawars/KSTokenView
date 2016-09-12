@@ -367,7 +367,7 @@ public class KSTokenField: UITextField {
          let tokensMaxY = _caretPoint!.y
          
          if (frame.size.height != round(tokensMaxY)) {
-            tokenFieldDelegate?.tokenFieldShouldChangeHeight(tokensMaxY)
+            tokenFieldDelegate?.tokenFieldShouldChangeHeight(round(tokensMaxY))
          }
       }
    }
