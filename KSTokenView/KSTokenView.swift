@@ -312,8 +312,8 @@ public class KSTokenView: UIView {
    
    /// default is true. If false, cannot be edited
    public var editable: Bool = true {
-      didSet(newValue) {
-         _tokenField.enabled = newValue
+      didSet {
+         _tokenField.enabled = editable
       }
    }
    
