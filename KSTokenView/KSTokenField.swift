@@ -482,13 +482,15 @@ public class KSTokenField: UITextField {
    
    private func _textRectWithBounds(bounds: CGRect) -> CGRect {
       if (!_setupCompleted) {return .zero}
+      
       if (tokens.count == 0 || _caretPoint == nil) {
          return CGRect(x: _leftViewRect().width + _marginX! + _bufferX!, y: (bounds.size.height - font!.lineHeight)*0.5, width: bounds.size.width-5, height: bounds.size.height)
       }
       
       if (tokens.count != 0 && _state == .Closed) {
-         return CGRect(x: _leftViewRect().maxX + _marginX! + _bufferX!, y: (_caretPoint!.y - font!.lineHeight - (_marginY!)), width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
+         return CGRect(x: _leftViewRect().maxX + _marginX! + _bufferX!, y: (bounds.size.height - font!.lineHeight)*0.5, width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
       }
+      
       return CGRect(x: _caretPoint!.x, y: (_caretPoint!.y - font!.lineHeight - (_marginY!)), width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
    }
    
@@ -526,6 +528,11 @@ public class KSTokenField: UITextField {
       return rightView!.bounds
    }
    
+   
+   //MARK: - Prompt Text
+   /*
+    **************************** Prompt Text ****************************
+    */
    private func _setPromptText(text: String?) {
       if (text != nil) {
          var label = leftView
