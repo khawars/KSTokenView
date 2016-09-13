@@ -356,6 +356,7 @@ public class KSTokenField: UITextField {
       if (parentView == nil) {
          return
       }
+      
       _caretPoint = _layoutTokens()
       deselectSelectedToken()
       
@@ -381,6 +382,7 @@ public class KSTokenField: UITextField {
       if (_selfFrame == nil) {
          return .zero
       }
+      
       if (_state == .Closed) {
          return CGPoint(x: _marginX! + _bufferX!, y: _selfFrame!.size.height)
       }

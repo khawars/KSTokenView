@@ -200,7 +200,7 @@ public class KSTokenView: UIView {
    }
    
    /// default is 2.0. Vertical padding of title
-   var paddingY: CGFloat = 2.0 {
+   public var paddingY: CGFloat = 2.0 {
       didSet {
          if (oldValue != paddingY) {
             _updateTokenField()
