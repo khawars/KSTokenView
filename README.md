@@ -18,8 +18,8 @@ Click [here](https://appetize.io/app/0kzy34tyg761punebrcc1x556w) for Live Previe
 
 ## Requirements
 
-- iOS 7 and above.
-- Xcode 7 and above
+- iOS 8 and above.
+- Xcode 8 and above
 
 
 ## Adding KSTokenView to your project
