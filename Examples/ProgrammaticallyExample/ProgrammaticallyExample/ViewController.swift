@@ -36,7 +36,7 @@ class ViewController: UIViewController {
       tokenView.promptText = "Favorites: "
       tokenView.placeholder = "Type to search"
       tokenView.descriptionText = "Languages"
-      tokenView.style = .Rounded
+      tokenView.style = .rounded
       view.addSubview(tokenView)
       for i in 0...20 {
          let token: KSToken = KSToken(title: names[i])
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
    
    @IBAction func addToken(sender: AnyObject) {
       let title = names[Int(arc4random_uniform(UInt32(names.count)))] as String
-      let token = KSToken(title: title, object: title)
+      let token = KSToken(title: title, object: title as AnyObject?)
       
       // Token background color
       var red = CGFloat(Float(arc4random()) / Float(UINT32_MAX))
@@ -79,30 +79,30 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: KSTokenViewDelegate {
-   func tokenView(token: KSTokenView, performSearchWithString string: String, completion: ((results: Array<AnyObject>) -> Void)?) {
+   func tokenView(_ token: KSTokenView, performSearchWithString string: String, completion: ((_ results: Array<AnyObject>) -> Void)?) {
       var data: Array<String> = []
       for value: String in names {
-         if value.lowercaseString.rangeOfString(string.lowercaseString) != nil {
+         if value.lowercased().range(of: string.lowercased()) != nil {
             data.append(value)
          }
       }
-      completion!(results: data)
+      completion!(data as Array<AnyObject>)
    }
    
-   func tokenView(token: KSTokenView, displayTitleForObject object: AnyObject) -> String {
+   func tokenView(_ token: KSTokenView, displayTitleForObject object: AnyObject) -> String {
       return object as! String
    }
    
-   func tokenView(tokenView: KSTokenView, shouldChangeAppearanceForToken token: KSToken) -> KSToken? {
-      if !shouldChangeSwitch.on {
-         token.tokenBackgroundColor = UIColor.redColor()
-         token.tokenTextColor = UIColor.blackColor()
+   func tokenView(_ tokenView: KSTokenView, shouldChangeAppearanceForToken token: KSToken) -> KSToken? {
+      if !shouldChangeSwitch.isOn {
+         token.tokenBackgroundColor = UIColor.red
+         token.tokenTextColor = UIColor.black
       }
       
       return token
    }
    
-   func tokenView(tokenView: KSTokenView, shouldAddToken token: KSToken) -> Bool {
+   func tokenView(_ tokenView: KSTokenView, shouldAddToken token: KSToken) -> Bool {
       var shouldAddToken = true
       if (token.title == "f") {
          shouldAddToken = false
