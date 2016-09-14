@@ -38,7 +38,7 @@ class ViewController: UIViewController {
       tokenView.descriptionText = "Languages"
       tokenView.maxTokenLimit = 5
       tokenView.minimumCharactersToSearch = 0 // Show all results without without typing anything
-      tokenView.style = .Squared
+      tokenView.style = .squared
    }
 
    override func didReceiveMemoryWarning() {
@@ -49,26 +49,26 @@ class ViewController: UIViewController {
 
 
 extension ViewController: KSTokenViewDelegate {
-   func tokenView(token: KSTokenView, performSearchWithString string: String, completion: ((results: Array<AnyObject>) -> Void)?) {
+   func tokenView(_ token: KSTokenView, performSearchWithString string: String, completion: ((_ results: Array<AnyObject>) -> Void)?) {
       if (string.characters.isEmpty){
-         completion!(results: names)
+         completion!(names as Array<AnyObject>)
          return
       }
       
       var data: Array<String> = []
       for value: String in names {
-         if value.lowercaseString.rangeOfString(string.lowercaseString) != nil {
+         if value.lowercased().range(of: string.lowercased()) != nil {
             data.append(value)
          }
       }
-      completion!(results: data)
+      completion!(data as Array<AnyObject>)
    }
    
-   func tokenView(token: KSTokenView, displayTitleForObject object: AnyObject) -> String {
+   func tokenView(_ token: KSTokenView, displayTitleForObject object: AnyObject) -> String {
       return object as! String
    }
    
-   func tokenView(tokenView: KSTokenView, shouldAddToken token: KSToken) -> Bool {
+   func tokenView(_ tokenView: KSTokenView, shouldAddToken token: KSToken) -> Bool {
       if token.title == "f" {
          return false
       }

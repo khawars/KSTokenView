@@ -37,7 +37,7 @@ class ViewController: UIViewController {
       tokenView.placeholder = "Type to search"
       tokenView.descriptionText = "Languages"
       tokenView.maxTokenLimit = 5
-      tokenView.style = .Squared
+      tokenView.style = .squared
    }
    
    override func didReceiveMemoryWarning() {
@@ -47,17 +47,17 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: KSTokenViewDelegate {
-   func tokenView(token: KSTokenView, performSearchWithString string: String, completion: ((results: Array<AnyObject>) -> Void)?) {
+   func tokenView(_ token: KSTokenView, performSearchWithString string: String, completion: ((_ results: Array<AnyObject>) -> Void)?) {
       var data: Array<String> = []
       for value: String in names {
-         if value.lowercaseString.rangeOfString(string.lowercaseString) != nil {
+         if value.lowercased().range(of: string.lowercased()) != nil {
             data.append(value)
          }
       }
-      completion!(results: data)
+      completion!(data as Array<AnyObject>)
    }
    
-   func tokenView(token: KSTokenView, displayTitleForObject object: AnyObject) -> String {
+   func tokenView(_ token: KSTokenView, displayTitleForObject object: AnyObject) -> String {
       return object as! String
    }
 }

@@ -28,51 +28,51 @@ import UIKit
 //MARK: - KSToken
 //__________________________________________________________________________________
 //
-public class KSToken : UIControl {
+open class KSToken : UIControl {
    
    //MARK: - Public Properties
    //__________________________________________________________________________________
    //
    
    /// retuns title as description
-   override public var description : String {
+   override open var description : String {
       get {
          return title
       }
    }
    
    /// default is ""
-   public var title = ""
+   open var title = ""
    
    /// default is nil. Any Custom object.
-   public var object: AnyObject?
+   open var object: AnyObject?
    
    /// default is false. If set to true, token can not be deleted
-   public var sticky = false
+   open var sticky = false
    
    /// Token Title color
-   public var tokenTextColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+   open var tokenTextColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
    
    /// Token background color
-   public var tokenBackgroundColor = UIColor(red: 50/255, green: 50/255, blue: 255/255, alpha: 1)
+   open var tokenBackgroundColor = UIColor(red: 50/255, green: 50/255, blue: 255/255, alpha: 1)
    
    /// Token title color in selected state
-   public var tokenTextHighlightedColor: UIColor?
+   open var tokenTextHighlightedColor: UIColor?
    
    /// Token backgrould color in selected state
-   public var tokenBackgroundHighlightedColor: UIColor?
+   open var tokenBackgroundHighlightedColor: UIColor?
    
    /// Token background color in selected state. It doesn't have effect if 'tokenBackgroundHighlightedColor' is set
-   public var darkRatio: CGFloat = 0.75
+   open var darkRatio: CGFloat = 0.75
    
    /// Token border width
-   public var borderWidth: CGFloat = 0.0
+   open var borderWidth: CGFloat = 0.0
    
    ///Token border color
-   public var borderColor: UIColor = UIColor.blackColor()
+   open var borderColor: UIColor = UIColor.black
    
    /// default is 200. Maximum width of token. After maximum limit is reached title is truncated at end with '...'
-   private var _maxWidth: CGFloat? = 200
+   fileprivate var _maxWidth: CGFloat? = 200
    var maxWidth: CGFloat {
       get{
          return _maxWidth!
@@ -87,7 +87,7 @@ public class KSToken : UIControl {
    }
    
    /// returns true if token is selected
-   override public var selected: Bool {
+   override open var isSelected: Bool {
       didSet (newValue) {
          setNeedsDisplay()
       }
@@ -101,20 +101,20 @@ public class KSToken : UIControl {
    }
    
    convenience public init(title: String) {
-      self.init(title: title, object: title);
+      self.init(title: title, object: title as AnyObject?);
    }
    
    public init(title: String, object: AnyObject?) {
       self.title = title
       self.object = object
       super.init(frame: CGRect.zero)
-      backgroundColor = UIColor.clearColor()
+      backgroundColor = UIColor.clear
    }
    
    //MARK: - Drawing code
    //__________________________________________________________________________________
    //
-   override public func drawRect(rect: CGRect) {
+   override open func draw(_ rect: CGRect) {
       //// General Declarations
       let context = UIGraphicsGetCurrentContext()
       
@@ -126,7 +126,7 @@ public class KSToken : UIControl {
       var textColor: UIColor
       var backgroundColor: UIColor
       
-      if (selected) {
+      if (isSelected) {
          if (tokenBackgroundHighlightedColor != nil) {
             backgroundColor = tokenBackgroundHighlightedColor!
          } else {
@@ -148,7 +148,7 @@ public class KSToken : UIControl {
       rectanglePath.fill()
       
       var paddingX: CGFloat = 0.0
-      var font = UIFont.systemFontOfSize(14)
+      var font = UIFont.systemFont(ofSize: 14)
       var tokenField: KSTokenField? {
          return superview! as? KSTokenField
       }
@@ -159,31 +159,31 @@ public class KSToken : UIControl {
       
       // Text
       let rectangleTextContent = title
-      let rectangleStyle = NSMutableParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-      rectangleStyle.lineBreakMode = NSLineBreakMode.ByTruncatingTail
-      rectangleStyle.alignment = NSTextAlignment.Center
-      let rectangleFontAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: textColor, NSParagraphStyleAttributeName: rectangleStyle]
+      let rectangleStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+      rectangleStyle.lineBreakMode = NSLineBreakMode.byTruncatingTail
+      rectangleStyle.alignment = NSTextAlignment.center
+      let rectangleFontAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: textColor, NSParagraphStyleAttributeName: rectangleStyle] as [String : Any]
       
       let maxDrawableHeight = max(rect.height , font.lineHeight)
-      let textHeight: CGFloat = KSUtils.getRect(rectangleTextContent, width: rect.width, height: maxDrawableHeight , font: font).size.height
+      let textHeight: CGFloat = KSUtils.getRect(rectangleTextContent as NSString, width: rect.width, height: maxDrawableHeight , font: font).size.height
       
       
       let textRect = CGRect(x: rect.minX + paddingX, y: rect.minY + (maxDrawableHeight - textHeight) / 2, width: min(maxWidth, rect.width) - (paddingX*2), height: maxDrawableHeight)
       
-      rectangleTextContent.drawInRect(textRect, withAttributes: rectangleFontAttributes)
+      rectangleTextContent.draw(in: textRect, withAttributes: rectangleFontAttributes)
       
       #if swift(>=2.3)
-         CGContextSaveGState(context!)
-         CGContextClipToRect(context!, rect)
-         CGContextRestoreGState(context!)
+         context!.saveGState()
+         context!.clip(to: rect)
+         context!.restoreGState()
       #else
-         CGContextSaveGState(context)
-         CGContextClipToRect(context, rect)
-         CGContextRestoreGState(context)
+         context.saveGState()
+         context.clip(to: rect)
+         context.restoreGState()
       #endif
       
       // Border
-      if (borderWidth > 0.0 && borderColor != UIColor.clearColor()) {
+      if (borderWidth > 0.0 && borderColor != UIColor.clear) {
          borderColor.setStroke()
          rectanglePath.lineWidth = borderWidth
          rectanglePath.stroke()
