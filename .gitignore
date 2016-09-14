@@ -24,3 +24,13 @@ DerivedData
 # http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
 #
 # Pods/
+
+Examples/AutolayoutExample/.DS_Store
+
+Examples/HorizontalExample/.DS_Store
+
+Examples/ObjCExample/.DS_Store
+
+Examples/StackViewExample/.DS_Store
+
+Examples/SwiftExample/.DS_Store
