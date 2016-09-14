@@ -172,9 +172,9 @@ public class KSToken : UIControl {
       
       rectangleTextContent.drawInRect(textRect, withAttributes: rectangleFontAttributes)
       
-      CGContextSaveGState(context)
-      CGContextClipToRect(context, rect)
-      CGContextRestoreGState(context)
+      CGContextSaveGState(context!)
+      CGContextClipToRect(context!, rect)
+      CGContextRestoreGState(context!)
       
       // Border
       if (borderWidth > 0.0 && borderColor != UIColor.clearColor()) {

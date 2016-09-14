@@ -196,6 +196,7 @@
 				TargetAttributes = {
 					CBF5E85B1A6422AC006A6BF0 = {
 						CreatedOnToolsVersion = 6.2;
+						LastSwiftMigration = 0800;
 					};
 					CBF5E8741A6422AC006A6BF0 = {
 						CreatedOnToolsVersion = 6.2;
@@ -390,6 +391,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ObjCExample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -405,6 +407,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.khawar.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "ObjCExample-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
