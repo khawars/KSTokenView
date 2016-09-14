@@ -17,20 +17,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 
-# CocoaPods
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
-#
-# Pods/
-
-Examples/AutolayoutExample/.DS_Store
-
-Examples/HorizontalExample/.DS_Store
-
-Examples/ObjCExample/.DS_Store
-
-Examples/StackViewExample/.DS_Store
-
-Examples/SwiftExample/.DS_Store
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
