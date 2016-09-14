@@ -21,12 +21,11 @@ Pod::Spec.new do |s|
 
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  s.platform     = :ios, "8.0"
+  s.ios.deployment_target = '8.0'
 
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   s.source       = { :git => "https://github.com/khawars/KSTokenView.git", :tag => s.version }
 
   s.source_files  = "KSTokenView/*.swift"
-  s.requires_arc = true
 end
