@@ -73,7 +73,7 @@ open class KSToken : UIControl {
    
    /// default is 200. Maximum width of token. After maximum limit is reached title is truncated at end with '...'
    fileprivate var _maxWidth: CGFloat? = 200
-   var maxWidth: CGFloat {
+   open var maxWidth: CGFloat {
       get{
          return _maxWidth!
       }
