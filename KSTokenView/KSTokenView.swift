@@ -548,8 +548,8 @@ public class KSTokenView: UIView {
       
       delegate?.tokenView?(self, willAddToken: token)
       var addedToken: KSToken?
-      if let updaetdToken = delegate?.tokenView?(self, shouldChangeAppearanceForToken: token) {
-         addedToken = _tokenField.addToken(updaetdToken)
+      if let updatedToken = delegate?.tokenView?(self, shouldChangeAppearanceForToken: token) {
+         addedToken = _tokenField.addToken(updatedToken)
          
       } else {
          addedToken = _tokenField.addToken(token)
