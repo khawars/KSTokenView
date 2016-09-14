@@ -70,7 +70,7 @@ public class KSToken : UIControl {
    
    ///Token border color
    public var borderColor: UIColor = UIColor.blackColor()
-
+   
    /// default is 200. Maximum width of token. After maximum limit is reached title is truncated at end with '...'
    private var _maxWidth: CGFloat? = 200
    var maxWidth: CGFloat {
@@ -172,9 +172,15 @@ public class KSToken : UIControl {
       
       rectangleTextContent.drawInRect(textRect, withAttributes: rectangleFontAttributes)
       
-      CGContextSaveGState(context!)
-      CGContextClipToRect(context!, rect)
-      CGContextRestoreGState(context!)
+      #if swift(>=2.3)
+         CGContextSaveGState(context!)
+         CGContextClipToRect(context!, rect)
+         CGContextRestoreGState(context!)
+      #else
+         CGContextSaveGState(context)
+         CGContextClipToRect(context, rect)
+         CGContextRestoreGState(context)
+      #endif
       
       // Border
       if (borderWidth > 0.0 && borderColor != UIColor.clearColor()) {
