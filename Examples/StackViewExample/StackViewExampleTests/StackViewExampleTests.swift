@@ -1,6 +1,6 @@
 //
-//  AutolayoutExampleTests.swift
-//  AutolayoutExampleTests
+//  StackViewExampleTests.swift
+//  StackViewExample
 //
 //  Created by Khawar Shahzad on 11/05/2015.
 //  Copyright (c) 2015 Khawar Shahzad. All rights reserved.
@@ -9,7 +9,7 @@
 import UIKit
 import XCTest
 
-class AutolayoutExampleTests: XCTestCase {
+class StackViewExampleTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

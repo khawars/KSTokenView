@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  AutolayoutExample
+//  StackViewExample
 //
 //  Created by Khawar Shahzad on 11/05/2015.
 //  Copyright (c) 2015 Khawar Shahzad. All rights reserved.
@@ -39,11 +39,6 @@ class ViewController: UIViewController {
       tokenView.maxTokenLimit = 5
       tokenView.minimumCharactersToSearch = 0 // Show all results without without typing anything
       tokenView.style = .squared
-      
-      let font = UIFont(name: "MagnoliaSky", size: 14.0)
-      if (font != nil) {
-         tokenView.font = font!
-      }
    }
 
    override func didReceiveMemoryWarning() {

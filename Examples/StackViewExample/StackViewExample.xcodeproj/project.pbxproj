@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C34B6B401C91C7B300356D10 /* magnolia_sky.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C34B6B3F1C91C73400356D10 /* magnolia_sky.ttf */; };
 		CB9350021AE5032700756186 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9350011AE5032700756186 /* AppDelegate.swift */; };
 		CB9350041AE5032700756186 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9350031AE5032700756186 /* ViewController.swift */; };
 		CB9350071AE5032800756186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9350051AE5032800756186 /* Main.storyboard */; };
 		CB9350091AE5032800756186 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB9350081AE5032800756186 /* Images.xcassets */; };
 		CB93500C1AE5032900756186 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB93500A1AE5032900756186 /* LaunchScreen.xib */; };
-		CB9350181AE5032900756186 /* AutolayoutExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9350171AE5032900756186 /* AutolayoutExampleTests.swift */; };
+		CB9350181AE5032900756186 /* StackViewExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9350171AE5032900756186 /* StackViewExampleTests.swift */; };
 		CB9350261AE5037F00756186 /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9350221AE5037F00756186 /* KSToken.swift */; };
 		CB9350271AE5037F00756186 /* KSTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9350231AE5037F00756186 /* KSTokenField.swift */; };
 		CB9350281AE5037F00756186 /* KSTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9350241AE5037F00756186 /* KSTokenView.swift */; };
@@ -32,17 +31,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C34B6B3F1C91C73400356D10 /* magnolia_sky.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = magnolia_sky.ttf; sourceTree = "<group>"; };
-		CB934FFC1AE5032600756186 /* AutolayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutolayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB934FFC1AE5032600756186 /* StackViewExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackViewExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9350001AE5032700756186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB9350011AE5032700756186 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB9350031AE5032700756186 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CB9350061AE5032800756186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB9350081AE5032800756186 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CB93500B1AE5032900756186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		CB9350111AE5032900756186 /* AutolayoutExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutolayoutExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB9350111AE5032900756186 /* StackViewExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StackViewExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9350161AE5032900756186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CB9350171AE5032900756186 /* AutolayoutExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutolayoutExampleTests.swift; sourceTree = "<group>"; };
+		CB9350171AE5032900756186 /* StackViewExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewExampleTests.swift; sourceTree = "<group>"; };
 		CB9350221AE5037F00756186 /* KSToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
 		CB9350231AE5037F00756186 /* KSTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
 		CB9350241AE5037F00756186 /* KSTokenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenView.swift; sourceTree = "<group>"; };
@@ -71,10 +69,9 @@
 		CB934FF31AE5032300756186 = {
 			isa = PBXGroup;
 			children = (
-				C34B6B3F1C91C73400356D10 /* magnolia_sky.ttf */,
 				CB9350211AE5037F00756186 /* KSTokenView */,
-				CB934FFE1AE5032600756186 /* AutolayoutExample */,
-				CB9350141AE5032900756186 /* AutolayoutExampleTests */,
+				CB934FFE1AE5032600756186 /* StackViewExample */,
+				CB9350141AE5032900756186 /* StackViewExampleTests */,
 				CB934FFD1AE5032600756186 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,13 +79,13 @@
 		CB934FFD1AE5032600756186 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CB934FFC1AE5032600756186 /* AutolayoutExample.app */,
-				CB9350111AE5032900756186 /* AutolayoutExampleTests.xctest */,
+				CB934FFC1AE5032600756186 /* StackViewExample.app */,
+				CB9350111AE5032900756186 /* StackViewExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CB934FFE1AE5032600756186 /* AutolayoutExample */ = {
+		CB934FFE1AE5032600756186 /* StackViewExample */ = {
 			isa = PBXGroup;
 			children = (
 				CB93502A1AE5045E00756186 /* List.swift */,
@@ -99,7 +96,7 @@
 				CB93500A1AE5032900756186 /* LaunchScreen.xib */,
 				CB934FFF1AE5032700756186 /* Supporting Files */,
 			);
-			path = AutolayoutExample;
+			path = StackViewExample;
 			sourceTree = "<group>";
 		};
 		CB934FFF1AE5032700756186 /* Supporting Files */ = {
@@ -110,13 +107,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CB9350141AE5032900756186 /* AutolayoutExampleTests */ = {
+		CB9350141AE5032900756186 /* StackViewExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				CB9350171AE5032900756186 /* AutolayoutExampleTests.swift */,
+				CB9350171AE5032900756186 /* StackViewExampleTests.swift */,
 				CB9350151AE5032900756186 /* Supporting Files */,
 			);
-			path = AutolayoutExampleTests;
+			path = StackViewExampleTests;
 			sourceTree = "<group>";
 		};
 		CB9350151AE5032900756186 /* Supporting Files */ = {
@@ -142,9 +139,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CB934FFB1AE5032500756186 /* AutolayoutExample */ = {
+		CB934FFB1AE5032500756186 /* StackViewExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CB93501B1AE5032900756186 /* Build configuration list for PBXNativeTarget "AutolayoutExample" */;
+			buildConfigurationList = CB93501B1AE5032900756186 /* Build configuration list for PBXNativeTarget "StackViewExample" */;
 			buildPhases = (
 				CB934FF81AE5032500756186 /* Sources */,
 				CB934FF91AE5032500756186 /* Frameworks */,
@@ -154,14 +151,14 @@
 			);
 			dependencies = (
 			);
-			name = AutolayoutExample;
+			name = StackViewExample;
 			productName = AutolayoutExample;
-			productReference = CB934FFC1AE5032600756186 /* AutolayoutExample.app */;
+			productReference = CB934FFC1AE5032600756186 /* StackViewExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CB9350101AE5032900756186 /* AutolayoutExampleTests */ = {
+		CB9350101AE5032900756186 /* StackViewExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CB93501E1AE5032900756186 /* Build configuration list for PBXNativeTarget "AutolayoutExampleTests" */;
+			buildConfigurationList = CB93501E1AE5032900756186 /* Build configuration list for PBXNativeTarget "StackViewExampleTests" */;
 			buildPhases = (
 				CB93500D1AE5032900756186 /* Sources */,
 				CB93500E1AE5032900756186 /* Frameworks */,
@@ -172,9 +169,9 @@
 			dependencies = (
 				CB9350131AE5032900756186 /* PBXTargetDependency */,
 			);
-			name = AutolayoutExampleTests;
+			name = StackViewExampleTests;
 			productName = AutolayoutExampleTests;
-			productReference = CB9350111AE5032900756186 /* AutolayoutExampleTests.xctest */;
+			productReference = CB9350111AE5032900756186 /* StackViewExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -198,7 +195,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CB934FF71AE5032400756186 /* Build configuration list for PBXProject "AutolayoutExample" */;
+			buildConfigurationList = CB934FF71AE5032400756186 /* Build configuration list for PBXProject "StackViewExample" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -211,8 +208,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CB934FFB1AE5032500756186 /* AutolayoutExample */,
-				CB9350101AE5032900756186 /* AutolayoutExampleTests */,
+				CB934FFB1AE5032500756186 /* StackViewExample */,
+				CB9350101AE5032900756186 /* StackViewExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -222,7 +219,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C34B6B401C91C7B300356D10 /* magnolia_sky.ttf in Resources */,
 				CB9350071AE5032800756186 /* Main.storyboard in Resources */,
 				CB93500C1AE5032900756186 /* LaunchScreen.xib in Resources */,
 				CB9350091AE5032800756186 /* Images.xcassets in Resources */,
@@ -257,7 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB9350181AE5032900756186 /* AutolayoutExampleTests.swift in Sources */,
+				CB9350181AE5032900756186 /* StackViewExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +262,7 @@
 /* Begin PBXTargetDependency section */
 		CB9350131AE5032900756186 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CB934FFB1AE5032500756186 /* AutolayoutExample */;
+			target = CB934FFB1AE5032500756186 /* StackViewExample */;
 			targetProxy = CB9350121AE5032900756186 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -328,7 +324,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -367,7 +363,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -379,7 +375,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = AutolayoutExample/Info.plist;
+				INFOPLIST_FILE = StackViewExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.khawar.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -391,7 +387,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = AutolayoutExample/Info.plist;
+				INFOPLIST_FILE = StackViewExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.khawar.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -411,12 +407,12 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = AutolayoutExampleTests/Info.plist;
+				INFOPLIST_FILE = StackViewExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.khawar.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AutolayoutExample.app/AutolayoutExample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StackViewExample.app/StackViewExample";
 			};
 			name = Debug;
 		};
@@ -428,19 +424,19 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = AutolayoutExampleTests/Info.plist;
+				INFOPLIST_FILE = StackViewExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.khawar.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AutolayoutExample.app/AutolayoutExample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StackViewExample.app/StackViewExample";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CB934FF71AE5032400756186 /* Build configuration list for PBXProject "AutolayoutExample" */ = {
+		CB934FF71AE5032400756186 /* Build configuration list for PBXProject "StackViewExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CB9350191AE5032900756186 /* Debug */,
@@ -449,7 +445,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CB93501B1AE5032900756186 /* Build configuration list for PBXNativeTarget "AutolayoutExample" */ = {
+		CB93501B1AE5032900756186 /* Build configuration list for PBXNativeTarget "StackViewExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CB93501C1AE5032900756186 /* Debug */,
@@ -458,7 +454,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CB93501E1AE5032900756186 /* Build configuration list for PBXNativeTarget "AutolayoutExampleTests" */ = {
+		CB93501E1AE5032900756186 /* Build configuration list for PBXNativeTarget "StackViewExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CB93501F1AE5032900756186 /* Debug */,
