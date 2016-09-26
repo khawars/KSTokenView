@@ -173,14 +173,14 @@ open class KSTokenView: UIView {
    }
     
     /// Default is whiteColor()
-    open var searchResultCellBackgroundColor: UIColor = UIColor.whiteColor() {
+    open var searchResultCellBackgroundColor: UIColor = UIColor.white {
         didSet {
             _cellBackgroundColor = searchResultCellBackgroundColor
         }
     }
     
     /// Default is blackColor()
-    open var searchResultCellTextLabelColor: UIColor = UIColor.blackColor() {
+    open var searchResultCellTextLabelColor: UIColor = UIColor.black {
         didSet {
             _cellTextLabelColor = searchResultCellTextLabelColor
         }
