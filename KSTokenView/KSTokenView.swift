@@ -171,6 +171,20 @@ open class KSTokenView: UIView {
          _searchTableView.backgroundColor = searchResultBackgroundColor
       }
    }
+    
+    /// Default is whiteColor()
+    public var searchResultCellBackgroundColor: UIColor = UIColor.whiteColor() {
+        didSet {
+            _cellBackgroundColor = searchResultCellBackgroundColor
+        }
+    }
+    
+    /// Default is blackColor()
+    public var searchResultCellTextLabelColor: UIColor = UIColor.blackColor() {
+        didSet {
+            _cellTextLabelColor = searchResultCellTextLabelColor
+        }
+    }
    
    /// default is UIColor.blueColor()
    open var activityIndicatorColor: UIColor = UIColor.blue {
