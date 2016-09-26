@@ -103,6 +103,8 @@ open class KSTokenView: UIView {
    fileprivate let _searchResultHeight: CGFloat = 200.0
    fileprivate var _lastSearchString: String = ""
    fileprivate var _intrinsicContentHeight: CGFloat = UIViewNoIntrinsicMetric
+   fileprivate var _cellBackgroundColor: UIColor?
+   fileprivate var _cellTextLabelColor: UIColor?
    
    //MARK: - Public Properties
    //__________________________________________________________________________________
@@ -970,6 +972,12 @@ extension KSTokenView : UITableViewDataSource {
       let title = delegate?.tokenView(self, displayTitleForObject: _resultArray[(indexPath as NSIndexPath).row])
       cell!.textLabel!.text = (title != nil) ? title : "No Title"
       cell!.selectionStyle = UITableViewCellSelectionStyle.none
-      return cell!
+    if (_cellBackgroundColor != nil) {
+        cell!.backgroundColor = _cellBackgroundColor
+    }
+    if (_cellTextLabelColor != nil) {
+        cell!.textLabel?.textColor = _cellTextLabelColor
+    }
+    return cell!
    }
 }
