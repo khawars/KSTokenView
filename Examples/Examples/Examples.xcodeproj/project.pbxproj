@@ -16,12 +16,12 @@
 		C38978261DFB1FDC009E3D81 /* KSTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38978221DFB1FDC009E3D81 /* KSTokenField.swift */; };
 		C38978271DFB1FDC009E3D81 /* KSTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38978231DFB1FDC009E3D81 /* KSTokenView.swift */; };
 		C38978281DFB1FDC009E3D81 /* KSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38978241DFB1FDC009E3D81 /* KSUtils.swift */; };
-		C389782A1DFB200C009E3D81 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38978291DFB200C009E3D81 /* List.swift */; };
 		C38978391DFB2F57009E3D81 /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38978381DFB2F57009E3D81 /* Autolayout.swift */; };
 		C389783D1DFB3721009E3D81 /* Programmatically.swift in Sources */ = {isa = PBXBuildFile; fileRef = C389783C1DFB3721009E3D81 /* Programmatically.swift */; };
 		C389783F1DFB3C41009E3D81 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C389783E1DFB3C41009E3D81 /* StackView.swift */; };
 		C38978421DFB3D54009E3D81 /* DBCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = C38978411DFB3D54009E3D81 /* DBCountry.m */; };
 		C38978451DFB3DB1009E3D81 /* ObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = C38978441DFB3DB1009E3D81 /* ObjectiveC.m */; };
+		C38978491DFB4A11009E3D81 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38978481DFB4A11009E3D81 /* List.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,6 @@
 		C38978221DFB1FDC009E3D81 /* KSTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
 		C38978231DFB1FDC009E3D81 /* KSTokenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenView.swift; sourceTree = "<group>"; };
 		C38978241DFB1FDC009E3D81 /* KSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSUtils.swift; sourceTree = "<group>"; };
-		C38978291DFB200C009E3D81 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = List.swift; path = ../List.swift; sourceTree = "<group>"; };
 		C38978311DFB2DCD009E3D81 /* Examples-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Examples-Bridging-Header.h"; sourceTree = "<group>"; };
 		C38978381DFB2F57009E3D81 /* Autolayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
 		C389783C1DFB3721009E3D81 /* Programmatically.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Programmatically.swift; sourceTree = "<group>"; };
@@ -45,6 +44,7 @@
 		C38978411DFB3D54009E3D81 /* DBCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBCountry.m; sourceTree = "<group>"; };
 		C38978431DFB3DB1009E3D81 /* ObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveC.h; sourceTree = "<group>"; };
 		C38978441DFB3DB1009E3D81 /* ObjectiveC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectiveC.m; sourceTree = "<group>"; };
+		C38978481DFB4A11009E3D81 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +62,9 @@
 			isa = PBXGroup;
 			children = (
 				C38978201DFB1FDC009E3D81 /* KSTokenView */,
-				C38978291DFB200C009E3D81 /* List.swift */,
 				C38978401DFB3D54009E3D81 /* DBCountry.h */,
 				C38978411DFB3D54009E3D81 /* DBCountry.m */,
+				C38978481DFB4A11009E3D81 /* List.swift */,
 				C389780D1DFB1FB3009E3D81 /* Examples */,
 				C389780C1DFB1FB3009E3D81 /* Products */,
 			);
@@ -186,8 +186,8 @@
 				C389783F1DFB3C41009E3D81 /* StackView.swift in Sources */,
 				C38978111DFB1FB3009E3D81 /* ViewController.swift in Sources */,
 				C38978421DFB3D54009E3D81 /* DBCountry.m in Sources */,
-				C389782A1DFB200C009E3D81 /* List.swift in Sources */,
 				C38978451DFB3DB1009E3D81 /* ObjectiveC.m in Sources */,
+				C38978491DFB4A11009E3D81 /* List.swift in Sources */,
 				C389780F1DFB1FB3009E3D81 /* AppDelegate.swift in Sources */,
 				C38978281DFB1FDC009E3D81 /* KSUtils.swift in Sources */,
 				C38978391DFB2F57009E3D81 /* Autolayout.swift in Sources */,
