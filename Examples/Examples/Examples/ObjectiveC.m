@@ -58,31 +58,27 @@
 - (void)tokenView:(KSTokenView *)token performSearchWithString:(NSString *)string completion:(void (^)(NSArray *))completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *requestURL = [NSString stringWithFormat:@"%@%@", requestURLString, string];
-        NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
-        NSURLResponse * response = nil;
-        NSError * error = nil;
-        NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&response error:&error];
         
-        NSMutableArray *results = [[NSMutableArray alloc] init];
-        
-        if (error == nil) {
-            NSError *errorJSON;
-            NSArray *countries = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&errorJSON];
-            if ([countries isKindOfClass:[NSArray class]]) {
-                for (int counter = 0; counter < countries.count; counter++) {
-                    NSDictionary *countryDictionary = countries[counter];
-                    if  (countryDictionary) {
-                        DBCountry *country = [[DBCountry alloc] initWithName:[countryDictionary valueForKey:@"name"] capital:[countryDictionary valueForKey:@"capital"] region:[countryDictionary valueForKey:@"region"]];
-                        [results addObject:country];
-                        country = nil;
+        NSURLSession *session = [NSURLSession sharedSession];
+        [[session dataTaskWithURL:[NSURL URLWithString:requestURL]
+                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                    if (error == nil) {
+                        NSError *errorJSON;
+                        NSArray *countries = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&errorJSON];
+                        NSMutableArray *results = [[NSMutableArray alloc] init];
+                        if ([countries isKindOfClass:[NSArray class]]) {
+                            for (int counter = 0; counter < countries.count; counter++) {
+                                NSDictionary *countryDictionary = countries[counter];
+                                if  (countryDictionary) {
+                                    DBCountry *country = [[DBCountry alloc] initWithName:[countryDictionary valueForKey:@"name"] capital:[countryDictionary valueForKey:@"capital"] region:[countryDictionary valueForKey:@"region"]];
+                                    [results addObject:country];
+                                    country = nil;
+                                    completion(results);
+                                }
+                            }
+                        }
                     }
-                }
-            }
-        }
-        
-        dispatch_async(dispatch_get_main_queue(), ^(void) {
-            completion(results);
-        });
+                }] resume];
     });
 }
 

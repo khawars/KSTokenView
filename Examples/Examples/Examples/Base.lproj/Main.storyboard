@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="7tu-gV-bHd">
             <objects>
-                <viewController id="Gm7-fJ-rHe" customClass="ViewController" customModule="Examples" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="Gm7-fJ-rHe" customClass="ViewController" customModule="Examples" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J7H-sr-Opa"/>
                         <viewControllerLayoutGuide type="bottom" id="k1f-UT-65n"/>
@@ -38,17 +37,17 @@
                     <navigationItem key="navigationItem" id="cEE-WC-Ont"/>
                     <connections>
                         <outlet property="tableView" destination="1fz-i6-KEA" id="m3t-MN-YTd"/>
-                        <segue destination="dzN-od-U8L" kind="show" identifier="" id="z3a-lL-rMO">
+                        <segue destination="dzN-od-U8L" kind="show" identifier="identifierAutolayout" id="z3a-lL-rMO">
                             <nil key="action"/>
                         </segue>
-                        <segue destination="gWU-w1-pad" kind="show" id="33x-1R-ISe"/>
-                        <segue destination="l78-ay-7Oo" kind="show" id="jYI-5N-r1V"/>
-                        <segue destination="mJK-NW-TWd" kind="show" id="YKw-LI-SFh"/>
+                        <segue destination="gWU-w1-pad" kind="show" identifier="identifierProgrammatically" id="33x-1R-ISe"/>
+                        <segue destination="l78-ay-7Oo" kind="show" identifier="identifierStackview" id="jYI-5N-r1V"/>
+                        <segue destination="mJK-NW-TWd" kind="show" identifier="identifierObjectiveC" id="YKw-LI-SFh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nb4-ry-U8B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="868" y="167"/>
+            <point key="canvasLocation" x="641" y="139"/>
         </scene>
         <!--Autolayout-->
         <scene sceneID="enq-qP-fNp">
@@ -80,12 +79,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L9P-E9-c92" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1865" y="-188"/>
+            <point key="canvasLocation" x="1537" y="-330"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="k1e-Bg-iKa">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Am3-ke-xYS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" id="Am3-ke-xYS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uVx-tQ-xIj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -180,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtZ-vz-nvI" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1865" y="514"/>
+            <point key="canvasLocation" x="1537" y="573"/>
         </scene>
         <!--Stack View-->
         <scene sceneID="ZaY-ZR-Sk8">
@@ -229,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRM-P3-xkM" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2649" y="167"/>
+            <point key="canvasLocation" x="2716" y="-217"/>
         </scene>
         <!--ObjectiveC-->
         <scene sceneID="vlx-Fn-2eg">
@@ -261,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Hr-jc-bwj" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2648.8000000000002" y="1004.3478260869566"/>
+            <point key="canvasLocation" x="2716" y="458"/>
         </scene>
     </scenes>
 </document>
