@@ -466,7 +466,7 @@ open class KSTokenView: UIView {
       _tokenField.removeToken(token, removingAll: removingAll)
       if (!removingAll) {
          delegate?.tokenView?(self, didDeleteToken: token)
-         _startSearchWithString(_lastSearchString)
+         _startSearchWithString("")
       }
    }
    

@@ -170,7 +170,6 @@ open class KSTokenField: UITextField {
       
       _setScrollRect()
       _scrollView.backgroundColor = UIColor.clear
-      
       _scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
       let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIResponder.becomeFirstResponder))
       gestureRecognizer.cancelsTouchesInView = false
@@ -183,7 +182,12 @@ open class KSTokenField: UITextField {
    
    fileprivate func _setScrollRect() {
     let buffer:CGFloat = _bufferX ?? 0.0;
-    _scrollView.frame = CGRect(x: _leftViewRect().width + buffer, y: 0, width: frame.width - _leftViewRect().width, height: frame.height)
+    let width = frame.width - _leftViewRect().width
+    let height = frame.height
+    
+    _scrollView.frame = CGRect(x: _leftViewRect().width + buffer, y: 0, width: width, height: height)
+//    _scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
+//    _scrollView.contentSize = CGSize(width: width, height: height)
    }
    
    override open func draw(_ rect: CGRect) {
@@ -486,18 +490,18 @@ open class KSTokenField: UITextField {
       if (!_setupCompleted) {return .zero}
       
       if (tokens.count == 0 || _caretPoint == nil) {
-         return CGRect(x: _leftViewRect().width + _marginX! + _bufferX!, y: (bounds.size.height - font!.lineHeight)*0.5, width: bounds.size.width-5, height: bounds.size.height)
+         return CGRect(x: _leftViewRect().width + _marginX! + _bufferX!, y: _leftViewRect().origin.y, width: bounds.size.width-5, height: bounds.size.height)
       }
       
       if (tokens.count != 0 && _state == .closed) {
-         return CGRect(x: _leftViewRect().maxX + _marginX! + _bufferX!, y: (bounds.size.height - font!.lineHeight)*0.5, width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
+         return CGRect(x: _leftViewRect().maxX + _marginX! + _bufferX!, y: _leftViewRect().origin.y, width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
       }
       
-      return CGRect(x: _caretPoint!.x, y: (_caretPoint!.y - font!.lineHeight - (_marginY!)), width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
+      return CGRect(x: _caretPoint!.x, y: floor((_caretPoint!.y - font!.lineHeight - (_marginY!))), width: (frame.size.width - _caretPoint!.x - _marginX!), height: bounds.size.height)
    }
    
    override open func leftViewRect(forBounds bounds: CGRect) -> CGRect {
-      return CGRect(x: _marginX!, y: (_selfFrame != nil) ? (_selfFrame!.height - _leftViewRect().height)*0.5: (bounds.height - _leftViewRect().height)*0.5, width: _leftViewRect().width, height: _leftViewRect().height)
+      return CGRect(x: _marginX!, y: (_selfFrame != nil) ? (_selfFrame!.height - _leftViewRect().height)*0.5: (bounds.height - _leftViewRect().height)*0.5, width: _leftViewRect().width, height: ceil(_leftViewRect().height))
    }
    
    override open func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -518,7 +522,7 @@ open class KSTokenField: UITextField {
          (leftViewMode == .whileEditing && !isEditing)) {
             return .zero
       }
-      return leftView!.bounds
+      return leftView!.frame
    }
    
    fileprivate func _rightViewRect() -> CGRect {
@@ -715,7 +719,9 @@ extension KSTokenField : UIScrollViewDelegate {
    }
    
    public func scrollViewDidScroll(_ aScrollView: UIScrollView) {
-      text = KSTextEmpty
+    if (_state == .opened) {
+        text = KSTextEmpty
+    }    
       updateCaretVisiblity(aScrollView)
    }
    
