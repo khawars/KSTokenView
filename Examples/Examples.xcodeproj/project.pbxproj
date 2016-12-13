@@ -8,43 +8,45 @@
 
 /* Begin PBXBuildFile section */
 		C389780F1DFB1FB3009E3D81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C389780E1DFB1FB3009E3D81 /* AppDelegate.swift */; };
-		C38978111DFB1FB3009E3D81 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38978101DFB1FB3009E3D81 /* ViewController.swift */; };
 		C38978141DFB1FB3009E3D81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38978121DFB1FB3009E3D81 /* Main.storyboard */; };
 		C38978161DFB1FB3009E3D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38978151DFB1FB3009E3D81 /* Assets.xcassets */; };
 		C38978191DFB1FB3009E3D81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38978171DFB1FB3009E3D81 /* LaunchScreen.storyboard */; };
-		C38978251DFB1FDC009E3D81 /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38978211DFB1FDC009E3D81 /* KSToken.swift */; };
-		C38978261DFB1FDC009E3D81 /* KSTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38978221DFB1FDC009E3D81 /* KSTokenField.swift */; };
-		C38978271DFB1FDC009E3D81 /* KSTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38978231DFB1FDC009E3D81 /* KSTokenView.swift */; };
-		C38978281DFB1FDC009E3D81 /* KSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38978241DFB1FDC009E3D81 /* KSUtils.swift */; };
-		C38978391DFB2F57009E3D81 /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38978381DFB2F57009E3D81 /* Autolayout.swift */; };
-		C389783D1DFB3721009E3D81 /* Programmatically.swift in Sources */ = {isa = PBXBuildFile; fileRef = C389783C1DFB3721009E3D81 /* Programmatically.swift */; };
-		C389783F1DFB3C41009E3D81 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C389783E1DFB3C41009E3D81 /* StackView.swift */; };
 		C38978421DFB3D54009E3D81 /* DBCountry.m in Sources */ = {isa = PBXBuildFile; fileRef = C38978411DFB3D54009E3D81 /* DBCountry.m */; };
-		C38978451DFB3DB1009E3D81 /* ObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = C38978441DFB3DB1009E3D81 /* ObjectiveC.m */; };
-		C38978491DFB4A11009E3D81 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38978481DFB4A11009E3D81 /* List.swift */; };
+		C39BEBE31E0037350069F952 /* Autolayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBDC1E0037350069F952 /* Autolayout.swift */; };
+		C39BEBE41E0037350069F952 /* Horizontal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBDD1E0037350069F952 /* Horizontal.swift */; };
+		C39BEBE51E0037350069F952 /* ObjectiveC.m in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBDF1E0037350069F952 /* ObjectiveC.m */; };
+		C39BEBE61E0037350069F952 /* Programmatically.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBE01E0037350069F952 /* Programmatically.swift */; };
+		C39BEBE71E0037350069F952 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBE11E0037350069F952 /* StackView.swift */; };
+		C39BEBE81E0037350069F952 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBE21E0037350069F952 /* ViewController.swift */; };
+		C39BEBEF1E0039160069F952 /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBEA1E0039160069F952 /* KSToken.swift */; };
+		C39BEBF01E0039160069F952 /* KSTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBEB1E0039160069F952 /* KSTokenField.swift */; };
+		C39BEBF11E0039160069F952 /* KSTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBEC1E0039160069F952 /* KSTokenView.swift */; };
+		C39BEBF21E0039160069F952 /* KSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBED1E0039160069F952 /* KSUtils.swift */; };
+		C39BEBF71E00397C0069F952 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBF61E00397C0069F952 /* List.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C389780B1DFB1FB3009E3D81 /* Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Examples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C389780E1DFB1FB3009E3D81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C38978101DFB1FB3009E3D81 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C38978131DFB1FB3009E3D81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C38978151DFB1FB3009E3D81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C38978181DFB1FB3009E3D81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C389781A1DFB1FB3009E3D81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C38978211DFB1FDC009E3D81 /* KSToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
-		C38978221DFB1FDC009E3D81 /* KSTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
-		C38978231DFB1FDC009E3D81 /* KSTokenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenView.swift; sourceTree = "<group>"; };
-		C38978241DFB1FDC009E3D81 /* KSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSUtils.swift; sourceTree = "<group>"; };
 		C38978311DFB2DCD009E3D81 /* Examples-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Examples-Bridging-Header.h"; sourceTree = "<group>"; };
-		C38978381DFB2F57009E3D81 /* Autolayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
-		C389783C1DFB3721009E3D81 /* Programmatically.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Programmatically.swift; sourceTree = "<group>"; };
-		C389783E1DFB3C41009E3D81 /* StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
-		C38978401DFB3D54009E3D81 /* DBCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBCountry.h; sourceTree = "<group>"; };
-		C38978411DFB3D54009E3D81 /* DBCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBCountry.m; sourceTree = "<group>"; };
-		C38978431DFB3DB1009E3D81 /* ObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveC.h; sourceTree = "<group>"; };
-		C38978441DFB3DB1009E3D81 /* ObjectiveC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectiveC.m; sourceTree = "<group>"; };
-		C38978481DFB4A11009E3D81 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		C38978401DFB3D54009E3D81 /* DBCountry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBCountry.h; path = ../DBCountry.h; sourceTree = "<group>"; };
+		C38978411DFB3D54009E3D81 /* DBCountry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBCountry.m; path = ../DBCountry.m; sourceTree = "<group>"; };
+		C39BEBDC1E0037350069F952 /* Autolayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Autolayout.swift; sourceTree = "<group>"; };
+		C39BEBDD1E0037350069F952 /* Horizontal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Horizontal.swift; sourceTree = "<group>"; };
+		C39BEBDE1E0037350069F952 /* ObjectiveC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectiveC.h; sourceTree = "<group>"; };
+		C39BEBDF1E0037350069F952 /* ObjectiveC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectiveC.m; sourceTree = "<group>"; };
+		C39BEBE01E0037350069F952 /* Programmatically.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Programmatically.swift; sourceTree = "<group>"; };
+		C39BEBE11E0037350069F952 /* StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		C39BEBE21E0037350069F952 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C39BEBEA1E0039160069F952 /* KSToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
+		C39BEBEB1E0039160069F952 /* KSTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
+		C39BEBEC1E0039160069F952 /* KSTokenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenView.swift; sourceTree = "<group>"; };
+		C39BEBED1E0039160069F952 /* KSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSUtils.swift; sourceTree = "<group>"; };
+		C39BEBF61E00397C0069F952 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,10 +63,7 @@
 		C38978021DFB1FB3009E3D81 = {
 			isa = PBXGroup;
 			children = (
-				C38978201DFB1FDC009E3D81 /* KSTokenView */,
-				C38978401DFB3D54009E3D81 /* DBCountry.h */,
-				C38978411DFB3D54009E3D81 /* DBCountry.m */,
-				C38978481DFB4A11009E3D81 /* List.swift */,
+				C39BEBE91E0039160069F952 /* KSTokenView */,
 				C389780D1DFB1FB3009E3D81 /* Examples */,
 				C389780C1DFB1FB3009E3D81 /* Products */,
 			);
@@ -81,13 +80,11 @@
 		C389780D1DFB1FB3009E3D81 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				C39BEBF61E00397C0069F952 /* List.swift */,
+				C38978401DFB3D54009E3D81 /* DBCountry.h */,
+				C38978411DFB3D54009E3D81 /* DBCountry.m */,
+				C39BEBDB1E0037350069F952 /* ViewControllers */,
 				C389780E1DFB1FB3009E3D81 /* AppDelegate.swift */,
-				C38978101DFB1FB3009E3D81 /* ViewController.swift */,
-				C38978381DFB2F57009E3D81 /* Autolayout.swift */,
-				C389783C1DFB3721009E3D81 /* Programmatically.swift */,
-				C389783E1DFB3C41009E3D81 /* StackView.swift */,
-				C38978431DFB3DB1009E3D81 /* ObjectiveC.h */,
-				C38978441DFB3DB1009E3D81 /* ObjectiveC.m */,
 				C38978121DFB1FB3009E3D81 /* Main.storyboard */,
 				C38978151DFB1FB3009E3D81 /* Assets.xcassets */,
 				C38978171DFB1FB3009E3D81 /* LaunchScreen.storyboard */,
@@ -97,16 +94,29 @@
 			path = Examples;
 			sourceTree = "<group>";
 		};
-		C38978201DFB1FDC009E3D81 /* KSTokenView */ = {
+		C39BEBDB1E0037350069F952 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				C38978211DFB1FDC009E3D81 /* KSToken.swift */,
-				C38978221DFB1FDC009E3D81 /* KSTokenField.swift */,
-				C38978231DFB1FDC009E3D81 /* KSTokenView.swift */,
-				C38978241DFB1FDC009E3D81 /* KSUtils.swift */,
+				C39BEBE21E0037350069F952 /* ViewController.swift */,
+				C39BEBDC1E0037350069F952 /* Autolayout.swift */,
+				C39BEBDD1E0037350069F952 /* Horizontal.swift */,
+				C39BEBE01E0037350069F952 /* Programmatically.swift */,
+				C39BEBE11E0037350069F952 /* StackView.swift */,
+				C39BEBDE1E0037350069F952 /* ObjectiveC.h */,
+				C39BEBDF1E0037350069F952 /* ObjectiveC.m */,
 			);
-			name = KSTokenView;
-			path = ../../KSTokenView;
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C39BEBE91E0039160069F952 /* KSTokenView */ = {
+			isa = PBXGroup;
+			children = (
+				C39BEBEA1E0039160069F952 /* KSToken.swift */,
+				C39BEBEB1E0039160069F952 /* KSTokenField.swift */,
+				C39BEBEC1E0039160069F952 /* KSTokenView.swift */,
+				C39BEBED1E0039160069F952 /* KSUtils.swift */,
+			);
+			path = KSTokenView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,18 +192,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C38978261DFB1FDC009E3D81 /* KSTokenField.swift in Sources */,
-				C389783F1DFB3C41009E3D81 /* StackView.swift in Sources */,
-				C38978111DFB1FB3009E3D81 /* ViewController.swift in Sources */,
+				C39BEBE61E0037350069F952 /* Programmatically.swift in Sources */,
 				C38978421DFB3D54009E3D81 /* DBCountry.m in Sources */,
-				C38978451DFB3DB1009E3D81 /* ObjectiveC.m in Sources */,
-				C38978491DFB4A11009E3D81 /* List.swift in Sources */,
+				C39BEBE31E0037350069F952 /* Autolayout.swift in Sources */,
 				C389780F1DFB1FB3009E3D81 /* AppDelegate.swift in Sources */,
-				C38978281DFB1FDC009E3D81 /* KSUtils.swift in Sources */,
-				C38978391DFB2F57009E3D81 /* Autolayout.swift in Sources */,
-				C389783D1DFB3721009E3D81 /* Programmatically.swift in Sources */,
-				C38978251DFB1FDC009E3D81 /* KSToken.swift in Sources */,
-				C38978271DFB1FDC009E3D81 /* KSTokenView.swift in Sources */,
+				C39BEBF71E00397C0069F952 /* List.swift in Sources */,
+				C39BEBE51E0037350069F952 /* ObjectiveC.m in Sources */,
+				C39BEBF21E0039160069F952 /* KSUtils.swift in Sources */,
+				C39BEBE81E0037350069F952 /* ViewController.swift in Sources */,
+				C39BEBEF1E0039160069F952 /* KSToken.swift in Sources */,
+				C39BEBF01E0039160069F952 /* KSTokenField.swift in Sources */,
+				C39BEBE41E0037350069F952 /* Horizontal.swift in Sources */,
+				C39BEBF11E0039160069F952 /* KSTokenView.swift in Sources */,
+				C39BEBE71E0037350069F952 /* StackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

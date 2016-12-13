@@ -43,6 +43,7 @@
                         <segue destination="gWU-w1-pad" kind="show" identifier="identifierProgrammatically" id="33x-1R-ISe"/>
                         <segue destination="l78-ay-7Oo" kind="show" identifier="identifierStackview" id="jYI-5N-r1V"/>
                         <segue destination="mJK-NW-TWd" kind="show" identifier="identifierObjectiveC" id="YKw-LI-SFh"/>
+                        <segue destination="mkM-89-Hjn" kind="show" id="W3A-3b-wNT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nb4-ry-U8B" sceneMemberID="firstResponder"/>
@@ -261,6 +262,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Hr-jc-bwj" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2716" y="458"/>
+        </scene>
+        <!--Horizontal-->
+        <scene sceneID="UZY-E9-qp8">
+            <objects>
+                <viewController storyboardIdentifier="Horizontal" id="mkM-89-Hjn" customClass="Horizontal" customModule="Examples" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aaH-0L-xZt"/>
+                        <viewControllerLayoutGuide type="bottom" id="eOI-pr-uJL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ey0-FN-Del">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="30" translatesAutoresizingMaskIntoConstraints="NO" id="VFY-87-Fve" customClass="KSTokenView" customModule="Examples" customModuleProvider="target">
+                                <rect key="frame" x="26" y="72" width="323" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.2901960784" green="0.6705882353" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="VFY-87-Fve" secondAttribute="trailing" constant="10" id="Y21-5P-KKW"/>
+                            <constraint firstItem="VFY-87-Fve" firstAttribute="top" secondItem="aaH-0L-xZt" secondAttribute="bottom" constant="8" id="pBz-Wr-1bF"/>
+                            <constraint firstItem="VFY-87-Fve" firstAttribute="leading" secondItem="Ey0-FN-Del" secondAttribute="leadingMargin" constant="10" id="yh8-M6-Ocq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tokenView" destination="VFY-87-Fve" id="jFb-WH-Vnm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VgS-qv-ELf" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3599" y="139"/>
         </scene>
     </scenes>
 </document>

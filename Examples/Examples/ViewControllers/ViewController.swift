@@ -28,7 +28,7 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    let examples = ["Autolayout", "Programtically", "UIStackView", "Objective-C"]
+    let examples = ["Autolayout", "Programtically", "UIStackView", "Horizontal", "Objective-C"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +52,9 @@ extension ViewController: UITableViewDelegate {
             
         } else if indexPath.row == 2 {
             vc = storyboard.instantiateViewController(withIdentifier: "StackView")
+            
+        } else if indexPath.row == 3 {
+            vc = storyboard.instantiateViewController(withIdentifier: "Horizontal")
             
         } else {
             vc = storyboard.instantiateViewController(withIdentifier: "ObjectiveC")
