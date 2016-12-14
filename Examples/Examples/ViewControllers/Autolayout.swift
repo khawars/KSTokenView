@@ -38,6 +38,7 @@ class Autolayout: UIViewController {
         tokenView.maxTokenLimit = -1
         tokenView.minimumCharactersToSearch = 0 // Show all results without without typing anything
         tokenView.style = .squared
+        tokenView.returnKeyType(type: .done)
     }
 }
 
