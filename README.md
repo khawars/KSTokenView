@@ -118,6 +118,9 @@ tokenView.maximumHeight = 120.0
 /// default is UIColor.grayColor()
 tokenView.cursorColor = UIColor.grayColor()
 
+/// default is UIColor.blackColor()
+tokenView.textColor = UIColor.blackColor()
+
 /// default is 10.0. Horizontal padding of title
 tokenView.paddingX = 10.0
 

@@ -327,6 +327,13 @@ open class KSTokenView: UIView {
       }
    }
 
+    /// default is UIColor.blackColor()
+    open var textColor: UIColor = UIColor.black {
+        didSet {
+            _tokenField.textColor = textColor
+        }
+    }
+
     /// default is UIColor.grayColor()
     open var promptColor: UIColor = UIColor.gray {
         didSet {
