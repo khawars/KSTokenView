@@ -138,9 +138,12 @@ open class KSToken : UIControl {
          } else {
             textColor = tokenTextColor
          }
+         
       } else {
-        backgroundColor = tokenBackgroundColor.darkendColor(darkRatio)
+         backgroundColor = tokenBackgroundColor
+         textColor = tokenTextColor
       }
+      
       backgroundColor.setFill()
       rectanglePath.fill()
       

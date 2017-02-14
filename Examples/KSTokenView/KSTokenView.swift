@@ -410,7 +410,7 @@ open class KSTokenView: UIView {
       invalidateIntrinsicContentSize()
    }
    
-   //MARK: - Layout changes
+   //MARK: - Layout Changes
    //__________________________________________________________________________________
    //
    override open func layoutSubviews() {
@@ -420,6 +420,15 @@ open class KSTokenView: UIView {
    
     override open var intrinsicContentSize : CGSize {
         return CGSize(width: UIViewNoIntrinsicMetric, height: _intrinsicContentHeight)
+    }
+    
+    //MARK: - Public Methods
+    //__________________________________________________________________________________
+    //
+    
+    /// Changes the returnKeyType of KSTokenField
+    open func returnKeyType(type: UIReturnKeyType) {
+        _tokenField.returnKeyType = type
     }
     
    //MARK: - Private Methods
