@@ -51,7 +51,7 @@ open class KSToken : UIControl {
   open var sticky = false
   
   /// default is 15
-  public var tokenCornerRadius:CGFloat = 15.0
+  open var tokenCornerRadius:CGFloat = 15.0
   
   /// Token Title color
   open var tokenTextColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
