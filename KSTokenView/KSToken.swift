@@ -126,7 +126,7 @@ open class KSToken : UIControl {
     // fill background
     let rectanglePath = UIBezierPath(roundedRect: rect, cornerRadius: tokenCornerRadius)
     
-    var textColor: UIColor
+    var textColor: UIColor = tokenTextColor
     var backgroundColor: UIColor
     
     if (isSelected) {
