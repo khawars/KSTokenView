@@ -186,8 +186,6 @@ open class KSTokenField: UITextField {
     let height = frame.height
     
     _scrollView.frame = CGRect(x: _leftViewRect().width + buffer, y: 0, width: width, height: height)
-//    _scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
-//    _scrollView.contentSize = CGSize(width: width, height: height)
    }
    
    override open func draw(_ rect: CGRect) {
@@ -721,7 +719,12 @@ extension KSTokenField : UIScrollViewDelegate {
    public func scrollViewDidScroll(_ aScrollView: UIScrollView) {
     if (_state == .opened) {
         text = KSTextEmpty
-    }    
+    }
+    if (_direction == .horizontal) {
+        aScrollView.contentOffset.y = 0
+    } else {
+        aScrollView.contentOffset.x = 0
+    }
       updateCaretVisiblity(aScrollView)
    }
    

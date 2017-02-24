@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C319926A1E603887007ED590 /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31992661E603887007ED590 /* KSToken.swift */; };
+		C319926B1E603887007ED590 /* KSTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31992671E603887007ED590 /* KSTokenField.swift */; };
+		C319926C1E603887007ED590 /* KSTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31992681E603887007ED590 /* KSTokenView.swift */; };
+		C319926D1E603887007ED590 /* KSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31992691E603887007ED590 /* KSUtils.swift */; };
 		C389780F1DFB1FB3009E3D81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C389780E1DFB1FB3009E3D81 /* AppDelegate.swift */; };
 		C38978141DFB1FB3009E3D81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C38978121DFB1FB3009E3D81 /* Main.storyboard */; };
 		C38978161DFB1FB3009E3D81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C38978151DFB1FB3009E3D81 /* Assets.xcassets */; };
@@ -18,14 +22,14 @@
 		C39BEBE61E0037350069F952 /* Programmatically.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBE01E0037350069F952 /* Programmatically.swift */; };
 		C39BEBE71E0037350069F952 /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBE11E0037350069F952 /* StackView.swift */; };
 		C39BEBE81E0037350069F952 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBE21E0037350069F952 /* ViewController.swift */; };
-		C39BEBEF1E0039160069F952 /* KSToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBEA1E0039160069F952 /* KSToken.swift */; };
-		C39BEBF01E0039160069F952 /* KSTokenField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBEB1E0039160069F952 /* KSTokenField.swift */; };
-		C39BEBF11E0039160069F952 /* KSTokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBEC1E0039160069F952 /* KSTokenView.swift */; };
-		C39BEBF21E0039160069F952 /* KSUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBED1E0039160069F952 /* KSUtils.swift */; };
 		C39BEBF71E00397C0069F952 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39BEBF61E00397C0069F952 /* List.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C31992661E603887007ED590 /* KSToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
+		C31992671E603887007ED590 /* KSTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
+		C31992681E603887007ED590 /* KSTokenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenView.swift; sourceTree = "<group>"; };
+		C31992691E603887007ED590 /* KSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSUtils.swift; sourceTree = "<group>"; };
 		C389780B1DFB1FB3009E3D81 /* Examples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Examples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C389780E1DFB1FB3009E3D81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C38978131DFB1FB3009E3D81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,10 +46,6 @@
 		C39BEBE01E0037350069F952 /* Programmatically.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Programmatically.swift; sourceTree = "<group>"; };
 		C39BEBE11E0037350069F952 /* StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
 		C39BEBE21E0037350069F952 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C39BEBEA1E0039160069F952 /* KSToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSToken.swift; sourceTree = "<group>"; };
-		C39BEBEB1E0039160069F952 /* KSTokenField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenField.swift; sourceTree = "<group>"; };
-		C39BEBEC1E0039160069F952 /* KSTokenView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSTokenView.swift; sourceTree = "<group>"; };
-		C39BEBED1E0039160069F952 /* KSUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSUtils.swift; sourceTree = "<group>"; };
 		C39BEBF61E00397C0069F952 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,10 +60,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C31992651E603887007ED590 /* KSTokenView */ = {
+			isa = PBXGroup;
+			children = (
+				C31992661E603887007ED590 /* KSToken.swift */,
+				C31992671E603887007ED590 /* KSTokenField.swift */,
+				C31992681E603887007ED590 /* KSTokenView.swift */,
+				C31992691E603887007ED590 /* KSUtils.swift */,
+			);
+			name = KSTokenView;
+			path = ../KSTokenView;
+			sourceTree = "<group>";
+		};
 		C38978021DFB1FB3009E3D81 = {
 			isa = PBXGroup;
 			children = (
-				C39BEBE91E0039160069F952 /* KSTokenView */,
+				C31992651E603887007ED590 /* KSTokenView */,
 				C389780D1DFB1FB3009E3D81 /* Examples */,
 				C389780C1DFB1FB3009E3D81 /* Products */,
 			);
@@ -108,17 +120,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		C39BEBE91E0039160069F952 /* KSTokenView */ = {
-			isa = PBXGroup;
-			children = (
-				C39BEBEA1E0039160069F952 /* KSToken.swift */,
-				C39BEBEB1E0039160069F952 /* KSTokenField.swift */,
-				C39BEBEC1E0039160069F952 /* KSTokenView.swift */,
-				C39BEBED1E0039160069F952 /* KSUtils.swift */,
-			);
-			path = KSTokenView;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,7 +147,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Khawar Shahzad";
 				TargetAttributes = {
 					C389780A1DFB1FB3009E3D81 = {
@@ -198,12 +199,12 @@
 				C389780F1DFB1FB3009E3D81 /* AppDelegate.swift in Sources */,
 				C39BEBF71E00397C0069F952 /* List.swift in Sources */,
 				C39BEBE51E0037350069F952 /* ObjectiveC.m in Sources */,
-				C39BEBF21E0039160069F952 /* KSUtils.swift in Sources */,
+				C319926D1E603887007ED590 /* KSUtils.swift in Sources */,
 				C39BEBE81E0037350069F952 /* ViewController.swift in Sources */,
-				C39BEBEF1E0039160069F952 /* KSToken.swift in Sources */,
-				C39BEBF01E0039160069F952 /* KSTokenField.swift in Sources */,
+				C319926A1E603887007ED590 /* KSToken.swift in Sources */,
+				C319926B1E603887007ED590 /* KSTokenField.swift in Sources */,
 				C39BEBE41E0037350069F952 /* Horizontal.swift in Sources */,
-				C39BEBF11E0039160069F952 /* KSTokenView.swift in Sources */,
+				C319926C1E603887007ED590 /* KSTokenView.swift in Sources */,
 				C39BEBE71E0037350069F952 /* StackView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +249,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -297,6 +299,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

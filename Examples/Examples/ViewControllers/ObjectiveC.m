@@ -43,7 +43,7 @@
     self.tokenView.promptText = @"Countries: ";
     self.tokenView.descriptionText = @"Countries";
     self.tokenView.separatorText = @", ";
-    self.tokenView.activityIndicatorColor = [UIColor blueColor];
+    self.tokenView.activityIndicatorColor = [UIColor redColor];
     [self.view addSubview:self.tokenView];
     requestURLString = @"http://restcountries.eu/rest/v1/name/";
 }
