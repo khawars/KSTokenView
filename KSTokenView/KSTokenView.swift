@@ -103,6 +103,8 @@ open class KSTokenView: UIView {
    fileprivate let _searchResultHeight: CGFloat = 200.0
    fileprivate var _lastSearchString: String = ""
    fileprivate var _intrinsicContentHeight: CGFloat = UIViewNoIntrinsicMetric
+   fileprivate var _cellBackgroundColor: UIColor?
+   fileprivate var _cellTextLabelColor: UIColor?
    
    //MARK: - Public Properties
    //__________________________________________________________________________________
@@ -138,6 +140,9 @@ open class KSTokenView: UIView {
    
    /// default is nil
    weak open var delegate: KSTokenViewDelegate?
+    
+    /// default is nil. Used to add searchresult to another view
+    open var parentViewForSearchResult: UIView?
    
    /// default is .Vertical.
    open var direction: KSTokenViewScrollDirection = .vertical {
@@ -168,6 +173,20 @@ open class KSTokenView: UIView {
          _searchTableView.backgroundColor = searchResultBackgroundColor
       }
    }
+    
+    /// Default is whiteColor()
+    open var searchResultCellBackgroundColor: UIColor = UIColor.white {
+        didSet {
+            _cellBackgroundColor = searchResultCellBackgroundColor
+        }
+    }
+    
+    /// Default is blackColor()
+    open var searchResultCellTextLabelColor: UIColor = UIColor.black {
+        didSet {
+            _cellTextLabelColor = searchResultCellTextLabelColor
+        }
+    }
    
    /// default is UIColor.blueColor()
    open var activityIndicatorColor: UIColor = UIColor.blue {
@@ -725,7 +744,11 @@ open class KSTokenView: UIView {
     fileprivate func _showSearchResults() {
         guard !_showingSearchResult else {return}
         _showingSearchResult = true
-        addSubview(_searchTableView)
+        if let parentSearchResult = parentViewForSearchResult {
+            parentSearchResult.addSubview(_searchTableView)
+        } else {
+            addSubview(_searchTableView)
+        }
         let tokenFieldHeight = _tokenField.frame.height
         _searchTableView.isHidden = false
         _changeHeight(tokenFieldHeight)
@@ -958,6 +981,12 @@ extension KSTokenView : UITableViewDataSource {
       let title = delegate?.tokenView(self, displayTitleForObject: _resultArray[(indexPath as NSIndexPath).row])
       cell!.textLabel!.text = (title != nil) ? title : "No Title"
       cell!.selectionStyle = UITableViewCellSelectionStyle.none
-      return cell!
+    if (_cellBackgroundColor != nil) {
+        cell!.backgroundColor = _cellBackgroundColor
+    }
+    if (_cellTextLabelColor != nil) {
+        cell!.textLabel?.textColor = _cellTextLabelColor
+    }
+    return cell!
    }
 }
