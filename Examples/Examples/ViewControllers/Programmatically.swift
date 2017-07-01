@@ -73,7 +73,7 @@ class Programmatically: UIViewController {
 }
 
 extension Programmatically: KSTokenViewDelegate {
-    func tokenView(_ token: KSTokenView, performSearchWithString string: String, completion: ((_ results: Array<AnyObject>) -> Void)?) {
+    func tokenView(_ tokenView: KSTokenView, performSearchWithString string: String, completion: ((_ results: Array<AnyObject>) -> Void)?) {
         var data: Array<String> = []
         for value: String in names {
             if value.lowercased().range(of: string.lowercased()) != nil {
@@ -83,7 +83,7 @@ extension Programmatically: KSTokenViewDelegate {
         completion!(data as Array<AnyObject>)
     }
     
-    func tokenView(_ token: KSTokenView, displayTitleForObject object: AnyObject) -> String {
+    func tokenView(_ tokenView: KSTokenView, displayTitleForObject object: AnyObject) -> String {
         return object as! String
     }
     

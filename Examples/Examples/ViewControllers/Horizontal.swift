@@ -28,7 +28,7 @@ class Horizontal: UIViewController {
 
 
 extension Horizontal: KSTokenViewDelegate {
-    func tokenView(_ token: KSTokenView, performSearchWithString string: String, completion: ((_ results: Array<AnyObject>) -> Void)?) {
+    func tokenView(_ tokenView: KSTokenView, performSearchWithString string: String, completion: ((_ results: Array<AnyObject>) -> Void)?) {
         if (string.characters.isEmpty){
             completion!(names as Array<AnyObject>)
             return
@@ -43,7 +43,7 @@ extension Horizontal: KSTokenViewDelegate {
         completion!(data as Array<AnyObject>)
     }
     
-    func tokenView(_ token: KSTokenView, displayTitleForObject object: AnyObject) -> String {
+    func tokenView(_ tokenView: KSTokenView, displayTitleForObject object: AnyObject) -> String {
         return object as! String
     }
 }

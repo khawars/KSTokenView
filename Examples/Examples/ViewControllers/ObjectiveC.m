@@ -55,7 +55,7 @@
 
 
 
-- (void)tokenView:(KSTokenView *)token performSearchWithString:(NSString *)string completion:(void (^)(NSArray *))completion {
+- (void)tokenView:(KSTokenView *)tokenView performSearchWithString:(NSString *)string completion:(void (^)(NSArray *))completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSString *requestURL = [NSString stringWithFormat:@"%@%@", requestURLString, string];
         
@@ -82,7 +82,7 @@
     });
 }
 
-- (NSString *)tokenView:(KSTokenView *)token displayTitleForObject:(id)object {
+- (NSString *)tokenView:(KSTokenView *)tokenView displayTitleForObject:(id)object {
     return  ((DBCountry *)object).name;
 }
 

@@ -30,7 +30,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let examples = ["Autolayout", "Programtically", "UIStackView", "Horizontal", "Objective-C", "TableView"]
+    let examples = ["Autolayout", "Programtically", "UIStackView", "Horizontal", "Objective-C"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
