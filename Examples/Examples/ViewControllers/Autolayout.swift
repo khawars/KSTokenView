@@ -36,6 +36,7 @@ class Autolayout: UIViewController {
         tokenView.placeholder = "Type to search"
         tokenView.descriptionText = "Languages"
         tokenView.maxTokenLimit = -1
+        tokenView.searchResultHeight = 100
         tokenView.minimumCharactersToSearch = 0 // Show all results without without typing anything
         tokenView.style = .squared
         tokenView.returnKeyType(type: .done)
@@ -63,9 +64,15 @@ extension Autolayout: KSTokenViewDelegate {
     }
     
     func tokenView(_ tokenView: KSTokenView, shouldAddToken token: KSToken) -> Bool {
+        
+        // Restrict adding token based on token text
         if token.title == "f" {
             return false
         }
+        
+        // If user input something, it can be checked
+//        print(tokenView.text)
+        
         return true
     }
 }

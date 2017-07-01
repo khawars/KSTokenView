@@ -100,7 +100,7 @@ open class KSTokenView: UIView {
    fileprivate var _resultArray = [AnyObject]()
    fileprivate var _showingSearchResult = false
    fileprivate var _indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
-   fileprivate let _searchResultHeight: CGFloat = 200.0
+   fileprivate var _searchResultHeight: CGFloat = 200.0
    fileprivate var _lastSearchString: String = ""
    fileprivate var _intrinsicContentHeight: CGFloat = UIViewNoIntrinsicMetric
    
@@ -156,9 +156,10 @@ open class KSTokenView: UIView {
    }
    
    /// Default is (TokenViewWidth, 200)
-   open var searchResultSize: CGSize = CGSize.zero {
+   open var searchResultHeight: CGFloat = 200 {
       didSet {
-         _searchTableView.frame.size = searchResultSize
+        _searchResultHeight = searchResultHeight
+        _searchTableView.frame.size.height = searchResultHeight
       }
    }
    
@@ -399,9 +400,8 @@ open class KSTokenView: UIView {
       _indicator.hidesWhenStopped = true
       _indicator.stopAnimating()
       _indicator.color = activityIndicatorColor
-      
-      searchResultSize = CGSize(width: frame.width, height: _searchResultHeight)
-      _searchTableView.frame = CGRect(x: 0, y: frame.height, width: searchResultSize.width, height: searchResultSize.height)
+    
+      _searchTableView.frame = CGRect(x: 0, y: frame.height, width: frame.width, height: _searchResultHeight)
       _searchTableView.delegate = self
       _searchTableView.dataSource = self
       
@@ -415,7 +415,7 @@ open class KSTokenView: UIView {
    //
    override open func layoutSubviews() {
       _tokenField.updateLayout(false)
-      _searchTableView.frame.size = CGSize(width: frame.width, height: searchResultSize.height)
+      _searchTableView.frame.size = CGSize(width: frame.width, height: _searchResultHeight)
    }
    
     override open var intrinsicContentSize : CGSize {

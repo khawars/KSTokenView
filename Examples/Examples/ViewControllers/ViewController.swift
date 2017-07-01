@@ -26,9 +26,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+    let names: Array<String> = List.names()
+
     @IBOutlet weak var tableView: UITableView!
     
-    let examples = ["Autolayout", "Programtically", "UIStackView", "Horizontal", "Objective-C"]
+    let examples = ["Autolayout", "Programtically", "UIStackView", "Horizontal", "Objective-C", "TableView"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +57,12 @@ extension ViewController: UITableViewDelegate {
             
         } else if indexPath.row == 3 {
             vc = storyboard.instantiateViewController(withIdentifier: "Horizontal")
+        
+        } else if indexPath.row == 4 {
+            vc = storyboard.instantiateViewController(withIdentifier: "ObjectiveC")
             
         } else {
-            vc = storyboard.instantiateViewController(withIdentifier: "ObjectiveC")
+            vc = storyboard.instantiateViewController(withIdentifier: "TableView")
         }
         
         navigationController?.pushViewController(vc, animated: true)
