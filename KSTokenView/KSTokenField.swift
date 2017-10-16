@@ -189,7 +189,9 @@ open class KSTokenField: UITextField {
    }
    
    override open func draw(_ rect: CGRect) {
-      _selfFrame = rect
+      if (!_setupCompleted) {
+         _selfFrame = rect
+      }
       _setupCompleted = true
       _updateText()
       
@@ -582,8 +584,8 @@ open class KSTokenField: UITextField {
                title += "\(token.title)\(_separatorText!)"
             }
             
-            if (title.characters.count > 0) {
-               title = title.substring(with: title.characters.index(title.startIndex, offsetBy: 0)..<title.characters.index(title.endIndex, offsetBy: -_separatorText!.characters.count))
+            if (title.characters.count > 0) {                
+                title = String(title[..<title.index(title.endIndex, offsetBy: -_separatorText!.characters.count)])
             }
             
             let width = KSUtils.widthOfString(title, font: font!)
@@ -654,14 +656,14 @@ open class KSTokenField: UITextField {
       tokenFieldDelegate?.tokenFieldDidSelectToken?(token)
    }
    
-   func tokenTouchDown(_ token: KSToken) {
+   @objc func tokenTouchDown(_ token: KSToken) {
       if (selectedToken != nil) {
          selectedToken?.isSelected = false
          selectedToken = nil
       }
    }
    
-   func tokenTouchUpInside(_ token: KSToken) {
+   @objc func tokenTouchUpInside(_ token: KSToken) {
       selectToken(token)
    }
    
@@ -672,7 +674,7 @@ open class KSTokenField: UITextField {
       return super.beginTracking(touch, with: event)
    }
    
-   func tokenFieldTextDidChange(_ textField: UITextField) {
+   @objc func tokenFieldTextDidChange(_ textField: UITextField) {
       _updatePlaceHolderVisibility()
    }
    

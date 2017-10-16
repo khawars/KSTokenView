@@ -31,19 +31,19 @@ class KSUtils : NSObject {
    class func getRect(_ str: NSString, width: CGFloat, height: CGFloat, font: UIFont) -> CGRect {
       let rectangleStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
       rectangleStyle.alignment = NSTextAlignment.center
-      let rectangleFontAttributes = [NSFontAttributeName: font, NSParagraphStyleAttributeName: rectangleStyle]
+      let rectangleFontAttributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.paragraphStyle: rectangleStyle]
       return str.boundingRect(with: CGSize(width: width, height: height), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: rectangleFontAttributes, context: nil)
    }
    
    class func getRect(_ str: NSString, width: CGFloat, font: UIFont) -> CGRect {
       let rectangleStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
       rectangleStyle.alignment = NSTextAlignment.center
-      let rectangleFontAttributes = [NSFontAttributeName: font, NSParagraphStyleAttributeName: rectangleStyle]
+      let rectangleFontAttributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.paragraphStyle: rectangleStyle]
       return str.boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: rectangleFontAttributes, context: nil)
    }
    
    class func widthOfString(_ str: String, font: UIFont) -> CGFloat {
-      let attrs = [NSFontAttributeName: font]
+      let attrs = [NSAttributedStringKey.font: font]
       let attributedString = NSMutableAttributedString(string:str, attributes:attrs)
       return attributedString.size().width
    }
@@ -59,4 +59,25 @@ extension UIColor {
          return self
       }
    }
+}
+
+
+extension String {
+    subscript(value: PartialRangeUpTo<Int>) -> Substring {
+        get {
+            return self[..<index(startIndex, offsetBy: value.upperBound)]
+        }
+    }
+    
+    subscript(value: PartialRangeThrough<Int>) -> Substring {
+        get {
+            return self[...index(startIndex, offsetBy: value.upperBound)]
+        }
+    }
+    
+    subscript(value: PartialRangeFrom<Int>) -> Substring {
+        get {
+            return self[index(startIndex, offsetBy: value.lowerBound)...]
+        }
+    }
 }
