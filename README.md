@@ -20,7 +20,9 @@ Click [here](https://appetize.io/app/0kzy34tyg761punebrcc1x556w) for Live Previe
 
 - iOS 9 and above.
 - Xcode 8.1 and above
-- Swift 3 and above **(For Swift 2.x use branch develop/Swift2.3)**
+- Swift 4 and above
+**(For Swift 2.x use branch develop/swift2.3)**
+**(For Swift 3.x use branch develop/swift3)**
 
 
 ## Adding KSTokenView to your project
