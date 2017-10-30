@@ -141,6 +141,8 @@ open class KSTokenView: UIView {
   /// default is 0. If set to 0, there is no character limit
   open var maximumCharacterLimit = 0
   
+  open var allowedCharacterSet?
+  
   /// default is nil
   weak open var delegate: KSTokenViewDelegate?
   
@@ -907,7 +909,7 @@ extension KSTokenView : UITextFieldDelegate {
     }
     
     // check if character is allowed
-    if replacementString.rangeOfCharacter(from: allowedCharacterSet) == nil {
+    if let allowedCharacters = allowedCharacterSet, replacementString.rangeOfCharacter(from: allowedCharacters) == nil {
       delegate.tokenViewWillShowInvalidCharacterAlert(self)
       return false
     }
