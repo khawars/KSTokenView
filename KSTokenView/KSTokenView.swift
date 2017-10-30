@@ -81,6 +81,8 @@ import UIKit
   
   @objc optional func tokenViewDidShowSearchResults(_ tokenView: KSTokenView)
   @objc optional func tokenViewDidHideSearchResults(_ tokenView: KSTokenView)
+  
+  @objc optional func tokenViewWillShowInvalidCharacterAlert(_ tokenView: KSTokenView)
 }
 
 //MARK: - KSTokenView
@@ -902,6 +904,12 @@ extension KSTokenView : UITextFieldDelegate {
       _startSearchWithString(_lastSearchString)
     } else {
       //_hideSearchResults()
+    }
+    
+    // check if character is allowed
+    if replacementString.rangeOfCharacter(from: allowedCharacterSet) == nil {
+      delegate.tokenViewWillShowInvalidCharacterAlert(self)
+      return false
     }
     
     // max character limit
