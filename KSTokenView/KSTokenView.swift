@@ -909,7 +909,7 @@ extension KSTokenView : UITextFieldDelegate {
       return false
     }
     
-    _tokenField.scrollViewScrollToEnd()
+    //_tokenField.scrollViewScrollToEnd()
     return true
   }
   
