@@ -54,7 +54,7 @@ open class KSToken : UIControl {
    open var tokenTextColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
    
    /// Token background color
-   open var tokenBackgroundColor = UIColor(red: 50/255, green: 50/255, blue: 255/255, alpha: 1)
+   open var tokenBackgroundColor = UIColor(red: 29/255, green: 113/255, blue: 184/255, alpha: 1)
    
    /// Token title color in selected state
    open var tokenTextHighlightedColor: UIColor?
@@ -63,7 +63,7 @@ open class KSToken : UIControl {
    open var tokenBackgroundHighlightedColor: UIColor?
    
    /// Token background color in selected state. It doesn't have effect if 'tokenBackgroundHighlightedColor' is set
-   open var darkRatio: CGFloat = 0.75
+   open var darkRatio: CGFloat = 0.3
    
    /// Token border width
    open var borderWidth: CGFloat = 0.0
@@ -121,7 +121,7 @@ open class KSToken : UIControl {
       //// Rectangle Drawing
       
       // fill background
-      let rectanglePath = UIBezierPath(roundedRect: rect, cornerRadius: 15)
+      let rectanglePath = UIBezierPath(roundedRect: rect, cornerRadius: 5)
       
       var textColor: UIColor
       var backgroundColor: UIColor
@@ -162,10 +162,11 @@ open class KSToken : UIControl {
       let rectangleStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
       rectangleStyle.lineBreakMode = NSLineBreakMode.byTruncatingTail
       rectangleStyle.alignment = NSTextAlignment.center
-      let rectangleFontAttributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.foregroundColor: textColor, NSAttributedStringKey.paragraphStyle: rectangleStyle] as [NSAttributedStringKey : Any]
+      let rectangleFontAttributes = [NSFontAttributeName: font, NSForegroundColorAttributeName: textColor, NSParagraphStyleAttributeName: rectangleStyle] as [String : Any]
       
       let maxDrawableHeight = max(rect.height , font.lineHeight)
       let textHeight: CGFloat = KSUtils.getRect(rectangleTextContent as NSString, width: rect.width, height: maxDrawableHeight , font: font).size.height
+      
       
       let textRect = CGRect(x: rect.minX + paddingX, y: rect.minY + (maxDrawableHeight - textHeight) / 2, width: min(maxWidth, rect.width) - (paddingX*2), height: maxDrawableHeight)
       
