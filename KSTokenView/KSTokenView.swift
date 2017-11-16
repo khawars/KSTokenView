@@ -869,7 +869,7 @@ extension KSTokenView : UITextFieldDelegate {
       var olderTextTrimmed = olderText!
     
       // remove the empty text marker from the beginning of the string
-      if (olderText?.characters.first == KSTextEmpty.characters.first) {
+      if (olderText?.first == KSTextEmpty.first) {
         olderTextTrimmed = String(olderText![olderText!.index(olderText!.startIndex, offsetBy: 1)..<olderText!.endIndex])
       }
     
@@ -888,13 +888,13 @@ extension KSTokenView : UITextFieldDelegate {
             return false
          }
          searchString = (olderText! as NSString).replacingCharacters(in: range, with: string)
-         if (searchString.characters.first == KSTextEmpty.characters.first) {
+         if (searchString.first == KSTextEmpty.first) {
             searchString = String(searchString[1...])
          }
       }
     
       // Allow all other characters
-      if (searchString.characters.count >= minimumCharactersToSearch && searchString != "\n") {
+      if (searchString.count >= minimumCharactersToSearch && searchString != "\n") {
          _lastSearchString = searchString
          _startSearchWithString(_lastSearchString)
       } else {

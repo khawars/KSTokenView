@@ -236,7 +236,7 @@ open class KSTokenField: UITextField {
    - returns: KSToken object
    */
    func addToken(_ token: KSToken) -> KSToken? {
-      if (token.title.characters.count == 0) {
+      if (token.title.count == 0) {
          token.title = "Untitled"
       }
       
@@ -584,8 +584,8 @@ open class KSTokenField: UITextField {
                title += "\(token.title)\(_separatorText!)"
             }
             
-            if (title.characters.count > 0) {                
-                title = String(title[..<title.index(title.endIndex, offsetBy: -_separatorText!.characters.count)])
+            if (title.count > 0) {
+                title = String(title[..<title.index(title.endIndex, offsetBy: -_separatorText!.count)])
             }
             
             let width = KSUtils.widthOfString(title, font: font!)
