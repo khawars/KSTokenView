@@ -565,6 +565,7 @@ open class KSTokenView: UIView {
       }
       
       delegate?.tokenView?(self, didAddToken: addedToken!)
+      _ = _canAddMoreToken()
       return addedToken
    }
    
