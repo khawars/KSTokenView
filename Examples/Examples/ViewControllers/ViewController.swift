@@ -79,7 +79,7 @@ extension ViewController: UITableViewDataSource {
         var cell = tableView.dequeueReusableCell(withIdentifier: cellIdentfier) as UITableViewCell?
         
         if (cell == nil) {
-            cell = UITableViewCell(style:UITableViewCellStyle.default, reuseIdentifier:cellIdentfier)
+            cell = UITableViewCell(style:UITableViewCell.CellStyle.default, reuseIdentifier:cellIdentfier)
         }
         
         cell?.textLabel?.text = examples[indexPath.row]
