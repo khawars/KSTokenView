@@ -29,7 +29,7 @@ class Horizontal: UIViewController {
 
 extension Horizontal: KSTokenViewDelegate {
     func tokenView(_ tokenView: KSTokenView, performSearchWithString string: String, completion: ((_ results: Array<AnyObject>) -> Void)?) {
-        if (string.characters.isEmpty){
+        if (string.isEmpty){
             completion!(names as Array<AnyObject>)
             return
         }

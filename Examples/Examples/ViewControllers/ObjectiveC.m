@@ -57,7 +57,7 @@
 
 - (void)tokenView:(KSTokenView *)tokenView performSearchWithString:(NSString *)string completion:(void (^)(NSArray *))completion {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSString *requestURL = [NSString stringWithFormat:@"%@%@", requestURLString, string];
+        NSString *requestURL = [NSString stringWithFormat:@"%@%@", self->requestURLString, string];
         
         NSURLSession *session = [NSURLSession sharedSession];
         [[session dataTaskWithURL:[NSURL URLWithString:requestURL]
