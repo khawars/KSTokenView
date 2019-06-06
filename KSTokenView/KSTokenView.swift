@@ -374,7 +374,7 @@ open class KSTokenView: UIView {
    */
    required public init?(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
-      _commonSetup
+      _commonSetup()
    }
    
    override open func awakeFromNib() {
