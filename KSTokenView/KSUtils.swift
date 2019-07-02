@@ -31,19 +31,19 @@ class KSUtils : NSObject {
    class func getRect(_ str: NSString, width: CGFloat, height: CGFloat, font: UIFont) -> CGRect {
       let rectangleStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
       rectangleStyle.alignment = NSTextAlignment.center
-      let rectangleFontAttributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.paragraphStyle: rectangleStyle]
+      let rectangleFontAttributes = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: rectangleStyle]
       return str.boundingRect(with: CGSize(width: width, height: height), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: rectangleFontAttributes, context: nil)
    }
    
    class func getRect(_ str: NSString, width: CGFloat, font: UIFont) -> CGRect {
       let rectangleStyle = NSMutableParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
       rectangleStyle.alignment = NSTextAlignment.center
-      let rectangleFontAttributes = [NSAttributedStringKey.font: font, NSAttributedStringKey.paragraphStyle: rectangleStyle]
+      let rectangleFontAttributes = [NSAttributedString.Key.font: font, NSAttributedString.Key.paragraphStyle: rectangleStyle]
       return str.boundingRect(with: CGSize(width: width, height: CGFloat(MAXFLOAT)), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: rectangleFontAttributes, context: nil)
    }
    
    class func widthOfString(_ str: String, font: UIFont) -> CGFloat {
-      let attrs = [NSAttributedStringKey.font: font]
+      let attrs = [NSAttributedString.Key.font: font]
       let attributedString = NSMutableAttributedString(string:str, attributes:attrs)
       return attributedString.size().width
    }

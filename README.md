@@ -27,7 +27,7 @@ Click [here](https://appetize.io/app/0kzy34tyg761punebrcc1x556w) for Live Previe
 
 ## Adding KSTokenView to your project
 
-### METHOD 1: (CocoaPods only for iOS 9.0 and above)
+### METHOD 1: (CocoaPods only for iOS 10.0 and above)
 Add a pod entry for `KSTokenView` to your Podfile
 
 ```ruby
@@ -36,7 +36,7 @@ platform :ios, '9.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'KSTokenView', '~> 4.0'
+    pod 'KSTokenView', '~> 5.0'
 end
 ``` 
 

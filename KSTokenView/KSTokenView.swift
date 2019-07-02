@@ -96,13 +96,13 @@ open class KSTokenView: UIView {
    //__________________________________________________________________________________
    //
    fileprivate var _tokenField: KSTokenField!
-   fileprivate var _searchTableView: UITableView = UITableView(frame: .zero, style: UITableViewStyle.plain)
+   fileprivate var _searchTableView: UITableView = UITableView(frame: .zero, style: UITableView.Style.plain)
    fileprivate var _resultArray = [AnyObject]()
    fileprivate var _showingSearchResult = false
-   fileprivate var _indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+   fileprivate var _indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
    fileprivate var _searchResultHeight: CGFloat = 200.0
    fileprivate var _lastSearchString: String = ""
-   fileprivate var _intrinsicContentHeight: CGFloat = UIViewNoIntrinsicMetric
+   fileprivate var _intrinsicContentHeight: CGFloat = UIView.noIntrinsicMetric
    
    //MARK: - Public Properties
    //__________________________________________________________________________________
@@ -419,7 +419,7 @@ open class KSTokenView: UIView {
    }
    
     override open var intrinsicContentSize : CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric, height: _intrinsicContentHeight)
+        return CGSize(width: UIView.noIntrinsicMetric, height: _intrinsicContentHeight)
     }
     
     //MARK: - Public Methods
@@ -930,7 +930,7 @@ extension KSTokenView : UITableViewDelegate {
          
       } else if (!shouldDisplayAlreadyTokenized) {
          _resultArray.remove(at: (indexPath as NSIndexPath).row)
-         tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.left)
+         tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.left)
       }
    }
 }
@@ -954,12 +954,12 @@ extension KSTokenView : UITableViewDataSource {
       let cellIdentifier = "KSSearchTableCell"
       cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as UITableViewCell?
       if (cell == nil) {
-         cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: cellIdentifier)
+         cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: cellIdentifier)
       }
       
       let title = delegate?.tokenView(self, displayTitleForObject: _resultArray[(indexPath as NSIndexPath).row])
       cell!.textLabel!.text = (title != nil) ? title : "No Title"
-      cell!.selectionStyle = UITableViewCellSelectionStyle.none
+      cell!.selectionStyle = UITableViewCell.SelectionStyle.none
       return cell!
    }
 }
