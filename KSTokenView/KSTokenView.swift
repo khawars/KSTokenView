@@ -120,6 +120,9 @@ open class KSTokenView: UIView {
    
    /// default is true. token can be deleted with keyboard 'x' button
    @objc open var shouldDeleteTokenOnBackspace = true
+    
+   /// default is true. token can be deleted with keyboard 'x' button
+   @objc open var shouldHideSearchResultsWhenTokenIsDeleted = false
    
    /// Only works for iPhone now, not iPad devices. default is false. If true, search results are hidden when one of them is selected
    @objc open var shouldHideSearchResultsOnSelect = false
@@ -853,6 +856,9 @@ extension KSTokenView : UITextFieldDelegate {
          if (_lastToken() != nil) {
             if (selectedToken() != nil) {
                deleteSelectedToken()
+               if shouldHideSearchResultsWhenTokenIsDeleted {
+                  _hideSearchResults()
+               }
             } else {
                _tokenField.selectToken(_lastToken()!)
             }
