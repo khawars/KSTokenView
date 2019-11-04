@@ -416,6 +416,8 @@ open class KSTokenView: UIView {
    override open func layoutSubviews() {
       _tokenField.updateLayout(false)
       _searchTableView.frame.size = CGSize(width: frame.width, height: _searchResultHeight)
+      self.invalidateIntrinsicContentSize()
+      self.frame.size.height = _intrinsicContentHeight
    }
    
     override open var intrinsicContentSize : CGSize {
