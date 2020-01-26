@@ -798,7 +798,7 @@ open class KSTokenView: UIView {
    }
     
     fileprivate func _changeHeight(_ tokenFieldHeight: CGFloat, completion: (() -> Void)? = nil) {
-        let fullHeight = tokenFieldHeight + (_showingSearchResult ? _searchResultHeight : 0.0)
+        let fullHeight = tokenFieldHeight + (_showingSearchResult ? searchResultSize.height : 0.0)
         delegate?.tokenView?(self, willChangeFrameWithX: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: fullHeight)
         self._repositionSearchResults(tokenFieldHeight)
         
