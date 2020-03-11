@@ -341,6 +341,13 @@ open class KSTokenView: UIView {
             _updateTokenField()
         }
     }
+    
+    /// default is UIColor.blackColor()
+    @objc open var textColor: UIColor = UIColor.black {
+        didSet {
+            _updateTokenField()
+        }
+    }
    
    /// default is .Rounded, creates rounded corner
    @objc open var style: KSTokenViewStyle = .rounded {
