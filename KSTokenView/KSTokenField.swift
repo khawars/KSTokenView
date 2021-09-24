@@ -121,6 +121,7 @@ open class KSTokenField: UITextField {
             _descriptionText = tokenView!.descriptionText
             placeHolderColor = tokenView!.placeholderColor
             promptTextColor = tokenView!.promptColor
+            textColor = tokenView!.textColor
             _setPromptText(tokenView!.promptText)
             
             if (_setupCompleted) {
