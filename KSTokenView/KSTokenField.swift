@@ -253,7 +253,7 @@ open class KSTokenField: UITextField {
    
    fileprivate func _insertToken(_ token: KSToken, shouldLayout: Bool = true) {
       _scrollView.addSubview(token)
-      _scrollView.bringSubviewToFront(token)
+      _scrollView.bringSubview(toFront: token)
       token.setNeedsDisplay()
       if shouldLayout == true {
          updateLayout()
