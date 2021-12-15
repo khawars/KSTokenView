@@ -121,6 +121,7 @@ open class KSTokenField: UITextField {
             _descriptionText = tokenView!.descriptionText
             placeHolderColor = tokenView!.placeholderColor
             promptTextColor = tokenView!.promptColor
+            textColor = tokenView!.textColor
             _setPromptText(tokenView!.promptText)
             
             if (_setupCompleted) {
@@ -252,7 +253,7 @@ open class KSTokenField: UITextField {
    
    fileprivate func _insertToken(_ token: KSToken, shouldLayout: Bool = true) {
       _scrollView.addSubview(token)
-    _scrollView.bringSubview(toFront: token)
+      _scrollView.bringSubview(toFront: token)
       token.setNeedsDisplay()
       if shouldLayout == true {
          updateLayout()

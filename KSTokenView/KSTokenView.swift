@@ -95,7 +95,7 @@ open class KSTokenView: UIView {
    //MARK: - Private Properties
    //__________________________________________________________________________________
    //
-   @objc open var _tokenField: KSTokenField!
+   fileprivate var _tokenField: KSTokenField!
    fileprivate var _searchTableView: UITableView = UITableView(frame: .zero, style: UITableView.Style.plain)
    fileprivate var _resultArray = [AnyObject]()
    fileprivate var _showingSearchResult = false
@@ -341,6 +341,13 @@ open class KSTokenView: UIView {
             _updateTokenField()
         }
     }
+    
+    /// default is UIColor.blackColor()
+    @objc open var textColor: UIColor = UIColor.black {
+        didSet {
+            _updateTokenField()
+        }
+    }
    
    /// default is .Rounded, creates rounded corner
    @objc open var style: KSTokenViewStyle = .rounded {
@@ -419,7 +426,7 @@ open class KSTokenView: UIView {
    }
    
     override open var intrinsicContentSize : CGSize {
-      return CGSize(width: UIViewNoIntrinsicMetric, height: _intrinsicContentHeight)
+       return CGSize(width: UIViewNoIntrinsicMetric, height: _intrinsicContentHeight)
     }
     
     //MARK: - Public Methods
