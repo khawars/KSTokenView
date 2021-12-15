@@ -426,7 +426,7 @@ open class KSTokenView: UIView {
    }
    
     override open var intrinsicContentSize : CGSize {
-        return CGSize(width: UIViewNoIntrinsicMetric, height: _intrinsicContentHeight)
+       return CGSize(width: UIViewNoIntrinsicMetric, height: _intrinsicContentHeight)
     }
     
     //MARK: - Public Methods
