@@ -68,6 +68,7 @@ import UIKit
    @objc optional func tokenView(_ tokenView: KSTokenView, didSelectToken token: KSToken)
    @objc optional func tokenViewDidBeginEditing(_ tokenView: KSTokenView)
    @objc optional func tokenViewDidEndEditing(_ tokenView: KSTokenView)
+  @objc optional func tokenView(_ tokenView: KSTokenView, tokenObjectsFor selectedRowObject: AnyObject) -> [AnyObject]?
    
    @objc func tokenView(_ tokenView: KSTokenView, performSearchWithString string: String, completion: ((_ results: Array<AnyObject>) -> Void)?)
    @objc func tokenView(_ tokenView: KSTokenView, displayTitleForObject object: AnyObject) -> String
@@ -926,11 +927,17 @@ extension KSTokenView : UITextFieldDelegate {
 extension KSTokenView : UITableViewDelegate {
    
    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      delegate?.tokenView?(self, didSelectRowAtIndexPath: indexPath)
-      let object: AnyObject = _resultArray[(indexPath as NSIndexPath).row]
+    delegate?.tokenView?(self, didSelectRowAtIndexPath: indexPath)
+  
+    let selectedRowObject: AnyObject = _resultArray[(indexPath as NSIndexPath).row]
+    
+    let objects: [AnyObject] = delegate?.tokenView?(self, tokenObjectsFor: selectedRowObject) ?? [selectedRowObject]
+  
+    for object in objects {
       let title  = delegate?.tokenView(self, displayTitleForObject: object)
       let token = KSToken(title: title!, object: object)
       addToken(token)
+    }
       
       if (shouldHideSearchResultsOnSelect) {
          _hideSearchResults()
